@@ -3,20 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package application.view;
+package application.view.iodevices;
 
 /**
  *
  * @author Luism
  */
-public class MainFrame extends javax.swing.JFrame {
+public class IODevicesPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form MainFrame
+     * Creates new form IODevicesPanel
      */
-    public MainFrame() {
+    public IODevicesPanel() {
         initComponents();
-        setLocationRelativeTo(null);
     }
 
     /**
@@ -28,17 +27,18 @@ public class MainFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("MiniPC");
-        setPreferredSize(new java.awt.Dimension(1360, 730));
-        setResizable(false);
-        setSize(new java.awt.Dimension(1360, 730));
-        getContentPane().setLayout(null);
-
-        pack();
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
     }// </editor-fold>//GEN-END:initComponents
 
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
