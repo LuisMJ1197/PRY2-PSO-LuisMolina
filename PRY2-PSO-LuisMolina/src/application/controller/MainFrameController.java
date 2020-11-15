@@ -6,8 +6,6 @@
 package application.controller;
 
 import application.view.MainFrame;
-import application.view.MainPanel;
-import javax.swing.JPanel;
 
 /**
  *
@@ -20,7 +18,7 @@ public class MainFrameController {
     private MainFrameController() {
         this.screen = new MainFrame();
         this.screen.setVisible(true);
-        this.screen.setContentPane(new MainPanel());
+        new MainPanelController(this.screen.mainPanel);
     }
     
     public static MainFrameController getInstance() {
@@ -28,10 +26,6 @@ public class MainFrameController {
             MainFrameController.instance = new MainFrameController();
         }
         return MainFrameController.instance;
-    }
-    
-    public void changeView(JPanel panel) {
-        this.screen.setContentPane(panel);
     }
     
 }

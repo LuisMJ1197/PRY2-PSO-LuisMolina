@@ -27,19 +27,120 @@ public class ProcessorPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        jPanel1 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        processorCore1 = new application.view.processor.ProcessorCorePanel();
+        processorCore2 = new application.view.processor.ProcessorCorePanel();
+        processorCore3 = new application.view.processor.ProcessorCorePanel();
+        processorCore4 = new application.view.processor.ProcessorCorePanel();
+        processorCore5 = new application.view.processor.ProcessorCorePanel();
+
+        setBackground(new java.awt.Color(255, 255, 255));
+        setPreferredSize(new java.awt.Dimension(1040, 232));
+        setLayout(null);
+
+        jPanel1.setLayout(null);
+
+        jLabel3.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel3.setText("Processor");
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(10, 5, 50, 14);
+
+        jLabel4.setBackground(new java.awt.Color(242, 98, 99));
+        jLabel4.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("#1");
+        jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel4.setOpaque(true);
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(962, 0, 58, 25);
+
+        add(jPanel1);
+        jPanel1.setBounds(10, 11, 1020, 24);
+
+        jScrollPane1.setBorder(null);
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setLayout(null);
+
+        jLabel5.setBackground(new java.awt.Color(60, 61, 61));
+        jLabel5.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Core");
+        jLabel5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel5.setOpaque(true);
+        jPanel3.add(jLabel5);
+        jLabel5.setBounds(0, 0, 60, 25);
+
+        jLabel6.setBackground(new java.awt.Color(160, 176, 167));
+        jLabel6.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("Process");
+        jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel6.setOpaque(true);
+        jPanel3.add(jLabel6);
+        jLabel6.setBounds(60, 0, 60, 25);
+
+        jPanel2.setLayout(null);
+
+        jLabel7.setBackground(new java.awt.Color(195, 202, 203));
+        jLabel7.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("1");
+        jLabel7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel7.setOpaque(true);
+        jPanel2.add(jLabel7);
+        jLabel7.setBounds(0, 0, 50, 25);
+
+        jPanel3.add(jPanel2);
+        jPanel2.setBounds(120, 0, 900, 25);
+
+        jPanel4.setLayout(new java.awt.GridLayout(4, 0));
+        jPanel4.add(processorCore1);
+        jPanel4.add(processorCore2);
+        jPanel4.add(processorCore3);
+        jPanel4.add(processorCore4);
+
+        jPanel3.add(jPanel4);
+        jPanel4.setBounds(0, 30, 1020, 110);
+        jPanel3.add(processorCore5);
+        processorCore5.setBounds(0, 140, 1019, 25);
+
+        jScrollPane1.setViewportView(jPanel3);
+
+        add(jScrollPane1);
+        jScrollPane1.setBounds(10, 40, 1020, 190);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private application.view.processor.ProcessorCorePanel processorCore1;
+    private application.view.processor.ProcessorCorePanel processorCore2;
+    private application.view.processor.ProcessorCorePanel processorCore3;
+    private application.view.processor.ProcessorCorePanel processorCore4;
+    private application.view.processor.ProcessorCorePanel processorCore5;
     // End of variables declaration//GEN-END:variables
 }

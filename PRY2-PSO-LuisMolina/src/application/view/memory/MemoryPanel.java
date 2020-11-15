@@ -11,6 +11,10 @@ package application.view.memory;
  */
 public class MemoryPanel extends javax.swing.JPanel {
 
+    public void setGridLayoutRowsCount(int count) {
+        this.memoryRegisters.setLayout(new java.awt.GridLayout(count + 1, 0, 0, 0));
+    }
+    
     /**
      * Creates new form MemoryPanel
      */
@@ -27,19 +31,60 @@ public class MemoryPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        jPanel1 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        memorySize = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        memoryRegisters = new javax.swing.JPanel();
+
+        setBackground(new java.awt.Color(255, 255, 255));
+        setMinimumSize(new java.awt.Dimension(285, 432));
+        setPreferredSize(new java.awt.Dimension(285, 432));
+        setLayout(null);
+
+        jPanel1.setLayout(null);
+
+        jLabel4.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jLabel4.setText("Address");
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(10, 7, 100, 10);
+
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jLabel1.setText("Data");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(110, 7, 100, 10);
+
+        memorySize.setBackground(new java.awt.Color(244, 157, 94));
+        memorySize.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        memorySize.setForeground(new java.awt.Color(255, 255, 255));
+        memorySize.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        memorySize.setText("0");
+        memorySize.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        memorySize.setOpaque(true);
+        jPanel1.add(memorySize);
+        memorySize.setBounds(194, 0, 70, 25);
+
+        add(jPanel1);
+        jPanel1.setBounds(10, 11, 264, 24);
+
+        jScrollPane1.setBorder(null);
+
+        memoryRegisters.setBackground(new java.awt.Color(255, 255, 255));
+        memoryRegisters.setLayout(new java.awt.GridLayout(20, 0, 0, 1));
+        jScrollPane1.setViewportView(memoryRegisters);
+
+        add(jScrollPane1);
+        jScrollPane1.setBounds(10, 40, 260, 380);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JPanel memoryRegisters;
+    public javax.swing.JLabel memorySize;
     // End of variables declaration//GEN-END:variables
 }

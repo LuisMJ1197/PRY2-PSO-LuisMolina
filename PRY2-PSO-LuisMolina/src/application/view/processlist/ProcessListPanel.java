@@ -41,17 +41,18 @@ public class ProcessListPanel extends javax.swing.JPanel {
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jPanel2 = new javax.swing.JPanel();
-        processPanel3 = new application.view.processlist.ProcessPanel();
+        processListPanel = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setForeground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1040, 220));
         setLayout(null);
 
         jPanel1.setLayout(null);
 
-        jLabel2.setBackground(new java.awt.Color(77, 186, 131));
+        jLabel2.setBackground(new java.awt.Color(81, 186, 131));
         jLabel2.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("0");
         jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -68,63 +69,62 @@ public class ProcessListPanel extends javax.swing.JPanel {
         add(jPanel1);
         jPanel1.setBounds(10, 11, 1020, 24);
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         jLabel4.setText("Name");
         add(jLabel4);
-        jLabel4.setBounds(70, 40, 130, 14);
+        jLabel4.setBounds(70, 40, 90, 14);
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         jLabel5.setText("Status");
         add(jLabel5);
-        jLabel5.setBounds(230, 40, 80, 14);
+        jLabel5.setBounds(200, 40, 80, 14);
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         jLabel8.setText("AC");
         add(jLabel8);
-        jLabel8.setBounds(430, 40, 120, 14);
+        jLabel8.setBounds(400, 40, 120, 14);
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         jLabel6.setText("CPU");
         add(jLabel6);
-        jLabel6.setBounds(200, 40, 30, 14);
+        jLabel6.setBounds(166, 40, 30, 14);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         jLabel1.setText("ID");
         add(jLabel1);
         jLabel1.setBounds(40, 40, 30, 14);
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         jLabel9.setText("PC");
         add(jLabel9);
-        jLabel9.setBounds(310, 40, 120, 14);
+        jLabel9.setBounds(280, 40, 120, 14);
 
-        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         jLabel10.setText("AX");
         add(jLabel10);
-        jLabel10.setBounds(550, 40, 120, 14);
+        jLabel10.setBounds(520, 40, 120, 14);
 
-        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         jLabel11.setText("BX");
         add(jLabel11);
-        jLabel11.setBounds(670, 40, 120, 14);
+        jLabel11.setBounds(640, 40, 120, 14);
 
-        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         jLabel12.setText("CX");
         add(jLabel12);
-        jLabel12.setBounds(790, 40, 120, 14);
+        jLabel12.setBounds(760, 40, 120, 14);
 
-        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         jLabel13.setText("DX");
         add(jLabel13);
-        jLabel13.setBounds(910, 40, 120, 14);
+        jLabel13.setBounds(880, 40, 120, 14);
 
         jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setBorder(null);
 
-        jPanel2.setLayout(new java.awt.GridLayout(20, 0));
-        jPanel2.add(processPanel3);
-
-        jScrollPane1.setViewportView(jPanel2);
+        processListPanel.setBackground(new java.awt.Color(255, 255, 255));
+        processListPanel.setLayout(new java.awt.GridLayout(20, 0, 0, 1));
+        jScrollPane1.setViewportView(processListPanel);
 
         add(jScrollPane1);
         jScrollPane1.setBounds(10, 60, 1020, 150);
@@ -145,8 +145,7 @@ public class ProcessListPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private application.view.processlist.ProcessPanel processPanel3;
+    private javax.swing.JPanel processListPanel;
     // End of variables declaration//GEN-END:variables
 }

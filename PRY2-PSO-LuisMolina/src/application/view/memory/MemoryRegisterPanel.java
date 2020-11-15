@@ -3,18 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package application.view;
+package application.view.memory;
 
 /**
  *
  * @author Luism
  */
-public class ConfigurationPanel extends javax.swing.JPanel {
+public class MemoryRegisterPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form ConfigurationPanel
+     * Creates new form MemoryRegisterPanel
      */
-    public ConfigurationPanel() {
+    public MemoryRegisterPanel() {
         initComponents();
     }
 
@@ -27,19 +27,26 @@ public class ConfigurationPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        dataLB = new javax.swing.JLabel();
+        addressLB = new javax.swing.JLabel();
+
+        setPreferredSize(new java.awt.Dimension(211, 24));
+        setLayout(null);
+
+        dataLB.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        dataLB.setText("Data");
+        add(dataLB);
+        dataLB.setBounds(110, 0, 100, 24);
+
+        addressLB.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        addressLB.setText("Address");
+        add(addressLB);
+        addressLB.setBounds(10, 0, 100, 24);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JLabel addressLB;
+    public javax.swing.JLabel dataLB;
     // End of variables declaration//GEN-END:variables
 }
