@@ -28,4 +28,7 @@ public class MainFrameController {
         return MainFrameController.instance;
     }
     
+    public MainFrame getScreen() {
+        return this.screen;
+    }
 }

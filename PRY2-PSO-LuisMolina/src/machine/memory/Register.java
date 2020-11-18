@@ -12,14 +12,14 @@ package machine.memory;
 public class Register {
     public static final String EMPTY = "----------------";
     public static final String ZERO = "0";
-    private final int address;
+    private IAddress address;
     private String value = EMPTY;
     
-    public Register(int address) {
+    public Register(IAddress address) {
         this.address = address;
     }
     
-    public int getAddress() {
+    public IAddress getAddress() {
         return this.address;
     }
     

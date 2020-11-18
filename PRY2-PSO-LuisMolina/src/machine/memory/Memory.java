@@ -10,13 +10,14 @@ package machine.memory;
  * @author Luism
  */
 public class Memory implements IMemory {
+    
     private final Register[] registers;
     private final int size;
     private final int kind;
     
     public Memory(int size, int kind) {
-        this.kind = kind;
         this.size = size;
+        this.kind = kind;
         registers = new Register[size];
         this.initMemory();
     }
@@ -35,6 +36,16 @@ public class Memory implements IMemory {
     public void store(int address, String value) {
         this.registers[address].setValue(value);
     }
+    
+    @Override
+    public String load(IAddress address) {
+        return this.registers[address.getOffset()].getValue();
+    }
+
+    @Override
+    public void store(IAddress address, String value) {
+        this.registers[address.getOffset()].setValue(value);
+    }
 
     @Override
     public int getSize() {
@@ -43,7 +54,9 @@ public class Memory implements IMemory {
 
     private void initMemory() {
         for (int i = 0; i < this.size; i++) {
-            this.registers[i] = new Register(i);
+            IAddress address;
+            address = new PhysicalAddress(this.kind, i);
+            this.registers[i] = new Register(address);
         }
     }
     

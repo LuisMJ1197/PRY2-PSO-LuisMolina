@@ -32,7 +32,7 @@ public class MemoryPanelController implements IController {
         this.memoryPanel.setGridLayoutRowsCount(this.memory.getSize());
         for (int i = 0; i < this.memory.getSize(); i++) {
             this.memoryRegisterPanels[i] = new MemoryRegisterPanel();
-            this.memoryRegisterPanels[i].addressLB.setText(this.pad(Integer.toString(this.memory.getRegister(i).getAddress()), "0", 16, true));
+            this.memoryRegisterPanels[i].addressLB.setText(this.pad(Integer.toString(this.memory.getRegister(i).getAddress().getOffset()), "0", 16, true));
             this.memoryPanel.memoryRegisters.add(this.memoryRegisterPanels[i]);
         }
     }

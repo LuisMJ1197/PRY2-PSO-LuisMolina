@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package machine.mmu;
+package os.processmanagement;
 
 /**
  *
  * @author Luism
  */
-public class SegmentationMMU implements IMMU  {
+public class SRTScheduler implements IScheduler {
     
 }

@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package machine.mmu;
+package util.configuration;
 
 /**
  *
  * @author Luism
  */
-public class DynamicPartitionMMU implements IMMU {
+public class SegmentationConfiguration {
     
 }

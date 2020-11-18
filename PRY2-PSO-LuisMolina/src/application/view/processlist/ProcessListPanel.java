@@ -28,7 +28,7 @@ public class ProcessListPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        processCountLB = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -50,15 +50,15 @@ public class ProcessListPanel extends javax.swing.JPanel {
 
         jPanel1.setLayout(null);
 
-        jLabel2.setBackground(new java.awt.Color(81, 186, 131));
-        jLabel2.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("0");
-        jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel2.setOpaque(true);
-        jPanel1.add(jLabel2);
-        jLabel2.setBounds(962, 0, 58, 25);
+        processCountLB.setBackground(new java.awt.Color(81, 186, 131));
+        processCountLB.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        processCountLB.setForeground(new java.awt.Color(255, 255, 255));
+        processCountLB.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        processCountLB.setText("0");
+        processCountLB.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        processCountLB.setOpaque(true);
+        jPanel1.add(processCountLB);
+        processCountLB.setBounds(962, 0, 58, 25);
 
         jLabel3.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(51, 51, 51));
@@ -137,7 +137,6 @@ public class ProcessListPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -146,6 +145,7 @@ public class ProcessListPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JPanel processListPanel;
+    public javax.swing.JLabel processCountLB;
+    public javax.swing.JPanel processListPanel;
     // End of variables declaration//GEN-END:variables
 }

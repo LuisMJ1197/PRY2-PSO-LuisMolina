@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package os.process;
+package os.memorymanagement;
 
 /**
  *
  * @author Luism
  */
-public class RRScheduler implements IScheduler {
+public class SegmentationMM {
     
 }

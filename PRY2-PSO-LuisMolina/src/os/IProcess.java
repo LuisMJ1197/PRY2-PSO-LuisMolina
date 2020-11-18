@@ -3,12 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package os.process;
+package os;
 
 /**
  *
  * @author Luism
  */
-public class SRTScheduler implements IScheduler {
+public interface IProcess {
     
+    public int getProgramSize();
+    
+    public int getTotalSize();
+    
+    public String getName();
+
+    public int getPid();
+
+    public PCB getPcb();
 }

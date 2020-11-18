@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package machine.mmu;
+package os.memorymanagement;
 
 /**
  *
  * @author Luism
  */
-public class FixedPartitionMMU implements IMMU {
+public class PagingMM {
     
 }

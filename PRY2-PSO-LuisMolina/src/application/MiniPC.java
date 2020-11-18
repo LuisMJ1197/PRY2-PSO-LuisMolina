@@ -7,13 +7,25 @@ package application;
 
 import application.controller.MainFrameController;
 import application.view.MainFrame;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.xml.parsers.ParserConfigurationException;
 import machine.Machine;
+import org.xml.sax.SAXException;
+import os.OS;
+import os.memorymanagement.FixedPartitionMM;
+import os.memorymanagement.MemoryManager;
+import util.configuration.Configuration;
+import util.configuration.ConfigurationReader;
 
 /**
  *
  * @author Luism
  */
 public class MiniPC {
+    public static Configuration config;
+    
      /**
      * @param args the command line arguments
      */
@@ -24,7 +36,24 @@ public class MiniPC {
     }
     
     public void startMachine() {
-        Machine.instance = new Machine(128, 512);
+        try {
+            config = ConfigurationReader.getInstance().getConfiguration();
+            Machine.startInstance(
+                    new Machine(
+                            config.getMainMemorySize(), 
+                            config.getDiskMemorySize())
+            );
+            MemoryManager memManager = null;
+            if (config.getFixedPartitionConfiguration().isActivated()) {
+                memManager = new FixedPartitionMM(config.getFixedPartitionConfiguration().getPartitionSize());
+            }
+            OS.startInstance(
+                new OS(memManager)
+            );
+            
+        } catch (Exception ex) {
+            Logger.getLogger(MiniPC.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public void startView() {

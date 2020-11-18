@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package machine.mmu;
+package os.processmanagement;
 
 /**
  *
  * @author Luism
  */
-public class PagingMMU implements IMMU {
+public class SJFScheduler implements IScheduler {
     
 }

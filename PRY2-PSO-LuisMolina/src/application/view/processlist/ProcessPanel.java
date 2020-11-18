@@ -5,6 +5,8 @@
  */
 package application.view.processlist;
 
+import java.awt.Color;
+
 /**
  *
  * @author Luism
@@ -18,6 +20,10 @@ public class ProcessPanel extends javax.swing.JPanel {
         initComponents();
     }
 
+    public void setProcessColor(Color color) {
+        this.colorPane.setBackground(color);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,7 +33,7 @@ public class ProcessPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        colorPanel = new javax.swing.JPanel();
+        colorPane = new javax.swing.JPanel();
         dxLB = new javax.swing.JLabel();
         cxLB = new javax.swing.JLabel();
         axLB = new javax.swing.JLabel();
@@ -43,21 +49,21 @@ public class ProcessPanel extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(1002, 24));
         setLayout(null);
 
-        colorPanel.setBackground(new java.awt.Color(255, 204, 0));
+        colorPane.setBackground(new java.awt.Color(255, 204, 0));
 
-        javax.swing.GroupLayout colorPanelLayout = new javax.swing.GroupLayout(colorPanel);
-        colorPanel.setLayout(colorPanelLayout);
-        colorPanelLayout.setHorizontalGroup(
-            colorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout colorPaneLayout = new javax.swing.GroupLayout(colorPane);
+        colorPane.setLayout(colorPaneLayout);
+        colorPaneLayout.setHorizontalGroup(
+            colorPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 14, Short.MAX_VALUE)
         );
-        colorPanelLayout.setVerticalGroup(
-            colorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        colorPaneLayout.setVerticalGroup(
+            colorPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 14, Short.MAX_VALUE)
         );
 
-        add(colorPanel);
-        colorPanel.setBounds(6, 5, 14, 14);
+        add(colorPane);
+        colorPane.setBounds(6, 5, 14, 14);
 
         dxLB.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         dxLB.setText("DX");
@@ -112,16 +118,16 @@ public class ProcessPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel acLB;
-    private javax.swing.JLabel axLB;
-    private javax.swing.JLabel bxLB;
-    private javax.swing.JPanel colorPanel;
-    private javax.swing.JLabel cpuLB;
-    private javax.swing.JLabel cxLB;
-    private javax.swing.JLabel dxLB;
-    private javax.swing.JLabel idLB;
-    private javax.swing.JLabel nameLB;
-    private javax.swing.JLabel pcLB;
-    private javax.swing.JLabel statusLB;
+    public javax.swing.JLabel acLB;
+    public javax.swing.JLabel axLB;
+    public javax.swing.JLabel bxLB;
+    private javax.swing.JPanel colorPane;
+    public javax.swing.JLabel cpuLB;
+    public javax.swing.JLabel cxLB;
+    public javax.swing.JLabel dxLB;
+    public javax.swing.JLabel idLB;
+    public javax.swing.JLabel nameLB;
+    public javax.swing.JLabel pcLB;
+    public javax.swing.JLabel statusLB;
     // End of variables declaration//GEN-END:variables
 }
