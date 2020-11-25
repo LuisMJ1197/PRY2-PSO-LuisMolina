@@ -6,71 +6,44 @@
 package util.stack;
 
 import java.util.ArrayList;
-import machine.memory.Register;
 
-public class MStack {
-    private int size;
-    private final int maxSize;
-    private final ArrayList<Register> stack;
+public class MStack<T> {
+    private final ArrayList<T> stack;
+    private boolean limited = false;
+    private int maxSize = 0;
     
-    public MStack (int size) {
-        this.maxSize = size;
-        this.size = 0;
+    public MStack (int maxSize) {
         this.stack = new ArrayList<>();
-    }
-    
-    public int getMaxSize() {
-        return this.maxSize;
+        this.maxSize = maxSize;
+        this.limited = true;
     }
     
     public int getSize() {
-        return this.size;
+        return this.stack.size();
     }
 
-    public boolean push(Register element) {
-        if (this.maxSize >= this.stack.size()) {
-            this.stack.add(0, element);
-            return true;
-        } else {
-            return false;
-        }
-    }
-    
-    public boolean push(String value) {
-        if (this.size >= this.maxSize) {
+    public boolean push(T element) {
+        if(this.isFull()) {
             return false;
         } else {
-            for (int i = size + 1; i > 0; i--) {
-                this.stack.get(i).setValue(this.stack.get(i - 1).getValue());
-            }
-            this.stack.get(0).setValue(value);
-            this.size++;
+            this.stack.add(element);
             return true;
         }
     }
 
-    public String pop() {
-        if (this.size > 0) {
-            String value = this.stack.get(0).getValue();
-            if (this.size == 1) {
-                this.stack.get(0).setValue(Register.EMPTY);
-            }
-            for (int i = 0; i < size - 1; i++) {
-                this.stack.get(i).setValue(this.stack.get(i + 1).getValue());
-            }
-            this.size--;
-            return value;
-        } else {
+    public T pop() {
+        if (this.isEmpty()) {
             return null;
+        } else {
+            return this.stack.get(this.stack.size() - 1);
         }
-    }
-    
-    public boolean isFull() {
-        return this.size == this.maxSize;
     }
 
     public boolean isEmpty() {
-        return this.size == 0;
-    }
+        return this.stack.isEmpty();
+    }   
     
+    public boolean isFull() {
+        return this.stack.size() >= this.maxSize;
+    }
 }

@@ -3,21 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package os;
+package os.processfactory;
+
+import os.process.Process;
 
 /**
  *
  * @author Luism
  */
-public interface IProcess {
-    
-    public int getProgramSize();
-    
-    public int getTotalSize();
-    
-    public String getName();
-
-    public int getPid();
-
-    public PCB getPcb();
+public abstract class ProcessFactory {
+    public abstract Process createProcess(String name, String[] code);
 }

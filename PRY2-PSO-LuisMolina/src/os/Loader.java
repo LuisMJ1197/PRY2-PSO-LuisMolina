@@ -6,6 +6,8 @@
 package os;
 
 import machine.Machine;
+import os.process.Program;
+import os.process.Process;
 
 /**
  *
@@ -14,13 +16,20 @@ import machine.Machine;
 public class Loader {
     
     public String loadProgram(Program program) {
-        Process newP = new Process(program.getName(), program.getCompiledLines());
+        Process newP = OS.getInstance().createProcess(program.getName(), program.getCompiledLines());
+        newP.setBurstTime(newP.getProgramSize());
         newP.createPCB();
-        /*OS.getInstance().getMemoryManager().loadProcess(newP);
-        if (!newP.isLoaded()) {
+        if (OS.getInstance().getMemoryManager().verifyProgramSize(newP)) {
+            if (OS.getInstance().getScheduler().getProcessList().size() < OS.getInstance().getMemoryManager().getOSMemorySaved()) {
+                OS.getInstance().getMemoryManager().loadProcess(newP);
+                OS.getInstance().getScheduler().addProcess(newP);
+                Machine.getInstance().getMainMemory().store(newP.getPid(), Integer.toString(newP.getPid()));
+            } else {
+                return "The OS can't handle more processes.";
+            }
+        } else {
             return String.format("Program %s is too big.\n", program.getName());
-        }*/
-        Machine.getInstance().getProcessor().addProcess(newP);
+        }
         return "";
     }
 }

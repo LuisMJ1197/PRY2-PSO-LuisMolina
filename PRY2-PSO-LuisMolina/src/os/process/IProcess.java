@@ -3,12 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package util.configuration;
+package os.process;
+
+import os.PCB;
 
 /**
  *
  * @author Luism
  */
-public class SegmentationConfiguration {
+public interface IProcess {
     
+    public int getProgramSize();
+    
+    public int getProcessSize();
+    
+    public String getName();
+
+    public int getPid();
+
+    public PCB getPcb();
 }

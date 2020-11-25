@@ -7,15 +7,20 @@ package application;
 
 import application.controller.MainFrameController;
 import application.view.MainFrame;
-import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.xml.parsers.ParserConfigurationException;
 import machine.Machine;
-import org.xml.sax.SAXException;
 import os.OS;
 import os.memorymanagement.FixedPartitionMM;
 import os.memorymanagement.MemoryManager;
+import os.processfactory.FixedPartitionProcessFactory;
+import os.processfactory.ProcessFactory;
+import os.processmanagement.FCFSScheduler;
+import os.processmanagement.HRRNScheduler;
+import os.processmanagement.RRScheduler;
+import os.processmanagement.SJFScheduler;
+import os.processmanagement.SRTScheduler;
+import os.processmanagement.Scheduler;
 import util.configuration.Configuration;
 import util.configuration.ConfigurationReader;
 
@@ -44,11 +49,30 @@ public class MiniPC {
                             config.getDiskMemorySize())
             );
             MemoryManager memManager = null;
+            ProcessFactory factory = null;
+            
+            /* Process factory policy */
             if (config.getFixedPartitionConfiguration().isActivated()) {
-                memManager = new FixedPartitionMM(config.getFixedPartitionConfiguration().getPartitionSize());
+                memManager = new FixedPartitionMM(config.getFixedPartitionConfiguration().getPartitionSize(), config.getOsSavedMemory());
+                factory = new FixedPartitionProcessFactory();
             }
+            
+            /* Scheduler algorithm */
+            Scheduler scheduler = null;
+            if (config.getFcfsConfiguration().isActivated()) {
+                scheduler = new FCFSScheduler();    
+            } else  if (config.getRoundRobinConfiguration().isActivated()) {
+                scheduler = new RRScheduler(config.getRoundRobinConfiguration().getCycleClockAmount());
+            } else if (config.getSrtConfiguration().isActivated()) {
+                scheduler = new SRTScheduler();
+            } else if (config.getSjfConfiguration().isActivated()) {
+                scheduler = new SJFScheduler();
+            } else if (config.getHrrnConfiguration().isActivated()) {
+                scheduler = new HRRNScheduler();
+            }
+            
             OS.startInstance(
-                new OS(memManager)
+                new OS(memManager, scheduler, factory)
             );
             
         } catch (Exception ex) {

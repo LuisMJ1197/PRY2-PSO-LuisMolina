@@ -14,7 +14,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import javax.swing.JPanel;
-import os.Process;
+import os.process.Process;
 
 /**
  *
@@ -51,7 +51,7 @@ public class ProcessPanelController implements IController {
         this.processList = new ArrayList<>();
         for (Process process: processList) {
             this.processList.add(new ProcessDecorator(process));
-        };
+        }
         this.setGridLayoutRowsCount(this.processList.size());
     }
     
@@ -89,14 +89,15 @@ public class ProcessPanelController implements IController {
         for (int i = 0; i < this.processList.size(); i++) {
             ProcessPanel procPanel = (ProcessPanel) this.processListPanelParent.processListPanel.getComponent(i);
             ProcessDecorator proc = this.processList.get(i);
-            procPanel.statusLB.setText(proc.getPcb().getStatus().getValue());
-            procPanel.pcLB.setText(proc.getPcb().getPc().getValue());
-            procPanel.acLB.setText(proc.getPcb().getAc().getValue());
-            procPanel.axLB.setText(proc.getPcb().getAx().getValue());
-            procPanel.bxLB.setText(proc.getPcb().getBx().getValue());
-            procPanel.cxLB.setText(proc.getPcb().getCx().getValue());
-            procPanel.dxLB.setText(proc.getPcb().getDx().getValue());
-            procPanel.cpuLB.setText(proc.getPcb().getCpuNumber().getValue());
+            procPanel.statusLB.setText(proc.getPcb().getStatus());
+            procPanel.burstTimeLB.setText(Integer.toString(proc.getProgramSize()));
+            procPanel.pcLB.setText(proc.getPcb().getPc());
+            procPanel.acLB.setText(Integer.toString(proc.getPcb().getAc()));
+            procPanel.axLB.setText(Integer.toString(proc.getPcb().getAx()));
+            procPanel.bxLB.setText(Integer.toString(proc.getPcb().getBx()));
+            procPanel.cxLB.setText(Integer.toString(proc.getPcb().getCx()));
+            procPanel.dxLB.setText(Integer.toString(proc.getPcb().getDx()));
+            procPanel.cpuLB.setText(Integer.toString(proc.getPcb().getCpuNumber()));
         }
     }
     

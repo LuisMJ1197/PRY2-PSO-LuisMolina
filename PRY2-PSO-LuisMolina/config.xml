@@ -8,15 +8,15 @@ and open the template in the editor.
 
 <config>
     <memory-size>
-        <main-memory>512</main-memory>
+        <main-memory>128</main-memory>
         <disk-memory>1024</disk-memory>
     </memory-size>
+    <os-saved-memory>16</os-saved-memory>
     <memory-management>
         <method name="fixed" activated="true">
-            <partition-size>64</partition-size> 
+            <partition-size>16</partition-size> 
         </method> 
         <method name="dynamic" activated="false">
-            
         </method> 
         <method name="paging" activated="false">
             
@@ -26,6 +26,12 @@ and open the template in the editor.
         </method> 
     </memory-management>
     <process-scheduler>
-        
+        <method name="fcfs" activated="false"></method>
+        <method name="rr" activated="true">
+            <clock>2</clock>
+        </method>
+        <method name="srt" activated="false"></method>
+        <method name="sjf" activated="false"></method>
+        <method name="hrrn" activated="false"></method>
     </process-scheduler>
 </config>

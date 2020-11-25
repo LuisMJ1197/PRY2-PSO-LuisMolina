@@ -5,9 +5,11 @@
  */
 package os;
 
-import os.memorymanagement.FixedPartitionMM;
+import os.process.Program;
 import os.memorymanagement.MemoryManager;
-
+import os.processfactory.ProcessFactory;
+import os.processmanagement.Scheduler;
+import os.process.Process;
 /**
  *
  * @author Luism
@@ -18,9 +20,13 @@ public class OS {
     private MemoryManager memoryManager;
     private Loader loader = new Loader();
     private MCompiler compiler = new MCompiler();
+    private Scheduler scheduler;
+    private ProcessFactory processFactory;
     
-    public OS(MemoryManager memManager) {
+    public OS(MemoryManager memManager, Scheduler scheduler, ProcessFactory factory) {
         this.setMemoryManager(memManager);
+        this.setScheduler(scheduler);
+        this.processFactory = factory;
     }
     
     public static OS getInstance() {
@@ -29,6 +35,10 @@ public class OS {
     
     public static void startInstance(OS os) {
         instance = os;
+    }
+    
+    public Process createProcess(String name, String[] code) {
+        return this.processFactory.createProcess(name, code);
     }
     
     private void setMemoryManager(MemoryManager memManager) {
@@ -52,5 +62,13 @@ public class OS {
         }
         errMsg += this.loader.loadProgram(program);
         return errMsg;
+    }
+
+    private void setScheduler(Scheduler scheduler) {
+        this.scheduler = scheduler;
+    }
+    
+    public Scheduler getScheduler() {
+        return this.scheduler;
     }
 }

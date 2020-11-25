@@ -5,26 +5,26 @@
  */
 package machine.processor;
 
-import java.util.ArrayList;
-import os.Process;
+
 /**
  *
  * @author Luism
  */
 public class Processor {
-    ArrayList<Process> processList = new ArrayList<>();
+    private final Core[] cores = new Core[5];
     
     public Processor() {
-        
+        initCores();
     }
     
-    public void addProcess(Process newP) {
-        this.processList.add(newP);
+    public Core[] getCores() {
+        return this.cores;
     }
+    
 
-    public ArrayList<Process> getProcessList() {
-        return this.processList;
+    private void initCores() {
+        for (int i = 0; i < 5; i++) {
+            cores[i] = new Core(i + 1);
+        }
     }
-    
-    
 }

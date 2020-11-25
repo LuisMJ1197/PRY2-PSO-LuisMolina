@@ -13,12 +13,18 @@ import machine.memory.Register;
  */
 public class Partition {
     private int size;
+    private int partitionNumber;
     private Register[] memory;
     private boolean used = false;
     
-    public Partition(int size, Register[] memory) {
+    public Partition(int size, Register[] memory, int partitionNumber) {
         this.size = size;
         this.memory = memory;
+        this.partitionNumber = partitionNumber;
+    }
+    
+    public int getPartitionNumber() {
+        return this.partitionNumber;
     }
 
     public boolean isUsed() {
@@ -33,6 +39,8 @@ public class Partition {
         return memory;
     }
 
-    
+    public boolean equals(Partition partition) {
+        return partition.getPartitionNumber() == this.partitionNumber;
+    }
     
 }

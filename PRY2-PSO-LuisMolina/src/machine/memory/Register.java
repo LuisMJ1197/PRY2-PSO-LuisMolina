@@ -15,6 +15,10 @@ public class Register {
     private IAddress address;
     private String value = EMPTY;
     
+    public Register() {
+        
+    }
+    
     public Register(IAddress address) {
         this.address = address;
     }

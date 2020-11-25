@@ -27,28 +27,17 @@ public class ProcessorCorePanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
+        executionTimesPanel = new javax.swing.JPanel();
         coreNumber = new javax.swing.JLabel();
         processID = new javax.swing.JLabel();
+        irLB = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(1019, 25));
+        setPreferredSize(new java.awt.Dimension(1020, 25));
         setLayout(null);
 
-        jPanel2.setLayout(null);
-
-        jLabel7.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("1");
-        jLabel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        jLabel7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel7.setOpaque(true);
-        jPanel2.add(jLabel7);
-        jLabel7.setBounds(0, 0, 50, 25);
-
-        add(jPanel2);
-        jPanel2.setBounds(120, 0, 900, 25);
+        executionTimesPanel.setLayout(null);
+        add(executionTimesPanel);
+        executionTimesPanel.setBounds(170, 0, 850, 25);
 
         coreNumber.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         coreNumber.setForeground(new java.awt.Color(51, 51, 51));
@@ -63,19 +52,29 @@ public class ProcessorCorePanel extends javax.swing.JPanel {
         processID.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         processID.setForeground(new java.awt.Color(51, 51, 51));
         processID.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        processID.setText("Process");
+        processID.setText("-1");
         processID.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         processID.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         processID.setOpaque(true);
         add(processID);
         processID.setBounds(60, 0, 60, 25);
+
+        irLB.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        irLB.setForeground(new java.awt.Color(51, 51, 51));
+        irLB.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        irLB.setText("-");
+        irLB.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        irLB.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        irLB.setOpaque(true);
+        add(irLB);
+        irLB.setBounds(120, 0, 50, 25);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JLabel coreNumber;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel2;
+    public javax.swing.JPanel executionTimesPanel;
+    public javax.swing.JLabel irLB;
     public javax.swing.JLabel processID;
     // End of variables declaration//GEN-END:variables
 }

@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package os.processmanagement;
+package util.configuration.memorymanager;
 
 /**
  *
  * @author Luism
  */
-public interface IScheduler {
+public class PagingConfiguration {
     
 }

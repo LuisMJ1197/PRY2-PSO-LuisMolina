@@ -32,16 +32,17 @@ public class ProcessListPanel extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         processListPanel = new javax.swing.JPanel();
+        pcLB = new javax.swing.JLabel();
+        pcLB1 = new javax.swing.JLabel();
+        acLB = new javax.swing.JLabel();
+        axLB = new javax.swing.JLabel();
+        bxLB = new javax.swing.JLabel();
+        cxLB = new javax.swing.JLabel();
+        dxLB = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setForeground(new java.awt.Color(255, 255, 255));
@@ -79,11 +80,6 @@ public class ProcessListPanel extends javax.swing.JPanel {
         add(jLabel5);
         jLabel5.setBounds(200, 40, 80, 14);
 
-        jLabel8.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        jLabel8.setText("AC");
-        add(jLabel8);
-        jLabel8.setBounds(400, 40, 120, 14);
-
         jLabel6.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         jLabel6.setText("CPU");
         add(jLabel6);
@@ -94,31 +90,6 @@ public class ProcessListPanel extends javax.swing.JPanel {
         add(jLabel1);
         jLabel1.setBounds(40, 40, 30, 14);
 
-        jLabel9.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        jLabel9.setText("PC");
-        add(jLabel9);
-        jLabel9.setBounds(280, 40, 120, 14);
-
-        jLabel10.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        jLabel10.setText("AX");
-        add(jLabel10);
-        jLabel10.setBounds(520, 40, 120, 14);
-
-        jLabel11.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        jLabel11.setText("BX");
-        add(jLabel11);
-        jLabel11.setBounds(640, 40, 120, 14);
-
-        jLabel12.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        jLabel12.setText("CX");
-        add(jLabel12);
-        jLabel12.setBounds(760, 40, 120, 14);
-
-        jLabel13.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        jLabel13.setText("DX");
-        add(jLabel13);
-        jLabel13.setBounds(880, 40, 120, 14);
-
         jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setBorder(null);
 
@@ -128,23 +99,59 @@ public class ProcessListPanel extends javax.swing.JPanel {
 
         add(jScrollPane1);
         jScrollPane1.setBounds(10, 60, 1020, 150);
+
+        pcLB.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        pcLB.setText("Burst Time");
+        add(pcLB);
+        pcLB.setBounds(280, 40, 70, 13);
+
+        pcLB1.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        pcLB1.setText("PC");
+        add(pcLB1);
+        pcLB1.setBounds(360, 40, 100, 13);
+
+        acLB.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        acLB.setText("AC");
+        add(acLB);
+        acLB.setBounds(470, 40, 100, 14);
+
+        axLB.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        axLB.setText("AX");
+        add(axLB);
+        axLB.setBounds(580, 40, 100, 14);
+
+        bxLB.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        bxLB.setText("BX");
+        add(bxLB);
+        bxLB.setBounds(690, 40, 100, 14);
+
+        cxLB.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        cxLB.setText("CX");
+        add(cxLB);
+        cxLB.setBounds(800, 40, 100, 14);
+
+        dxLB.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        dxLB.setText("DX");
+        add(dxLB);
+        dxLB.setBounds(910, 40, 100, 14);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JLabel acLB;
+    public javax.swing.JLabel axLB;
+    public javax.swing.JLabel bxLB;
+    public javax.swing.JLabel cxLB;
+    public javax.swing.JLabel dxLB;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JLabel pcLB;
+    public javax.swing.JLabel pcLB1;
     public javax.swing.JLabel processCountLB;
     public javax.swing.JPanel processListPanel;
     // End of variables declaration//GEN-END:variables

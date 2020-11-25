@@ -5,7 +5,8 @@
  */
 package os.memorymanagement;
 
-import os.Process;
+import machine.memory.Register;
+import os.process.Process;
 
 /**
  *
@@ -14,4 +15,8 @@ import os.Process;
 public interface MemoryManager {
     public void init();
     public void loadProcess(Process process);
+    public void loadProcessInMemory(Process process);
+    public boolean verifyProgramSize(Process process);
+    public void freeProcessMemory(Process process);
+    public int getOSMemorySaved();
 }

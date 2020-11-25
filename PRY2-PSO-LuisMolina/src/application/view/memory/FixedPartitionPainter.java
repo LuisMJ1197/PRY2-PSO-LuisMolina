@@ -7,7 +7,7 @@ package application.view.memory;
 
 import application.controller.MemoryPanelController;
 import application.view.processlist.ProcessDecorator;
-import os.Process;
+import os.process.Process;
 
 /**
  *
@@ -17,9 +17,12 @@ public class FixedPartitionPainter implements MemoryPainter {
 
     @Override
     public void paint(ProcessDecorator process, MemoryPanelController mainMemoryController, MemoryPanelController diskMemoryController) {
-        int initPos = process.getPcb().getPid().getAddress().getOffset();
-        int endPos = initPos + ((Process) process.getProcess()).getSavedMemory().length - 1;
-        mainMemoryController.paintBorder(process.getColor(), initPos, endPos);
+        Process p = (Process) process.getProcess();
+        if (p.getSavedMemory() != null && p.isLoaded()) {
+            int initPos = process.getPcb().getPcAddress().getOffset();
+            int endPos = initPos + p.getSavedMemory().length - 1;
+            mainMemoryController.paintBorder(process.getColor(), initPos, endPos);
+        }
     }
     
 }

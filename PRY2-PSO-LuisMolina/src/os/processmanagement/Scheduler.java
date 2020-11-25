@@ -25,7 +25,7 @@ public abstract class Scheduler {
     protected MQueue<Process> processQueue = new MQueue<>();
     protected final Processor processor;
     private boolean executing = false;
-    private int executionTime = 0;
+    protected int executionTime = 0;
     
     private IProcessorCoresObserver processorCoresObserver;
     private ISchedulerObserver schedulerObserver;

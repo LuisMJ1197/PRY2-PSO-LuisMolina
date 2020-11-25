@@ -16,37 +16,38 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import machine.Machine;
 import os.OS;
-import os.Program;
-import os.Process;
+import os.process.Program;
+import os.processmanagement.Scheduler.ISchedulerObserver;
 import util.FileBrowser;
 /**
  *
  * @author Luism
  */
-public class MainPanelController implements ActionListener {
+public class MainPanelController implements ActionListener, ISchedulerObserver {
     private final MainPanel mainPanel;
     private final MemoryPanelController mainMemoryPanelController;
     private final MemoryPanelController virtualMemoryPanelController;
     private ProcessPanelController processPanelController;
+    private ProcessorController processorController;
     
     public MainPanelController(MainPanel mainPanel) {
         this.mainPanel = mainPanel;
         this.mainPanel.loadFilesBT.addActionListener(this);
         this.mainPanel.runBT.addActionListener(this);
         this.mainPanel.settingsBT.addActionListener(this);
+        this.mainPanel.acceptBT.addActionListener(this);
         this.mainMemoryPanelController = new MemoryPanelController(
                 Machine.getInstance().getMainMemory(), 
                 this.mainPanel.memoriesPanel.mainMemoryPanel);
         this.virtualMemoryPanelController = new MemoryPanelController(
                 Machine.getInstance().getSecMemory(), 
                 this.mainPanel.memoriesPanel.virtualMemoryPanel);
-        
+        OS.getInstance().getScheduler().setObserver(this);
     }
     
     @Override
@@ -56,12 +57,13 @@ public class MainPanelController implements ActionListener {
                 this.openFiles();
                 break;
             case "run":
+                this.run();
                 break;
             case "settings":
                 this.mainPanel.configuration.setVisible(true);
                 break;
             case "accept":
-                saveArrivalTime();
+                this.saveArrivalTime();
                 break;
         }
     }
@@ -77,13 +79,15 @@ public class MainPanelController implements ActionListener {
             JOptionPane.showMessageDialog(this.mainPanel, result);
         }
         this.processPanelController = new ProcessPanelController(
-                Machine.getInstance().getProcessor().getProcessList(), 
+                OS.getInstance().getScheduler().getProcessList(), 
                 this.mainPanel.processListPanelParent);
         this.processPanelController.init();
         this.startArrivalTimeAssignation();
-        //this.mainMemoryPanelController.update();
-        //this.virtualMemoryPanelController.update();
-        //this.paintMemories();
+        
+        this.processorController = new ProcessorController(Machine.getInstance().getProcessor(), this.mainPanel.processorPanel, this.processPanelController.getProcessDecorators());
+        this.update();
+        this.mainPanel.loadFilesBT.setEnabled(false);
+        this.mainPanel.runBT.setEnabled(true);
     }
     
     private ArrayList<Program> createProgramList(File[] files, FileBrowser fileBrowser) {
@@ -122,25 +126,46 @@ public class MainPanelController implements ActionListener {
     
     private void startArrivalTimeAssignation() {
         this.mainPanel.processList.removeAll();
-        for (int i = 0; i < Machine.getInstance().getProcessor().getProcessList().size() && i < 5; i++) {
+        for (int i = 0; i < OS.getInstance().getScheduler().getProcessList().size() && i < 5; i++) {
             ArrivalTimeProcessPanel arr = new ArrivalTimeProcessPanel();
-            arr.idLB.setText(Integer.toString(Machine.getInstance().getProcessor().getProcessList().get(i).getPid()));
-            arr.nameLB.setText(Machine.getInstance().getProcessor().getProcessList().get(i).getName());
+            arr.idLB.setText(Integer.toString(OS.getInstance().getScheduler().getProcessList().get(i).getPid()));
+            arr.nameLB.setText(OS.getInstance().getScheduler().getProcessList().get(i).getName());
             this.mainPanel.processList.add(arr);
+            arr.spinner.setValue(i + 1);
             if (i == 0) {
                 ((ArrivalTimeProcessPanel)this.mainPanel.processList.getComponents()[0]).spinner.setEnabled(false);
-                ((ArrivalTimeProcessPanel)this.mainPanel.processList.getComponents()[0]).spinner.setValue(0);
+                // ((ArrivalTimeProcessPanel)this.mainPanel.processList.getComponents()[0]).spinner.setValue(1);
             }
         }
         this.mainPanel.arrivaltimeassignationpanel.setVisible(true);
     }
     
     private void saveArrivalTime() {
-        for (int i = 0; i < Machine.getInstance().getProcessor().getProcessList().size() && i < 5; i++) {
-            Machine.getInstance().getProcessor().getProcessList().get(i).getPcb().getStartTime().setValue(
-                    ((ArrivalTimeProcessPanel)this.mainPanel.processList.getComponents()[i]).spinner.getValue().toString()
+        for (int i = 0; i < OS.getInstance().getScheduler().getProcessList().size() && i < 5; i++) {
+            OS.getInstance().getScheduler().getProcessList().get(i).getPcb().setArrivalTime(
+                    Integer.parseInt(((ArrivalTimeProcessPanel)this.mainPanel.processList.getComponents()[i]).spinner.getValue().toString())
             );
         }
         this.mainPanel.arrivaltimeassignationpanel.setVisible(false);
+    }
+
+    private void run() {
+        new Thread() {
+            public void run () {
+                try {
+                    OS.getInstance().getScheduler().start();
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(MainPanelController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }.start();
+    }
+
+    @Override
+    public void update() {
+        this.processPanelController.update();
+        this.mainMemoryPanelController.update();
+        this.virtualMemoryPanelController.update();
+        this.paintMemories();
     }
 }

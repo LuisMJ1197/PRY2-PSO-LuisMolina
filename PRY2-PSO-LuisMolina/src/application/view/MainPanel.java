@@ -17,7 +17,8 @@ public class MainPanel extends javax.swing.JPanel {
     public MainPanel() {
         initComponents();
         this.configuration.setLocationRelativeTo(this);
-        this.arrivaltimeassignationpanels.setLocationRelativeTo(null);
+        this.arrivaltimeassignationpanel.setLocationRelativeTo(null);
+        this.arrivaltimeassignationpanel.validate();
     }
 
     /**
@@ -37,17 +38,12 @@ public class MainPanel extends javax.swing.JPanel {
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
-        arrivaltimeassignationpanels = new javax.swing.JDialog();
+        arrivaltimeassignationpanel = new javax.swing.JDialog();
         jPanel6 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         processList = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        arrivaltimeassignationpanel = new javax.swing.JPanel();
-        jPanel8 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        processList1 = new javax.swing.JPanel();
-        jButton3 = new javax.swing.JButton();
+        acceptBT = new javax.swing.JButton();
         jToolBar1 = new javax.swing.JToolBar();
         loadFilesBT = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JToolBar.Separator();
@@ -58,7 +54,7 @@ public class MainPanel extends javax.swing.JPanel {
         memoriesPanel = new application.view.memory.MemoriesPanel();
         statisticsPanel1 = new application.view.statistics.StatisticsPanel();
         displayPanel1 = new application.view.iodevices.DisplayPanel();
-        processorPanel2 = new application.view.processor.ProcessorPanel();
+        processorPanel = new application.view.processor.ProcessorPanel();
 
         configuration.setTitle("Configuration");
         configuration.setAlwaysOnTop(true);
@@ -104,15 +100,17 @@ public class MainPanel extends javax.swing.JPanel {
         configuration.getContentPane().add(jPanel2);
         jPanel2.setBounds(0, 0, 520, 300);
 
-        arrivaltimeassignationpanels.setMinimumSize(new java.awt.Dimension(680, 400));
-        arrivaltimeassignationpanels.setPreferredSize(new java.awt.Dimension(680, 400));
-        arrivaltimeassignationpanels.setResizable(false);
-        arrivaltimeassignationpanels.setSize(new java.awt.Dimension(680, 400));
+        arrivaltimeassignationpanel.setTitle("Arrival time configuration");
+        arrivaltimeassignationpanel.setAlwaysOnTop(true);
+        arrivaltimeassignationpanel.setBackground(new java.awt.Color(255, 255, 255));
+        arrivaltimeassignationpanel.setBounds(new java.awt.Rectangle(0, 0, 680, 450));
+        arrivaltimeassignationpanel.setMinimumSize(new java.awt.Dimension(680, 450));
+        arrivaltimeassignationpanel.setResizable(false);
+        arrivaltimeassignationpanel.setSize(new java.awt.Dimension(680, 450));
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
         jPanel6.setMinimumSize(new java.awt.Dimension(680, 400));
         jPanel6.setPreferredSize(new java.awt.Dimension(680, 400));
-        jPanel6.setRequestFocusEnabled(false);
         jPanel6.setLayout(null);
 
         jPanel7.setLayout(null);
@@ -132,58 +130,26 @@ public class MainPanel extends javax.swing.JPanel {
         jPanel6.add(processList);
         processList.setBounds(10, 50, 660, 300);
 
-        jButton2.setText("Accept");
-        jButton2.setActionCommand("accept");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        acceptBT.setText("Accept");
+        acceptBT.setActionCommand("accept");
+        acceptBT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                acceptBTActionPerformed(evt);
             }
         });
-        jPanel6.add(jButton2);
-        jButton2.setBounds(310, 370, 65, 23);
+        jPanel6.add(acceptBT);
+        acceptBT.setBounds(300, 360, 80, 30);
 
-        javax.swing.GroupLayout arrivaltimeassignationpanelsLayout = new javax.swing.GroupLayout(arrivaltimeassignationpanels.getContentPane());
-        arrivaltimeassignationpanels.getContentPane().setLayout(arrivaltimeassignationpanelsLayout);
-        arrivaltimeassignationpanelsLayout.setHorizontalGroup(
-            arrivaltimeassignationpanelsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        javax.swing.GroupLayout arrivaltimeassignationpanelLayout = new javax.swing.GroupLayout(arrivaltimeassignationpanel.getContentPane());
+        arrivaltimeassignationpanel.getContentPane().setLayout(arrivaltimeassignationpanelLayout);
+        arrivaltimeassignationpanelLayout.setHorizontalGroup(
+            arrivaltimeassignationpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 680, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
-        arrivaltimeassignationpanelsLayout.setVerticalGroup(
-            arrivaltimeassignationpanelsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+        arrivaltimeassignationpanelLayout.setVerticalGroup(
+            arrivaltimeassignationpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE)
         );
-
-        arrivaltimeassignationpanel.setBackground(new java.awt.Color(255, 255, 255));
-        arrivaltimeassignationpanel.setMinimumSize(new java.awt.Dimension(680, 400));
-        arrivaltimeassignationpanel.setPreferredSize(new java.awt.Dimension(680, 400));
-        arrivaltimeassignationpanel.setLayout(null);
-
-        jPanel8.setLayout(null);
-
-        jLabel4.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jLabel4.setText("Arrival time configuration");
-        jLabel4.setPreferredSize(new java.awt.Dimension(65, 24));
-        jPanel8.add(jLabel4);
-        jLabel4.setBounds(10, 0, 280, 24);
-
-        arrivaltimeassignationpanel.add(jPanel8);
-        jPanel8.setBounds(10, 10, 660, 24);
-
-        processList1.setBackground(new java.awt.Color(255, 255, 255));
-        processList1.setPreferredSize(new java.awt.Dimension(620, 300));
-        processList1.setLayout(new java.awt.GridLayout(5, 0));
-        arrivaltimeassignationpanel.add(processList1);
-        processList1.setBounds(10, 50, 660, 300);
-
-        jButton3.setText("Accept");
-        jButton3.setActionCommand("accept");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        arrivaltimeassignationpanel.add(jButton3);
-        jButton3.setBounds(310, 370, 65, 23);
 
         setBackground(new java.awt.Color(241, 242, 242));
         setMinimumSize(new java.awt.Dimension(1360, 730));
@@ -248,34 +214,27 @@ public class MainPanel extends javax.swing.JPanel {
         statisticsPanel1.setBounds(10, 510, 810, 210);
         add(displayPanel1);
         displayPanel1.setBounds(830, 510, 520, 210);
-        add(processorPanel2);
-        processorPanel2.setBounds(10, 270, 1040, 232);
+        add(processorPanel);
+        processorPanel.setBounds(10, 270, 1040, 232);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void acceptBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptBTActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_acceptBTActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JPanel arrivaltimeassignationpanel;
-    public javax.swing.JDialog arrivaltimeassignationpanels;
+    public javax.swing.JButton acceptBT;
+    public javax.swing.JDialog arrivaltimeassignationpanel;
     public javax.swing.JDialog configuration;
     private application.view.iodevices.DisplayPanel displayPanel1;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -283,16 +242,14 @@ public class MainPanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
     private javax.swing.JToolBar.Separator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JToolBar jToolBar1;
     public javax.swing.JButton loadFilesBT;
     public application.view.memory.MemoriesPanel memoriesPanel;
     public javax.swing.JPanel processList;
-    public javax.swing.JPanel processList1;
     public application.view.processlist.ProcessListPanel processListPanelParent;
-    private application.view.processor.ProcessorPanel processorPanel2;
+    public application.view.processor.ProcessorPanel processorPanel;
     public javax.swing.JButton runBT;
     public javax.swing.JButton settingsBT;
     private application.view.statistics.StatisticsPanel statisticsPanel1;

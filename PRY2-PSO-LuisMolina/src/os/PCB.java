@@ -5,6 +5,8 @@
  */
 package os;
 
+import java.util.Date;
+import machine.memory.IAddress;
 import machine.memory.Register;
 import util.stack.MStack;
 
@@ -18,141 +20,154 @@ public class PCB {
     public static final String RUNNING = "Running";
     public static final String WAITING = "Waiting";
     public static final String TERMINATED = "Terminated";
-    public static final int STACK_SIZE = 5;
-    public static final int PCB_SIZE = 14 + STACK_SIZE;
-    public static final int ID_INDEX = 0;
-    public static final int STATUS_INDEX = 1;
-    public static final int BASE_INDEX = 2;
-    public static final int LIMIT_INDEX = 3;
-    public static final int PC_INDEX = 4;
-    public static final int AC_INDEX = 5;
-    public static final int AX_INDEX = 6;
-    public static final int BX_INDEX = 7;
-    public static final int CX_INDEX = 8;
-    public static final int DX_INDEX = 9;
-    public static final int STACK_INDEX = 10;
-    public static final int CPUNUMBER_INDEX = STACK_INDEX + STACK_SIZE;
-    public static final int STARTTIME_INDEX = STACK_INDEX + STACK_SIZE + 1;
-    public static final int EXECUTIONTIME_INDEX = STACK_INDEX + STACK_SIZE + 2;
-    public static final int IO_INDEX = STACK_INDEX + STACK_SIZE + 3;
-
-    private Register status;
-    private Register pc;
-    private Register ac;
-    private Register ax;
-    private Register bx;
-    private Register cx;
-    private Register dx;
     
-    private Register cpuNumber;
-    private Register startTime;
-    private Register executingTime;
-    private Register pid;
-    private Register listOfIO;
-    private MStack stack;
-    private Register base;
-    private Register limit;
+    private String status;
+    private IAddress pc;
+    private int ac;
+    private int ax;
+    private int bx;
+    private int cx;
+    private int dx;
+    
+    private int cpuNumber;
+    private int arrivalTime;
+    private int executingTime;
+    private int pid;
+    private MStack<Integer> stack;
+    private IAddress base;
+    private int limit;
     // I/O info? TODO
-    
-    public PCB() {
-        this.status.setValue(NEW);
-        this.stack = new MStack(STACK_SIZE);
+
+    public PCB(int pid) {
+        this.pid = pid;
+        this.cpuNumber = -1;
+        this.ac = 0;
+        this.ax = 0;
+        this.bx = 0;
+        this.cx = 0;
+        this.dx = 0;
+        this.arrivalTime = -1;
+        this.executingTime = 0;
+        this.limit = 0;
+        this.pc = null;
+        this.base = null;
+        this.status = PCB.NEW;
     }
-    
-    public PCB(Register[] array) {
-        this.pid = array[ID_INDEX];
-        this.status = array[STATUS_INDEX];
-        this.status.setValue(NEW);
-        this.pc = array[PC_INDEX];
-        this.ac = array[AC_INDEX];
-        this.ac.setValue(Register.ZERO);
-        this.ax = array[AX_INDEX];
-        this.ax.setValue(Register.ZERO);
-        this.bx = array[BX_INDEX];
-        this.bx.setValue(Register.ZERO);
-        this.cx = array[CX_INDEX];
-        this.cx.setValue(Register.ZERO);
-        this.dx = array[DX_INDEX];
-        this.dx.setValue(Register.ZERO);
-        this.cpuNumber = array[CPUNUMBER_INDEX];
-        this.cpuNumber.setValue("-1");
-        this.startTime = array[STARTTIME_INDEX];
-        this.executingTime = array[EXECUTIONTIME_INDEX];
-        this.listOfIO = array[IO_INDEX];
-        this.base = array[BASE_INDEX];
-        this.limit = array[LIMIT_INDEX];
-        this.startStack(array);
-    }
-    
-    private void startStack(Register[] array) {
-        this.stack = new MStack(STACK_SIZE);
-        for (int i = STACK_INDEX + STACK_SIZE; i >= STACK_INDEX; i--) {
-            this.stack.push(array[i]);
-        }
-    }
-    
-    public Register getStatus() {
+
+    public String getStatus() {
         return status;
     }
 
-    public int getSize() {
-        return PCB.PCB_SIZE;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
-    public Register getPc() {
+    public String getPc() {
+        return pc != null ? pc.getAddressString() : "";
+    }
+    
+    public IAddress getPcAddress() {
         return pc;
     }
 
-    public Register getAc() {
+    public void setPc(IAddress pc) {
+        this.pc = pc;
+    }
+
+    public int getAc() {
         return ac;
     }
 
-    public Register getAx() {
+    public void setAc(int ac) {
+        this.ac = ac;
+    }
+
+    public int getAx() {
         return ax;
     }
 
-    public Register getBx() {
+    public void setAx(int ax) {
+        this.ax = ax;
+    }
+
+    public int getBx() {
         return bx;
     }
 
-    public Register getCx() {
+    public void setBx(int bx) {
+        this.bx = bx;
+    }
+
+    public int getCx() {
         return cx;
     }
 
-    public Register getDx() {
+    public void setCx(int cx) {
+        this.cx = cx;
+    }
+
+    public int getDx() {
         return dx;
     }
 
-    public Register getCpuNumber() {
+    public void setDx(int dx) {
+        this.dx = dx;
+    }
+
+    public int getCpuNumber() {
         return cpuNumber;
     }
 
-    public Register getStartTime() {
-        return startTime;
+    public void setCpuNumber(int cpuNumber) {
+        this.cpuNumber = cpuNumber;
     }
 
-    public Register getExecutingTime() {
+    public int getArrivalTime() {
+        return arrivalTime;
+    }
+
+    public void setArrivalTime(int arrivalTime) {
+        this.arrivalTime = arrivalTime;
+    }
+
+    public int getExecutingTime() {
         return executingTime;
     }
 
-    public Register getPid() {
+    public void setExecutingTime(int executingTime) {
+        this.executingTime = executingTime;
+    }
+
+    public int getPid() {
         return pid;
     }
 
-    public Register getListOfIO() {
-        return listOfIO;
+    public void setPid(int pid) {
+        this.pid = pid;
     }
 
-    public MStack getStack() {
+    public MStack<Integer> getStack() {
         return stack;
     }
 
-    public Register getBase() {
+    public void setStack(MStack<Integer> stack) {
+        this.stack = stack;
+    }
+
+    public IAddress getBase() {
         return base;
     }
 
-    public Register getLimit() {
+    public void setBase(IAddress base) {
+        this.base = base;
+    }
+
+    public int getLimit() {
         return limit;
+    }
+
+    public void setLimit(int limit) {
+        this.limit = limit;
     }
     
     

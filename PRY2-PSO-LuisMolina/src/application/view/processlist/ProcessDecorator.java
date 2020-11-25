@@ -6,7 +6,7 @@
 package application.view.processlist;
 
 import java.awt.Color;
-import os.IProcess;
+import os.process.IProcess;
 import os.PCB;
 
 /**
@@ -39,8 +39,8 @@ public class ProcessDecorator implements IProcess {
     }
     
     @Override
-    public int getTotalSize() {
-        return this.process.getTotalSize();
+    public int getProcessSize() {
+        return this.process.getProcessSize();
     }
     
     @Override

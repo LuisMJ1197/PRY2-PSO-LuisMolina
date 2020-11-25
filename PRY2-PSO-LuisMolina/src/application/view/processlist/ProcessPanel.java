@@ -39,11 +39,12 @@ public class ProcessPanel extends javax.swing.JPanel {
         axLB = new javax.swing.JLabel();
         bxLB = new javax.swing.JLabel();
         acLB = new javax.swing.JLabel();
-        pcLB = new javax.swing.JLabel();
+        burstTimeLB = new javax.swing.JLabel();
         statusLB = new javax.swing.JLabel();
         cpuLB = new javax.swing.JLabel();
         nameLB = new javax.swing.JLabel();
         idLB = new javax.swing.JLabel();
+        pcLB = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(249, 249, 249));
         setPreferredSize(new java.awt.Dimension(1002, 24));
@@ -68,32 +69,32 @@ public class ProcessPanel extends javax.swing.JPanel {
         dxLB.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         dxLB.setText("DX");
         add(dxLB);
-        dxLB.setBounds(872, 5, 120, 14);
+        dxLB.setBounds(900, 5, 100, 14);
 
         cxLB.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         cxLB.setText("CX");
         add(cxLB);
-        cxLB.setBounds(752, 5, 120, 14);
+        cxLB.setBounds(790, 5, 100, 14);
 
         axLB.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         axLB.setText("AX");
         add(axLB);
-        axLB.setBounds(512, 5, 120, 14);
+        axLB.setBounds(570, 5, 100, 14);
 
         bxLB.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         bxLB.setText("BX");
         add(bxLB);
-        bxLB.setBounds(632, 5, 120, 14);
+        bxLB.setBounds(680, 5, 100, 14);
 
         acLB.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         acLB.setText("AC");
         add(acLB);
-        acLB.setBounds(392, 5, 120, 14);
+        acLB.setBounds(460, 5, 100, 14);
 
-        pcLB.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        pcLB.setText("PC");
-        add(pcLB);
-        pcLB.setBounds(272, 5, 120, 13);
+        burstTimeLB.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        burstTimeLB.setText("Burst Time");
+        add(burstTimeLB);
+        burstTimeLB.setBounds(270, 5, 70, 13);
 
         statusLB.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         statusLB.setText("Status");
@@ -114,12 +115,18 @@ public class ProcessPanel extends javax.swing.JPanel {
         idLB.setText("ID");
         add(idLB);
         idLB.setBounds(30, 5, 26, 14);
+
+        pcLB.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        pcLB.setText("PC");
+        add(pcLB);
+        pcLB.setBounds(350, 5, 100, 13);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JLabel acLB;
     public javax.swing.JLabel axLB;
+    public javax.swing.JLabel burstTimeLB;
     public javax.swing.JLabel bxLB;
     private javax.swing.JPanel colorPane;
     public javax.swing.JLabel cpuLB;

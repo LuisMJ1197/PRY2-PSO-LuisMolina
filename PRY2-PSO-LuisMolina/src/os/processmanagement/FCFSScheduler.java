@@ -6,7 +6,6 @@
 package os.processmanagement;
 
 import machine.processor.Core;
-import os.PCB;
 import os.process.Process;
 
 /**
@@ -22,9 +21,9 @@ public class FCFSScheduler extends Scheduler {
     @Override
     public Process chooseNextTurn() {
         Process next = this.processQueue.dequeue();
-        if (next == null) return null;
+        /**if (next == null) return null;
         this.processor.getCores()[next.getPcb().getCpuNumber() - 1]
-                .setBurstTime(next.getPcb().getLimit());
+                .setBurstTime(next.getProgramSize());*/
         return next;
     }
 

@@ -28,8 +28,12 @@ public class MQueue<E> implements IQueue<E> {
     public boolean dequeue(E element) {
         return queue.remove(element);
     }
+    
+    public E dequeue(int element) {
+        return queue.remove(element);
+    }
 
-        @Override
+    @Override
     public E dequeue() {
         if (this.queue.size() > 0)
             return this.queue.remove(0);
@@ -39,6 +43,7 @@ public class MQueue<E> implements IQueue<E> {
 
     @Override
     public E peek() {
+        if (this.queue.isEmpty()) return null;
         return this.queue.get(0);
     }
 

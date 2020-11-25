@@ -3,23 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package util.configuration;
+package util.configuration.memorymanager;
+
+import util.configuration.MethodConfiguration;
 
 /**
  *
  * @author Luism
  */
-public class FixedPartitionConfiguration {
-    private boolean activated;
+public class FixedPartitionConfiguration extends MethodConfiguration {
     private int partitionSize;
     
     public FixedPartitionConfiguration(boolean activated, int partitionSize) {
-        this.activated = activated;
+        super(activated);
         this.partitionSize = partitionSize;
-    }
-
-    public boolean isActivated() {
-        return activated;
     }
 
     public int getPartitionSize() {
