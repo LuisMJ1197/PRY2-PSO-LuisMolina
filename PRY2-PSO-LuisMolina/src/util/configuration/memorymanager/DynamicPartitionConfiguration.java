@@ -5,10 +5,14 @@
  */
 package util.configuration.memorymanager;
 
+import util.configuration.MethodConfiguration;
+
 /**
  *
  * @author Luism
  */
-public class DynamicPartitionConfiguration {
-    
+public class DynamicPartitionConfiguration extends MethodConfiguration {
+    public DynamicPartitionConfiguration(boolean activated) {
+        super(activated);
+    }
 }

@@ -8,6 +8,7 @@ package os;
 import java.util.Date;
 import machine.memory.IAddress;
 import machine.memory.Register;
+import os.memorymanagement.LogicalAddress;
 import util.stack.MStack;
 
 /**
@@ -22,7 +23,7 @@ public class PCB {
     public static final String TERMINATED = "Terminated";
     
     private String status;
-    private IAddress pc;
+    private LogicalAddress pc;
     private int ac;
     private int ax;
     private int bx;
@@ -70,7 +71,7 @@ public class PCB {
         return pc;
     }
 
-    public void setPc(IAddress pc) {
+    public void setPc(LogicalAddress pc) {
         this.pc = pc;
     }
 

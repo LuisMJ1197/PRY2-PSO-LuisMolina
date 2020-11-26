@@ -8,6 +8,7 @@ package application.controller;
 import application.MiniPC;
 import application.view.ArrivalTimeProcessPanel;
 import application.view.MainPanel;
+import application.view.memory.DynamicPartitionPainter;
 import application.view.memory.FixedPartitionPainter;
 import application.view.memory.MemoryPainter;
 import application.view.processlist.ProcessDecorator;
@@ -116,6 +117,8 @@ public class MainPanelController implements ActionListener, ISchedulerObserver {
         MemoryPainter painter = null;
         if (MiniPC.config.getFixedPartitionConfiguration().isActivated()) {
             painter = new FixedPartitionPainter();
+        } else if (MiniPC.config.getDynamicPartitionConfiguration().isActivated()) {
+            painter = new DynamicPartitionPainter();
         }
         if (painter != null) {
             for(ProcessDecorator proc: this.processPanelController.getProcessDecorators()) {

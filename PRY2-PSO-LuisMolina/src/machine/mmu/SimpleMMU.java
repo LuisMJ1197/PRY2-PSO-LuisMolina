@@ -31,20 +31,12 @@ public class SimpleMMU implements IMMU {
      */
     @Override
     public String loadFromMemory(IAddress address) {
-        if (((PhysicalAddress) address).getMemoryKind() == IMemory.MAIN_MEMORY) {
-            return this.mainMemory.load(address);
-        } else {
-            return this.diskMemory.load(address);
-        }
+        return null;
     }
     
     @Override
     public void storeToMemory(IAddress address, String value) {
-        if (((PhysicalAddress) address).getMemoryKind() == IMemory.MAIN_MEMORY) {
-            this.mainMemory.store(address, value);
-        } else {
-            this.diskMemory.store(address, value);
-        }
+        
     }
     
     @Override

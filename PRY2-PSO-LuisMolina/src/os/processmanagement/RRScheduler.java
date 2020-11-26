@@ -13,10 +13,10 @@ import os.process.Process;
  * @author Luism
  */
 public class RRScheduler extends Scheduler {
-    private int cycleClockAmount = 0;
+    private int quantum = 0;
     
-    public RRScheduler(int cycleClockAmount) {
-        this.cycleClockAmount = cycleClockAmount;
+    public RRScheduler(int quantum) {
+        this.quantum = quantum;
     }
     
     @Override
@@ -27,10 +27,10 @@ public class RRScheduler extends Scheduler {
 
     @Override
     public void setNextBurstTime(Core core, Process process) {
-        if (process.getBurstTime() - process.getPcb().getExecutingTime() < this.cycleClockAmount) {
+        if (process.getBurstTime() - process.getPcb().getExecutingTime() < this.quantum) {
             core.setBurstTime(process.getBurstTime() - process.getPcb().getExecutingTime());
         } else {
-            core.setBurstTime(this.cycleClockAmount);
+            core.setBurstTime(this.quantum);
         }
     }
     

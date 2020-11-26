@@ -55,7 +55,7 @@ public class Memory implements IMemory {
     private void initMemory() {
         for (int i = 0; i < this.size; i++) {
             IAddress address;
-            address = new PhysicalAddress(this.kind, i);
+            address = new PhysicalAddress(i);
             this.registers[i] = new Register(address);
         }
     }

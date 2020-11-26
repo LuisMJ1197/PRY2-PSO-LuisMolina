@@ -16,16 +16,15 @@ import util.queue.MQueue;
  *
  * @author Luism
  */
-public class FixedPartitionMM implements MemoryManager {
+public class FixedPartitionMM extends MemoryManager {
     private Partition[] partitions;
     private int partitionSize;
-    private MQueue<Process> processQueue = new MQueue<>();
-    private int osSavedMemory;
+    
     
     public FixedPartitionMM(int partitionSize, int osSavedMemory) {
+        super(osSavedMemory);
         this.partitionSize = partitionSize;
         this.partitions = new Partition[Machine.getInstance().getMainMemory().getSize() / this.partitionSize];
-        this.osSavedMemory = osSavedMemory;
     }
     
     @Override
@@ -54,7 +53,7 @@ public class FixedPartitionMM implements MemoryManager {
     @Override
     public void loadProcessInMemory(Process process) {
         Partition partition = this.searchMemory(process.getProcessSize());
-        if (partition.getMemory() != null) {
+        if (partition != null) {
             ((FixedProcess) process).setAssignedPartition(partition);
             process.allocateMemory(partition.getMemory());
         }
@@ -89,5 +88,24 @@ public class FixedPartitionMM implements MemoryManager {
     @Override
     public int getOSMemorySaved() {
         return this.osSavedMemory;
+    }
+
+    @Override
+    public LogicalAddress getNextAddress(Process process) {
+        LogicalAddress address = new LogicalAddress(process.getPcb().getPcAddress().getOffset() + 1);
+        if (address.getOffset() > (process.getPcb().getBase().getOffset() + process.getPcb().getLimit() - 1)) {
+            return null;
+        }
+        return address;
+    }
+
+    @Override
+    public String load(LogicalAddress address) {
+        return Machine.getInstance().getMainMemory().load(address);
+    }
+
+    @Override
+    public void store(LogicalAddress address, String value) {
+        Machine.getInstance().getMainMemory().getRegister(address.getOffset());
     }
 }

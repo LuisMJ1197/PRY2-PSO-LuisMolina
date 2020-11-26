@@ -11,6 +11,11 @@ import os.process.Process;
  *
  * @author Luism
  */
-public interface ProcessFactory {
-    public abstract Process createProcess(String name, String[] code);
+public class DynamicPartitionProcessFactory implements ProcessFactory {
+
+    @Override
+    public Process createProcess(String name, String[] code) {
+        return new Process(name, code);
+    }
+    
 }

@@ -77,9 +77,31 @@ public class ConfigurationReader {
             Element methodElement = (Element) methodList.item(i);
             if (methodElement.getAttribute("name").equals("fixed")) {
                 this.setFixedConfiguration(methodElement, config);
+            } else if (methodElement.getAttribute("name").equals("dynamic")) {
+                this.setDynamicConfiguration(methodElement, config);
+            } else if (methodElement.getAttribute("name").equals("paging")) {
+                this.setPagedConfiguration(methodElement, config);
             }
         }
     }
+    
+    public void setFixedConfiguration(Element methodElement, Configuration config) {
+        boolean activated = methodElement.getAttribute("activated").equals("true");
+        int partitionSize = Integer.parseInt(((Element)methodElement.getElementsByTagName("partition-size").item(0)).getTextContent());
+        config.setFixedPartitionConfiguration(activated, partitionSize);
+    }
+    
+    public void setDynamicConfiguration(Element methodElement, Configuration config) {
+        boolean activated = methodElement.getAttribute("activated").equals("true");
+        config.setDynamicConfiguration(activated);
+    }
+    
+    private void setPagedConfiguration(Element methodElement, Configuration config) {
+        boolean activated = methodElement.getAttribute("activated").equals("true");
+        int frameSize = Integer.parseInt(((Element)methodElement.getElementsByTagName("frame-size").item(0)).getTextContent());
+        config.setPaginConfiguration(activated, frameSize);
+    }
+    
     
     private void setProcessManagementConfiguration(Configuration config, Element processManagementElement) {
         NodeList methodList = processManagementElement.getElementsByTagName("method");
@@ -98,12 +120,6 @@ public class ConfigurationReader {
             }    
         }
     }
-    
-    public void setFixedConfiguration(Element methodElement, Configuration config) {
-        boolean activated = methodElement.getAttribute("activated").equals("true");
-        int partitionSize = Integer.parseInt(((Element)methodElement.getElementsByTagName("partition-size").item(0)).getTextContent());
-        config.setFixedPartitionConfiguration(activated, partitionSize);
-    }
 
     private void setFCFSConfiguration(Element methodElement, Configuration config) {
         boolean activated = methodElement.getAttribute("activated").equals("true");
@@ -112,8 +128,8 @@ public class ConfigurationReader {
 
     private void setRoundRobinConfiguration(Element methodElement, Configuration config) {
         boolean activated = methodElement.getAttribute("activated").equals("true");
-        int cycleClock = Integer.parseInt(((Element)methodElement.getElementsByTagName("clock").item(0)).getTextContent());
-        config.setRoundRobinConfiguration(activated, cycleClock);
+        int quantum = Integer.parseInt(((Element)methodElement.getElementsByTagName("quantum").item(0)).getTextContent());
+        config.setRoundRobinConfiguration(activated, quantum);
     }
     
     private void setSRTConfiguration(Element methodElement, Configuration config) {
@@ -130,6 +146,6 @@ public class ConfigurationReader {
         boolean activated = methodElement.getAttribute("activated").equals("true");
         config.setHRRNConfiguration(activated);
     }
-    
+
     
 }

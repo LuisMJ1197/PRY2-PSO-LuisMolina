@@ -5,10 +5,23 @@
  */
 package util.configuration.memorymanager;
 
+import util.configuration.MethodConfiguration;
+
 /**
  *
  * @author Luism
  */
-public class PagingConfiguration {
+public class PagingConfiguration extends MethodConfiguration {
+    private int frameSize;
+    
+    public PagingConfiguration(boolean activated, int frameSize) {
+        super(activated);
+    }
+
+    public int getFrameSize() {
+        return frameSize;
+    }
+    
+    
     
 }

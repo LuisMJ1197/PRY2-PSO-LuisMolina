@@ -5,7 +5,9 @@
  */
 package util.configuration;
 
+import util.configuration.memorymanager.DynamicPartitionConfiguration;
 import util.configuration.memorymanager.FixedPartitionConfiguration;
+import util.configuration.memorymanager.PagingConfiguration;
 import util.configuration.processmanager.FCFSConfiguration;
 import util.configuration.processmanager.HRRNConfiguration;
 import util.configuration.processmanager.RoundRobinConfiguration;
@@ -23,6 +25,8 @@ public class Configuration {
     
     /* Memory manager */
     private FixedPartitionConfiguration fixedPartitionConfiguration;
+    private DynamicPartitionConfiguration dynamicConfiguration;
+    private PagingConfiguration pagingConfiguration;
     
     /* Process manager */
     private FCFSConfiguration fcfsConfiguration;
@@ -30,6 +34,7 @@ public class Configuration {
     private SRTConfiguration srtConfiguration;
     private SJFConfiguration sjfConfiguration;
     private HRRNConfiguration hrrnConfiguration;
+    
     
     public Configuration() {
     }
@@ -64,6 +69,22 @@ public class Configuration {
 
     public FixedPartitionConfiguration getFixedPartitionConfiguration() {
         return fixedPartitionConfiguration;
+    }
+    
+    public void setDynamicConfiguration(boolean activated) {
+        this.dynamicConfiguration = new DynamicPartitionConfiguration(activated);
+    }
+    
+    public DynamicPartitionConfiguration getDynamicPartitionConfiguration() {
+        return this.dynamicConfiguration;
+    }
+    
+    void setPaginConfiguration(boolean activated, int frameSize) {
+        this.pagingConfiguration = new PagingConfiguration(activated, frameSize);
+    }
+    
+    public PagingConfiguration getPagingConfiguration() {
+        return this.pagingConfiguration;
     }
     
     public void setFcfsConfiguration(boolean activated) {
@@ -105,5 +126,7 @@ public class Configuration {
     public HRRNConfiguration getHrrnConfiguration() {
         return hrrnConfiguration;
     }
+
+
     
 }

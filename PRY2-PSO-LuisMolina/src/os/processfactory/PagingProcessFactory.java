@@ -5,12 +5,18 @@
  */
 package os.processfactory;
 
+import os.process.PagedProcess;
 import os.process.Process;
 
 /**
  *
  * @author Luism
  */
-public interface ProcessFactory {
-    public abstract Process createProcess(String name, String[] code);
+public class PagingProcessFactory implements ProcessFactory {
+
+    @Override
+    public Process createProcess(String name, String[] code) {
+        return new PagedProcess(name, code);
+    }
+    
 }

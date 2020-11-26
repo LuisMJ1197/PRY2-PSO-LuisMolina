@@ -11,9 +11,13 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import machine.Machine;
 import os.OS;
+import os.memorymanagement.DynamicPartitionMM;
 import os.memorymanagement.FixedPartitionMM;
 import os.memorymanagement.MemoryManager;
+import os.memorymanagement.PagingMM;
+import os.processfactory.DynamicPartitionProcessFactory;
 import os.processfactory.FixedPartitionProcessFactory;
+import os.processfactory.PagingProcessFactory;
 import os.processfactory.ProcessFactory;
 import os.processmanagement.FCFSScheduler;
 import os.processmanagement.HRRNScheduler;
@@ -55,7 +59,13 @@ public class MiniPC {
             if (config.getFixedPartitionConfiguration().isActivated()) {
                 memManager = new FixedPartitionMM(config.getFixedPartitionConfiguration().getPartitionSize(), config.getOsSavedMemory());
                 factory = new FixedPartitionProcessFactory();
-            }
+            } else if (config.getDynamicPartitionConfiguration().isActivated()) {
+                memManager = new DynamicPartitionMM(config.getOsSavedMemory());
+                factory = new DynamicPartitionProcessFactory();
+            } else if (config.getPagingConfiguration().isActivated()) {
+                memManager = new PagingMM(config.getOsSavedMemory(), config.getPagingConfiguration().getFrameSize());
+                factory = new PagingProcessFactory();
+            } 
             
             /* Scheduler algorithm */
             Scheduler scheduler = null;

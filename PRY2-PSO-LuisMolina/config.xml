@@ -8,27 +8,27 @@ and open the template in the editor.
 
 <config>
     <memory-size>
-        <main-memory>128</main-memory>
+        <main-memory>36</main-memory>
         <disk-memory>1024</disk-memory>
     </memory-size>
     <os-saved-memory>16</os-saved-memory>
     <memory-management>
-        <method name="fixed" activated="true">
-            <partition-size>16</partition-size> 
+        <method name="fixed" activated="false">
+            <partition-size>2</partition-size> 
         </method> 
-        <method name="dynamic" activated="false">
+        <method name="dynamic" activated="true">
         </method> 
         <method name="paging" activated="false">
-            
+            <frame-size>8</frame-size>
         </method> 
         <method name="segmentation" activated="false">
             
         </method> 
     </memory-management>
     <process-scheduler>
-        <method name="fcfs" activated="false"></method>
-        <method name="rr" activated="true">
-            <clock>2</clock>
+        <method name="fcfs" activated="true"></method>
+        <method name="rr" activated="false">
+            <quantum>2</quantum>
         </method>
         <method name="srt" activated="false"></method>
         <method name="sjf" activated="false"></method>

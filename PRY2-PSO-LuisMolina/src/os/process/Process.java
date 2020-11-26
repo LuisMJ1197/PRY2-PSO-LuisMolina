@@ -7,6 +7,7 @@ package os.process;
 
 import machine.memory.Register;
 import os.PCB;
+import os.memorymanagement.LogicalAddress;
 
 /**
  *
@@ -101,7 +102,7 @@ public class Process implements IProcess {
     public void allocateMemory(Register[] savedMemory) {
         this.setAllocatedMemory(savedMemory);
         this.setLoaded(true);
-        this.getPcb().setPc(savedMemory[0].getAddress());
+        this.getPcb().setPc(new LogicalAddress(savedMemory[0].getAddress().getOffset()));
         this.getPcb().setBase(savedMemory[0].getAddress());
         for (int i = 0; i < this.getProgramSize(); i++) {
             savedMemory[i].setValue(this.code[i]);

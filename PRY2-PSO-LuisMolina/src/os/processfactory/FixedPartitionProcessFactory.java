@@ -12,7 +12,7 @@ import os.process.Process;
  *
  * @author Luism
  */
-public class FixedPartitionProcessFactory extends ProcessFactory {
+public class FixedPartitionProcessFactory implements ProcessFactory {
 
     @Override
     public Process createProcess(String name, String[] code) {
