@@ -8,18 +8,18 @@ and open the template in the editor.
 
 <config>
     <memory-size>
-        <main-memory>36</main-memory>
+        <main-memory>32</main-memory>
         <disk-memory>1024</disk-memory>
     </memory-size>
     <os-saved-memory>16</os-saved-memory>
     <memory-management>
         <method name="fixed" activated="false">
-            <partition-size>2</partition-size> 
+            <partition-size>8</partition-size> 
         </method> 
-        <method name="dynamic" activated="true">
+        <method name="dynamic" activated="false">
         </method> 
-        <method name="paging" activated="false">
-            <frame-size>8</frame-size>
+        <method name="paging" activated="true">
+            <frame-size>2</frame-size>
         </method> 
         <method name="segmentation" activated="false">
             

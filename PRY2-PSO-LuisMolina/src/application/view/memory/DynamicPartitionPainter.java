@@ -17,10 +17,14 @@ public class DynamicPartitionPainter implements MemoryPainter {
     @Override
     public void paint(ProcessDecorator process, MemoryPanelController mainMemoryController, MemoryPanelController diskMemoryController) {
         os.process.Process p = (os.process.Process) process.getProcess();
+        
+        int initPos = process.getPcb().getPcAddress().getOffset();
+        int endPos = initPos + p.getSavedMemory().length - 1;
         if (p.getSavedMemory() != null && p.isLoaded()) {
-            int initPos = process.getPcb().getPcAddress().getOffset();
-            int endPos = initPos + p.getSavedMemory().length - 1;
             mainMemoryController.paintBorder(process.getColor(), initPos, endPos);
+        } 
+        if (p.getSavedMemory() != null && !p.isLoaded()) {
+            diskMemoryController.paintBorder(process.getColor(), initPos, endPos);
         }
     }
     

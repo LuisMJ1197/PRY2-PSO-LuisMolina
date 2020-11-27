@@ -25,7 +25,7 @@ public class Loader {
                 OS.getInstance().getScheduler().addProcess(newP);
                 Machine.getInstance().getMainMemory().store(newP.getPid(), Integer.toString(newP.getPid()));
             } else {
-                return "The OS can't handle more processes.";
+                return "The OS can't handle more processes.\n";
             }
         } else {
             return String.format("Program %s is too big.\n", program.getName());

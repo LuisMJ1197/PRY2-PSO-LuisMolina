@@ -9,6 +9,7 @@ import application.view.memory.MemoryPanel;
 import application.view.memory.MemoryRegisterPanel;
 import java.awt.Color;
 import machine.memory.IMemory;
+import util.Luminance;
 
 /**
  *
@@ -59,6 +60,14 @@ public class MemoryPanelController implements IController {
     public void paintBorder(Color color, int initPos, int count) {
         for (int i = 0; i <= count - initPos; i++) {
             this.memoryRegisterPanels[initPos + i].setBorder(javax.swing.BorderFactory.createLineBorder(color));
+            this.memoryRegisterPanels[initPos + i].setBackground(color);
+            if (Luminance.intensity(color) >= 128.0) {
+                this.memoryRegisterPanels[initPos + i].addressLB.setForeground(Color.black);
+                this.memoryRegisterPanels[initPos + i].dataLB.setForeground(Color.black);
+            } else {
+                this.memoryRegisterPanels[initPos + i].addressLB.setForeground(Color.white);
+                this.memoryRegisterPanels[initPos + i].dataLB.setForeground(Color.white);
+            }
         }
     }
     

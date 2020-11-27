@@ -12,9 +12,19 @@ import machine.memory.Register;
  * @author Luism
  */
 public class Frame extends Partition {
+    private boolean isInMainMemory = true;
     
     public Frame(int size, Register[] memory, int partitionNumber) {
         super(size, memory, partitionNumber);
     }
+
+    public boolean isIsInMainMemory() {
+        return isInMainMemory;
+    }
+
+    public void setIsInMainMemory(boolean isInMainMemory) {
+        this.isInMainMemory = isInMainMemory;
+    }
+    
     
 }

@@ -23,11 +23,11 @@ public class PagedProcess extends Process {
 
     private void divideProcessInPages() {
         int pageSize = ((PagingMM) OS.getInstance().getMemoryManager()).getFrameSize();
-        int pageCount = (int) Math.ceil(code.length / pageSize);
+        int pageCount = (int) Math.ceil(code.length / (double) pageSize);
         pageTable = new Page[pageCount];
         for (int i = 0; i < pageCount; i++) {
             String[] codeM = new String[pageSize];
-            for (int j = 0; j < pageSize; j++) {
+            for (int j = 0; j < pageSize && i * pageSize + j < this.code.length; j++) {
                 codeM[j] = this.code[i * pageSize + j];
             }
             pageTable[i] = new Page(i, codeM);

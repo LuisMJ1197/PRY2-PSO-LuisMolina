@@ -6,6 +6,7 @@
 package os.memorymanagement;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import machine.Machine;
 import machine.memory.Register;
 import os.memorymanagement.partition.Frame;
@@ -24,6 +25,7 @@ public class PagingMM extends MemoryManager {
     
     public PagingMM(int frameSize, int osSavedMemory) {
         super(osSavedMemory);
+        this.frameSize = frameSize;
         this.frames = new Frame[
                 Machine.getInstance().getMainMemory().getSize() / this.frameSize +
                 Machine.getInstance().getSecMemory().getSize() / this.frameSize
@@ -39,20 +41,25 @@ public class PagingMM extends MemoryManager {
         int mainMemoryFrames = Machine.getInstance().getMainMemory().getSize() / this.frameSize;
         for (int i = 0; i < this.frames.length; i++) {
             Register[] memory = new Register[this.frameSize];
+            boolean isInMemory = true;
             for (int j = 0; j < this.frameSize; j++) {
                 if (i > mainMemoryFrames - 1) {
                     memory[j] = Machine.getInstance().getSecMemory().getRegister((i - mainMemoryFrames) * this.frameSize + j);
+                    isInMemory = false;
                 } else {
                     memory[j] = Machine.getInstance().getMainMemory().getRegister(i * this.frameSize + j);
                 }
             }
             Frame frame = new Frame(frameSize, memory, i);
+            frame.setIsInMainMemory(isInMemory);
             this.frames[i] = frame;
             this.availableFrames.add(frame);
         }
         for (int i = 0; i < osSavedMemory / this.frameSize; i++) {
             this.frames[i].setUsed(true); // For OS
+            this.availableFrames.remove(0);
         }
+
     }
 
     private void sortAvailableFrames() {
@@ -83,22 +90,24 @@ public class PagingMM extends MemoryManager {
         if (this.availableFrames.size() >= ((PagedProcess) process).getPageCount()) {
             this.sortAvailableFrames();
             ArrayList<Register> savedMemory = new ArrayList<>();
-            int frameNumber = 0;
+            int frameCount = 0;
             ArrayList<Frame> toDelete = new ArrayList<>();
             for (Frame frame: this.availableFrames) {
-                frame.setUsed(true);
-                toDelete.add(frame);
-                for (int i = 0; i < frame.getMemory().length; i++) {
-                    savedMemory.add(frame.getMemory()[i]);
+                if (frameCount <= ((PagedProcess) process).getPageCount() - 1) {
+                    frame.setUsed(true);
+                    toDelete.add(frame);
+                    savedMemory.addAll(Arrays.asList(frame.getMemory()));
+                    ((PagedProcess) process).getPages()[frameCount].setFrame(frame);
+                    frameCount++;
+                } else {
+                    break;
                 }
-                ((PagedProcess) process).getPages()[frameNumber].setFrameNumber(frameNumber);
-                process.allocateMemory(
-                        savedMemory.toArray(new Register[
-                                ((PagedProcess) process).getPageCount() * this.frameSize]
-                        )
-                );
-                frameNumber++;
             }
+            process.allocateMemory(
+                    savedMemory.toArray(new Register[
+                            savedMemory.size()]
+                    )
+            );
             this.availableFrames.removeAll(toDelete);
         }
     }
@@ -111,8 +120,9 @@ public class PagingMM extends MemoryManager {
     @Override
     public void freeProcessMemory(Process process) {
         for (Page page: ((PagedProcess) process).getPages()) {
-            this.frames[page.getFrameNumber()].setUsed(false);
-            this.availableFrames.add(this.frames[page.getFrameNumber()]);
+            page.getFrame().setUsed(false);
+            this.availableFrames.add(page.getFrame());
+            page.setFrame(null);
         }
         ArrayList<Process> toDelete = new ArrayList<>();
         for (Process processP: this.processQueue.getList()) {

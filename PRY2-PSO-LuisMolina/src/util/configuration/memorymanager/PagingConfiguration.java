@@ -16,6 +16,7 @@ public class PagingConfiguration extends MethodConfiguration {
     
     public PagingConfiguration(boolean activated, int frameSize) {
         super(activated);
+        this.frameSize = frameSize;
     }
 
     public int getFrameSize() {

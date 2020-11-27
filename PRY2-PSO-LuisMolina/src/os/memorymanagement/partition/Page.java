@@ -12,7 +12,7 @@ package os.memorymanagement.partition;
 public class Page {
     private String[] code;
     private int pageNumber; 
-    private int frameNumber;
+    private Frame frame;
     
     public Page(int pageNumber, String[] code) {
         this.pageNumber = pageNumber;
@@ -31,12 +31,12 @@ public class Page {
         this.pageNumber = pageNumber;
     }
 
-    public int getFrameNumber() {
-        return frameNumber;
+    public Frame getFrame() {
+        return frame;
     }
 
-    public void setFrameNumber(int frameNumber) {
-        this.frameNumber = frameNumber;
+    public void setFrame(Frame frame) {
+        this.frame = frame;
     }
     
     

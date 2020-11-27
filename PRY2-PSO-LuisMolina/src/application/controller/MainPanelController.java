@@ -11,7 +11,9 @@ import application.view.MainPanel;
 import application.view.memory.DynamicPartitionPainter;
 import application.view.memory.FixedPartitionPainter;
 import application.view.memory.MemoryPainter;
+import application.view.memory.PagingPainter;
 import application.view.processlist.ProcessDecorator;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -61,7 +63,7 @@ public class MainPanelController implements ActionListener, ISchedulerObserver {
                 this.run();
                 break;
             case "settings":
-                this.mainPanel.configuration.setVisible(true);
+                initConfig();
                 break;
             case "accept":
                 this.saveArrivalTime();
@@ -119,8 +121,12 @@ public class MainPanelController implements ActionListener, ISchedulerObserver {
             painter = new FixedPartitionPainter();
         } else if (MiniPC.config.getDynamicPartitionConfiguration().isActivated()) {
             painter = new DynamicPartitionPainter();
+        } else if (MiniPC.config.getPagingConfiguration().isActivated()) {
+            painter = new PagingPainter();
         }
         if (painter != null) {
+            this.mainMemoryPanelController.paintBorder(new Color(240, 240, 240), 0, Machine.getInstance().getMainMemory().getSize() - 1);
+            this.virtualMemoryPanelController.paintBorder(new Color(240, 240, 240), 0, Machine.getInstance().getSecMemory().getSize() - 1);
             for(ProcessDecorator proc: this.processPanelController.getProcessDecorators()) {
                 painter.paint(proc, mainMemoryPanelController, virtualMemoryPanelController);
             }
@@ -170,5 +176,11 @@ public class MainPanelController implements ActionListener, ISchedulerObserver {
         this.mainMemoryPanelController.update();
         this.virtualMemoryPanelController.update();
         this.paintMemories();
+    }
+
+    private void initConfig() {
+        this.mainPanel.configuration.setVisible(true);
+        ConfigurationController c = new ConfigurationController(this.mainPanel.configurationPanel1, MiniPC.config);
+        
     }
 }

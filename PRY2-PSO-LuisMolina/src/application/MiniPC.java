@@ -63,7 +63,7 @@ public class MiniPC {
                 memManager = new DynamicPartitionMM(config.getOsSavedMemory());
                 factory = new DynamicPartitionProcessFactory();
             } else if (config.getPagingConfiguration().isActivated()) {
-                memManager = new PagingMM(config.getOsSavedMemory(), config.getPagingConfiguration().getFrameSize());
+                memManager = new PagingMM(config.getPagingConfiguration().getFrameSize(), config.getOsSavedMemory());
                 factory = new PagingProcessFactory();
             } 
             

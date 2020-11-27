@@ -22,25 +22,26 @@ import os.process.Process;
  */
 public class ProcessPanelController implements IController {
     public static Color[] color = {
-        new Color(26, 188, 156),
-        new Color(46, 236, 113),
-        new Color(52, 152, 219),
-        new Color(52, 73, 94),
-        new Color(22, 160, 133),
-        new Color(39, 174, 96),
-        new Color(41, 128, 185),
-        new Color(142, 68, 173),
-        new Color(44, 62, 80),
-        new Color(241, 196, 15),
-        new Color(230, 126, 34),
-        new Color(231, 76, 60),
-        new Color(2, 128, 144),
-        new Color(149, 165, 166),
-        new Color(243, 156, 18),
-        new Color(211, 84, 0),
-        new Color(192, 57, 43),
-        new Color(189, 195, 199),
-        new Color(127, 140, 141)
+        Color.decode("#587b7f"),
+        Color.decode("#8AC926"),
+        Color.decode("#E83151"),
+        Color.decode("#fe5f55"),
+        Color.decode("#7A306C"),
+        Color.decode("#E0B1CB"),
+        Color.decode("#44E5E7"),
+        Color.decode("#FF9914"),
+        Color.decode("#048BA8"),
+        Color.decode("#AEECEF"),
+        Color.decode("#3C5A14"),
+        Color.decode("#084C61"),
+        Color.decode("#FED766"),
+        Color.decode("#6B8F71"),
+        Color.decode("#F2542D"),
+        Color.decode("#CCFF66"),
+        Color.decode("#214E34"),
+        Color.decode("#B0413E"),
+        Color.decode("#EAC435"),
+        Color.decode("#582707")
     };
     
     private ArrayList<ProcessDecorator> processList;
