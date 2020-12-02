@@ -14,5 +14,6 @@ import util.configuration.MethodConfiguration;
 public class DynamicPartitionConfiguration extends MethodConfiguration {
     public DynamicPartitionConfiguration(boolean activated) {
         super(activated);
+        this.name = "Dynamic Partition";
     }
 }

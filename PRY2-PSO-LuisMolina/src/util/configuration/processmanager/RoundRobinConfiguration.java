@@ -16,6 +16,7 @@ public class RoundRobinConfiguration extends MethodConfiguration {
     public RoundRobinConfiguration(boolean activated, int cycleClockAmount) {
         super(activated);
         this.cycleClockAmount = cycleClockAmount;
+        this.name = "Round Robin";
     }
 
     public int getCycleClockAmount() {
@@ -24,5 +25,9 @@ public class RoundRobinConfiguration extends MethodConfiguration {
 
     public void setCycleClockAmount(int cycleClockAmount) {
         this.cycleClockAmount = cycleClockAmount;
+    }
+
+    public void setQuantum(int i) {
+        this.cycleClockAmount = i;
     }
 }

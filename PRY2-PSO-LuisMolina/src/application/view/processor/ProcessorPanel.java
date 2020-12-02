@@ -37,6 +37,8 @@ public class ProcessorPanel extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         executionTimeLB = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        schedulingMethodLB = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel3 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
@@ -78,6 +80,18 @@ public class ProcessorPanel extends javax.swing.JPanel {
         jPanel1.add(jLabel4);
         jLabel4.setBounds(10, 5, 70, 14);
 
+        jLabel8.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel8.setText("Scheduling algorithm:");
+        jPanel1.add(jLabel8);
+        jLabel8.setBounds(100, 0, 140, 24);
+
+        schedulingMethodLB.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        schedulingMethodLB.setForeground(new java.awt.Color(51, 51, 51));
+        schedulingMethodLB.setText("mm");
+        jPanel1.add(schedulingMethodLB);
+        schedulingMethodLB.setBounds(220, 0, 210, 24);
+
         add(jPanel1);
         jPanel1.setBounds(10, 11, 1020, 24);
 
@@ -85,6 +99,7 @@ public class ProcessorPanel extends javax.swing.JPanel {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setAutoscrolls(true);
+        jPanel3.setLayout(null);
 
         jLabel5.setBackground(new java.awt.Color(60, 61, 61));
         jLabel5.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
@@ -93,6 +108,8 @@ public class ProcessorPanel extends javax.swing.JPanel {
         jLabel5.setText("Core");
         jLabel5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel5.setOpaque(true);
+        jPanel3.add(jLabel5);
+        jLabel5.setBounds(0, 0, 60, 25);
 
         jLabel6.setBackground(new java.awt.Color(160, 176, 167));
         jLabel6.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
@@ -101,9 +118,13 @@ public class ProcessorPanel extends javax.swing.JPanel {
         jLabel6.setText("Process");
         jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel6.setOpaque(true);
+        jPanel3.add(jLabel6);
+        jLabel6.setBounds(60, 0, 60, 25);
 
         executionTimesPanel.setAutoscrolls(true);
         executionTimesPanel.setLayout(new java.awt.GridLayout(0, 17));
+        jPanel3.add(executionTimesPanel);
+        executionTimesPanel.setBounds(220, 0, 800, 25);
 
         CoreListPanel.setPreferredSize(new java.awt.Dimension(1020, 125));
         CoreListPanel.setLayout(new java.awt.GridLayout(5, 1));
@@ -113,6 +134,9 @@ public class ProcessorPanel extends javax.swing.JPanel {
         CoreListPanel.add(processorCore4);
         CoreListPanel.add(processorCore5);
 
+        jPanel3.add(CoreListPanel);
+        CoreListPanel.setBounds(0, 30, 1020, 140);
+
         jLabel7.setBackground(new java.awt.Color(195, 202, 203));
         jLabel7.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(51, 51, 51));
@@ -120,32 +144,8 @@ public class ProcessorPanel extends javax.swing.JPanel {
         jLabel7.setText("IR");
         jLabel7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel7.setOpaque(true);
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(executionTimesPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(CoreListPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(executionTimesPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(5, 5, 5)
-                .addComponent(CoreListPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        jPanel3.add(jLabel7);
+        jLabel7.setBounds(120, 0, 100, 25);
 
         jScrollPane1.setViewportView(jPanel3);
 
@@ -163,6 +163,7 @@ public class ProcessorPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     public javax.swing.JScrollPane jScrollPane1;
@@ -171,5 +172,6 @@ public class ProcessorPanel extends javax.swing.JPanel {
     public application.view.processor.ProcessorCorePanel processorCore3;
     public application.view.processor.ProcessorCorePanel processorCore4;
     public application.view.processor.ProcessorCorePanel processorCore5;
+    public javax.swing.JLabel schedulingMethodLB;
     // End of variables declaration//GEN-END:variables
 }

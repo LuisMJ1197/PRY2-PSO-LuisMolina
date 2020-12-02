@@ -1,37 +1,34 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!--
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
--->
-
-
-<config>
+--><config>
     <memory-size>
-        <main-memory>32</main-memory>
-        <disk-memory>1024</disk-memory>
+        <main-memory>128</main-memory>
+        <disk-memory>512</disk-memory>
     </memory-size>
     <os-saved-memory>16</os-saved-memory>
     <memory-management>
-        <method name="fixed" activated="false">
+        <method activated="true" name="fixed">
             <partition-size>8</partition-size> 
         </method> 
-        <method name="dynamic" activated="false">
+        <method activated="false" name="dynamic">
         </method> 
-        <method name="paging" activated="true">
-            <frame-size>2</frame-size>
+        <method activated="false" name="paging">
+            <frame-size>8</frame-size>
         </method> 
-        <method name="segmentation" activated="false">
+        <method activated="false" name="segmentation">
             
         </method> 
     </memory-management>
     <process-scheduler>
-        <method name="fcfs" activated="true"></method>
-        <method name="rr" activated="false">
+        <method activated="false" name="fcfs"/>
+        <method activated="true" name="rr">
             <quantum>2</quantum>
         </method>
-        <method name="srt" activated="false"></method>
-        <method name="sjf" activated="false"></method>
-        <method name="hrrn" activated="false"></method>
+        <method activated="false" name="srt"/>
+        <method activated="false" name="sjf"/>
+        <method activated="false" name="hrrn"/>
     </process-scheduler>
 </config>

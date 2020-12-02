@@ -17,9 +17,14 @@ public class FixedPartitionConfiguration extends MethodConfiguration {
     public FixedPartitionConfiguration(boolean activated, int partitionSize) {
         super(activated);
         this.partitionSize = partitionSize;
+        this.name = "Fixed partition";
     }
 
     public int getPartitionSize() {
         return partitionSize;
+    }
+
+    public void setPartitionSize(int i) {
+        this.partitionSize = i;
     }
 }

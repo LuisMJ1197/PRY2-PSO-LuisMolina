@@ -44,8 +44,10 @@ public class MCompiler {
             if (this.validateLine(line)) {
                 res.add(this.decodeLine(line));
             } else {
-                program.setError(String.format("Invalid format exception at program: %s - line: %d - %s.", program.getName(), i, line));
-                program.setAdmitted(false);
+                if (!line.isEmpty()) {
+                    program.setError(String.format("Invalid format exception at program: %s - line: %d - %s.", program.getName(), i, line));
+                    program.setAdmitted(false);
+                }
             }
             i++;
         }

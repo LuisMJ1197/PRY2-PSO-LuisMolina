@@ -11,7 +11,7 @@ import machine.Machine;
 import machine.processor.Core;
 import machine.processor.Processor;
 import os.OS;
-import os.PCB;
+import os.process.PCB;
 import util.queue.MQueue;
 import os.process.Process;
 
@@ -48,7 +48,7 @@ public abstract class Scheduler {
         for (Core core: this.processor.getCores()) {
             if (!core.isBusy()) {
                 process.getPcb().setCpuNumber(core.getNumber());
-                core.setProcess(process.getPcb());
+                core.setProcess(process);
                 //this.processQueue.enqueue(process);
                 // Load process
                 break;
@@ -104,7 +104,7 @@ public abstract class Scheduler {
                 if(!processInCycle)
                     this.setNextBurstTime(core, process); // Sets the next burst time of the cpu, depends of scheduling algorithm
                 processInCycle = core.nextCycle(this.executionTime); // Executes next cycle (second) of the cpu             
-                if (!processInCycle) { // If the burst time has ended, checks for the process to be finished, if not, it enters the queue again
+                if (!processInCycle || process.getPcb().getStatus().equals(PCB.TERMINATED)) { // If the burst time has ended, checks for the process to be finished, if not, it enters the queue again
                     if (this.checkIfProcessHasFinished(process)) {
                         core.setProcess(null);
                     } else {
@@ -120,13 +120,18 @@ public abstract class Scheduler {
             }
             this.incrementExecutionTime();
             sleep(1000);
-            if (this.processList.getList().isEmpty() && this.processQueue.getList().isEmpty() && process == null) this.executing = false;
+            if (this.processList.getList().isEmpty() && this.processQueue.getList().isEmpty() && process == null) {
+                this.executing = false;
+                this.schedulerObserver.executionHasFinished();
+            }
         }
     }
     
     public boolean checkIfProcessHasFinished(Process process) {
-        if (process.getPcb().getExecutingTime() >= process.getBurstTime()) {
+        if (process.getPcb().getExecutingTime() >= process.getBurstTime() 
+                || process.getPcb().getStatus().equals(PCB.TERMINATED)) {
             process.getPcb().setStatus(PCB.TERMINATED);
+            process.getPcb().setFinishTime(executionTime);
             process.setLoaded(false);
             OS.getInstance().getMemoryManager().freeProcessMemory(process);
             return true;
@@ -160,10 +165,10 @@ public abstract class Scheduler {
         Process next = this.getNext();
         if (next != null) {
             next.getPcb().setCpuNumber(core.getNumber());
-            core.setProcess(next.getPcb());
+            core.setProcess(next);
             next.getPcb().setArrivalTime(executionTime);
         }
-        core.setProcess(next != null ? next.getPcb() : null);
+        core.setProcess(next);
     }
     
     private void checkForArrivingProcess() {
@@ -185,6 +190,8 @@ public abstract class Scheduler {
     
     public interface ISchedulerObserver {
         public void update();
+
+        public void executionHasFinished();
     }
     
     public interface IProcessorCoresObserver {

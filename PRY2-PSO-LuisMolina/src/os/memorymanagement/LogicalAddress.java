@@ -29,6 +29,10 @@ public class LogicalAddress implements IAddress {
         this.offset = offset;
     }
     
+    public int getPageNumber() {
+        return this.pageNumber;
+    }
+    
     @Override
     public int getOffset() {
         return this.offset;
@@ -36,7 +40,13 @@ public class LogicalAddress implements IAddress {
 
     @Override
     public String getAddressString() {
-        return Integer.toString(this.pageNumber) + Integer.toString(offset);
+        return IAddress.pad(Integer.toString(this.pageNumber) + Integer.toString(offset), "0", 16, true);
+    }
+
+    @Override
+    public boolean equals(IAddress address) {
+        return this.pageNumber == ((LogicalAddress) address).getPageNumber() 
+                && this.offset == address.getOffset();
     }
     
 }

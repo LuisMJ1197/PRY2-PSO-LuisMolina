@@ -30,8 +30,11 @@ public class DisplayPanel extends javax.swing.JPanel {
         jPanel6 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        secMemorySizeLB = new javax.swing.JLabel();
+        processIDLB = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        textArea = new javax.swing.JTextArea();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(520, 210));
@@ -49,31 +52,44 @@ public class DisplayPanel extends javax.swing.JPanel {
         jLabel3.setBounds(962, 0, 58, 25);
 
         jLabel8.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jLabel8.setText("Display");
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel8.setText("Process ID:");
+        jLabel8.setToolTipText("");
         jPanel6.add(jLabel8);
-        jLabel8.setBounds(10, 1, 100, 20);
+        jLabel8.setBounds(330, 0, 100, 24);
 
-        secMemorySizeLB.setBackground(new java.awt.Color(232, 222, 103));
-        secMemorySizeLB.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        secMemorySizeLB.setForeground(new java.awt.Color(255, 255, 255));
-        secMemorySizeLB.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        secMemorySizeLB.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        secMemorySizeLB.setOpaque(true);
-        jPanel6.add(secMemorySizeLB);
-        secMemorySizeLB.setBounds(440, 0, 58, 25);
+        processIDLB.setBackground(new java.awt.Color(232, 222, 103));
+        processIDLB.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        processIDLB.setForeground(new java.awt.Color(255, 255, 255));
+        processIDLB.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        processIDLB.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        processIDLB.setOpaque(true);
+        jPanel6.add(processIDLB);
+        processIDLB.setBounds(440, 0, 58, 25);
+
+        jLabel9.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jLabel9.setText("Display");
+        jPanel6.add(jLabel9);
+        jLabel9.setBounds(10, 1, 100, 20);
 
         add(jPanel6);
         jPanel6.setBounds(10, 11, 500, 24);
+
+        textArea.setColumns(20);
+        textArea.setRows(5);
+        textArea.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        textArea.setEnabled(false);
+        jScrollPane1.setViewportView(textArea);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 160, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
         );
 
         add(jPanel1);
@@ -84,8 +100,11 @@ public class DisplayPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JLabel secMemorySizeLB;
+    private javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JLabel processIDLB;
+    public javax.swing.JTextArea textArea;
     // End of variables declaration//GEN-END:variables
 }

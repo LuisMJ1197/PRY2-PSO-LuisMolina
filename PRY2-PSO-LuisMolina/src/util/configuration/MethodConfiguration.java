@@ -11,9 +11,14 @@ package util.configuration;
  */
 public class MethodConfiguration {
     private boolean activated;
+    protected String name;
     
     public MethodConfiguration(boolean activated) {
         this.activated = activated;
+    }
+    
+    public String getName() {
+        return this.name;
     }
 
     public boolean isActivated() {

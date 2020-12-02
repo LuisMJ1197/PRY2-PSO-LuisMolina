@@ -334,13 +334,19 @@
       </Constraints>
     </Component>
     <Component class="application.view.statistics.StatisticsPanel" name="statisticsPanel1">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="10" y="510" width="-1" height="210"/>
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="application.view.iodevices.DisplayPanel" name="displayPanel1">
+    <Component class="application.view.iodevices.DisplayPanel" name="displayPanel">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="830" y="510" width="-1" height="210"/>

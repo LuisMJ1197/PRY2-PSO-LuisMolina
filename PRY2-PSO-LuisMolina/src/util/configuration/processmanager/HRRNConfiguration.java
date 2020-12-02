@@ -14,5 +14,6 @@ import util.configuration.MethodConfiguration;
 public class HRRNConfiguration extends MethodConfiguration {
     public HRRNConfiguration(boolean activated) {
         super(activated);
+        this.name = "Highest Response Ratio Next";
     }
 }

@@ -5,9 +5,12 @@
  */
 package util.configuration;
 
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
 import util.configuration.memorymanager.DynamicPartitionConfiguration;
 import util.configuration.memorymanager.FixedPartitionConfiguration;
 import util.configuration.memorymanager.PagingConfiguration;
+import util.configuration.memorymanager.SegmentationConfiguration;
 import util.configuration.processmanager.FCFSConfiguration;
 import util.configuration.processmanager.HRRNConfiguration;
 import util.configuration.processmanager.RoundRobinConfiguration;
@@ -27,7 +30,7 @@ public class Configuration {
     private FixedPartitionConfiguration fixedPartitionConfiguration;
     private DynamicPartitionConfiguration dynamicConfiguration;
     private PagingConfiguration pagingConfiguration;
-    
+    private SegmentationConfiguration segmentationConfiguration;
     /* Process manager */
     private FCFSConfiguration fcfsConfiguration;
     private RoundRobinConfiguration roundRobinConfiguration;
@@ -79,12 +82,20 @@ public class Configuration {
         return this.dynamicConfiguration;
     }
     
-    void setPaginConfiguration(boolean activated, int frameSize) {
+    public void setPaginConfiguration(boolean activated, int frameSize) {
         this.pagingConfiguration = new PagingConfiguration(activated, frameSize);
     }
     
     public PagingConfiguration getPagingConfiguration() {
         return this.pagingConfiguration;
+    }
+    
+    public void setSegmentationConfiguration(boolean activated) {
+        this.segmentationConfiguration = new SegmentationConfiguration(activated);
+    }
+    
+    public SegmentationConfiguration getSegmentationConfiguration() {
+        return this.segmentationConfiguration;
     }
     
     public void setFcfsConfiguration(boolean activated) {
@@ -127,6 +138,32 @@ public class Configuration {
         return hrrnConfiguration;
     }
 
-
+    public String getSchedulingActivatedMethodName() {
+        if (this.fcfsConfiguration.isActivated()) {
+            return this.fcfsConfiguration.getName();
+        } else if (this.srtConfiguration.isActivated()) {
+            return this.srtConfiguration.getName();
+        } else if (this.hrrnConfiguration.isActivated()) {
+            return this.hrrnConfiguration.getName();
+        } else if (this.sjfConfiguration.isActivated()) {
+            return this.sjfConfiguration.getName();
+        } else if (this.roundRobinConfiguration.isActivated()) {
+            return this.roundRobinConfiguration.getName() + "; q = " + Integer.toString(this.roundRobinConfiguration.getCycleClockAmount());
+        }
+        return "";
+    }
     
+    public String getMemoryActivatedMethodName() {
+        if (this.dynamicConfiguration.isActivated()) {
+            return this.dynamicConfiguration.getName();
+        } else if (this.fixedPartitionConfiguration.isActivated()) {
+            return this.fixedPartitionConfiguration.getName()  + "; partition size = " + Integer.toString(this.fixedPartitionConfiguration.getPartitionSize());
+        } else if (this.pagingConfiguration.isActivated()) {
+            return this.pagingConfiguration.getName() + "; frame size = " + Integer.toString(this.pagingConfiguration.getFrameSize());
+        } else if (this.segmentationConfiguration.isActivated()) {
+            return this.segmentationConfiguration.getName();
+        }
+        return "";
+    }
+
 }

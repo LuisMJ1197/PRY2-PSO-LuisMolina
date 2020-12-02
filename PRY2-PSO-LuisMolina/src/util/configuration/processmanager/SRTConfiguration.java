@@ -14,5 +14,6 @@ import util.configuration.MethodConfiguration;
 public class SRTConfiguration extends MethodConfiguration {
     public SRTConfiguration(boolean activated) {
         super(activated);
+        this.name = "Shortest Remaining Time";
     }    
 }

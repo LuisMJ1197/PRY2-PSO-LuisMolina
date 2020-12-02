@@ -39,6 +39,10 @@ public class MiniPC {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        reset();
+    }
+
+    public static void reset() {
         MiniPC miniPC = new MiniPC();
         miniPC.startMachine();
         miniPC.startView();
@@ -84,6 +88,7 @@ public class MiniPC {
             OS.startInstance(
                 new OS(memManager, scheduler, factory)
             );
+            os.process.Process.setsCantProcess(0);
             
         } catch (Exception ex) {
             Logger.getLogger(MiniPC.class.getName()).log(Level.SEVERE, null, ex);
@@ -117,7 +122,7 @@ public class MiniPC {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                MainFrameController.getInstance();
+                MainFrameController.getNewInstance();
             }
         });
     }

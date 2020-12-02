@@ -5,6 +5,7 @@
  */
 package os.memorymanagement;
 
+import machine.memory.IAddress;
 import os.process.Process;
 import util.queue.MQueue;
 
@@ -26,7 +27,8 @@ public abstract class MemoryManager {
     public abstract boolean verifyProgramSize(Process process);
     public abstract void freeProcessMemory(Process process);
     public abstract int getOSMemorySaved();
-    public abstract LogicalAddress getNextAddress(Process process);
-    public abstract String load(LogicalAddress address);
-    public abstract void store(LogicalAddress address, String value);
+    public abstract IAddress getNextAddress(Process process, int offset);
+    public abstract boolean validateAddress(Process process, IAddress address);
+    public abstract String load(IAddress address);
+    public abstract void store(IAddress address, String value);
 }

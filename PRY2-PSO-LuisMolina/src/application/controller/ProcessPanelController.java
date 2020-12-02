@@ -5,6 +5,7 @@
  */
 package application.controller;
 
+import application.MiniPC;
 import application.view.processlist.ProcessDecorator;
 import application.view.processlist.ProcessListPanel;
 import application.view.processlist.ProcessPanel;
@@ -21,29 +22,6 @@ import os.process.Process;
  * @author Luism
  */
 public class ProcessPanelController implements IController {
-    public static Color[] color = {
-        Color.decode("#587b7f"),
-        Color.decode("#8AC926"),
-        Color.decode("#E83151"),
-        Color.decode("#fe5f55"),
-        Color.decode("#7A306C"),
-        Color.decode("#E0B1CB"),
-        Color.decode("#44E5E7"),
-        Color.decode("#FF9914"),
-        Color.decode("#048BA8"),
-        Color.decode("#AEECEF"),
-        Color.decode("#3C5A14"),
-        Color.decode("#084C61"),
-        Color.decode("#FED766"),
-        Color.decode("#6B8F71"),
-        Color.decode("#F2542D"),
-        Color.decode("#CCFF66"),
-        Color.decode("#214E34"),
-        Color.decode("#B0413E"),
-        Color.decode("#EAC435"),
-        Color.decode("#582707")
-    };
-    
     private ArrayList<ProcessDecorator> processList;
     private ProcessListPanel processListPanelParent;
 
@@ -71,13 +49,14 @@ public class ProcessPanelController implements IController {
             int i = 0;
             for (ProcessDecorator proc: this.processList) {
                 ProcessPanel procPanel = new ProcessPanel();
-                while (i >= ProcessPanelController.color.length) {
-                   i = i - ProcessPanelController.color.length;
+                while (i >= MColor.color.length) {
+                   i = i - MColor.color.length;
                 }
-                proc.setColor(ProcessPanelController.color[i]);
+                proc.setColor(MColor.color[i]);
                 procPanel.setProcessColor(proc.getColor());
                 procPanel.nameLB.setText(proc.getName());
                 procPanel.idLB.setText(Integer.toString(proc.getPid()));
+                procPanel.idMLB.setText(Integer.toString(proc.getPid()));
                 procPanel.setToolTipText(proc.getName());
                 this.processListPanelParent.processListPanel.add(procPanel);
                 i++;
@@ -86,6 +65,7 @@ public class ProcessPanelController implements IController {
         this.update();
     }
     
+    @Override
     public void update() {
         for (int i = 0; i < this.processList.size(); i++) {
             ProcessPanel procPanel = (ProcessPanel) this.processListPanelParent.processListPanel.getComponent(i);
@@ -99,13 +79,17 @@ public class ProcessPanelController implements IController {
             procPanel.cxLB.setText(Integer.toString(proc.getPcb().getCx()));
             procPanel.dxLB.setText(Integer.toString(proc.getPcb().getDx()));
             procPanel.cpuLB.setText(Integer.toString(proc.getPcb().getCpuNumber()));
+            for (int j = 0; j < procPanel.stack.length; j++) {
+                String n = proc.getStack().get(j);
+                procPanel.stack[j].setText(proc.getStack().get(j));
+            }
         }
     }
     
     private void shuffleColor() {
-        List<Color> intList = Arrays.asList(ProcessPanelController.color);
+        List<Color> intList = Arrays.asList(MColor.color);
         Collections.shuffle(intList);
-	intList.toArray(ProcessPanelController.color);
+	intList.toArray(MColor.color);
     }
     
 }

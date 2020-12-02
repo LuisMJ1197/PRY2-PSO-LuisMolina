@@ -32,6 +32,11 @@ public class PhysicalAddress implements IAddress {
         address += IAddress.pad(Integer.toString(this.offset), "0", 16, true);
         return address;
     }
+
+    @Override
+    public boolean equals(IAddress address) {
+        return this.offset == address.getOffset();
+    }
     
     
 }

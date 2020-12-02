@@ -5,10 +5,17 @@
  */
 package util.configuration.memorymanager;
 
+import util.configuration.MethodConfiguration;
+
 /**
  *
  * @author Luism
  */
-public class SegmentationConfiguration {
+public class SegmentationConfiguration extends MethodConfiguration {
+    
+    public SegmentationConfiguration(boolean activated) {
+        super(activated);
+        this.name = "Segmentation";
+    }
     
 }

@@ -15,6 +15,8 @@ public interface IAddress {
     
     public String getAddressString();
     
+    public boolean equals(IAddress address);
+    
     public static String pad(String value, String charP, int count, boolean leftPad) {
         String res = "";
         if (!leftPad) res += value;

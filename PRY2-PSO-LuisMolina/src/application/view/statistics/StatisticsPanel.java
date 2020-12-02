@@ -37,17 +37,17 @@ public class StatisticsPanel extends javax.swing.JPanel {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jPanel2 = new javax.swing.JPanel();
+        processesPanel = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        tr_tsAvgLB = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
+        turnaroundAvgLB = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(810, 210));
@@ -105,9 +105,9 @@ public class StatisticsPanel extends javax.swing.JPanel {
 
         jScrollPane1.setBorder(null);
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setLayout(new java.awt.GridLayout(20, 0));
-        jScrollPane1.setViewportView(jPanel2);
+        processesPanel.setBackground(new java.awt.Color(255, 255, 255));
+        processesPanel.setLayout(new java.awt.GridLayout(20, 0));
+        jScrollPane1.setViewportView(processesPanel);
 
         add(jScrollPane1);
         jScrollPane1.setBounds(10, 60, 560, 140);
@@ -145,11 +145,11 @@ public class StatisticsPanel extends javax.swing.JPanel {
 
         jPanel4.add(jPanel3);
 
-        jLabel2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("0");
-        jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel4.add(jLabel2);
+        tr_tsAvgLB.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        tr_tsAvgLB.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tr_tsAvgLB.setText("0");
+        tr_tsAvgLB.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel4.add(tr_tsAvgLB);
 
         add(jPanel4);
         jPanel4.setBounds(580, 140, 220, 60);
@@ -187,11 +187,11 @@ public class StatisticsPanel extends javax.swing.JPanel {
 
         jPanel5.add(jPanel6);
 
-        jLabel14.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel14.setText("0");
-        jLabel14.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel5.add(jLabel14);
+        turnaroundAvgLB.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        turnaroundAvgLB.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        turnaroundAvgLB.setText("0");
+        turnaroundAvgLB.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel5.add(turnaroundAvgLB);
 
         add(jPanel5);
         jPanel5.setBounds(580, 60, 220, 60);
@@ -204,8 +204,6 @@ public class StatisticsPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -214,11 +212,13 @@ public class StatisticsPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JPanel processesPanel;
+    public javax.swing.JLabel tr_tsAvgLB;
+    public javax.swing.JLabel turnaroundAvgLB;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,6 +5,7 @@
  */
 package application.controller;
 
+import application.MiniPC;
 import application.view.processlist.ProcessDecorator;
 import application.view.processor.ProcessorCorePanel;
 import application.view.processor.ProcessorPanel;
@@ -17,7 +18,7 @@ import machine.processor.Core;
 import machine.processor.Core.ICoreObserver;
 import machine.processor.Processor;
 import os.OS;
-import os.PCB;
+import os.process.PCB;
 import os.processmanagement.Scheduler.IProcessorCoresObserver;
 
 /**
@@ -57,6 +58,7 @@ public class ProcessorController implements IProcessorCoresObserver, ICoreObserv
                 id = Integer.toString(pcb.getPid());
             }
             this.view.corePanels[i].processID.setText(id);
+            this.view.corePanels[i].irLB.setText(this.processor.getCores()[i].getIr());
         }
         
     }
@@ -64,8 +66,8 @@ public class ProcessorController implements IProcessorCoresObserver, ICoreObserv
     @Override
     public void addExecutionSecond(int time) {
         //this.view.jScrollPane1.getVerticalScrollBar().setValue(50 * this.view.executionTimesPanel.getComponents().length);
-        int width = time > 17 ? 50 * time : 850;
-        int cols = time > 17 ? time : 17;
+        int width = time > 16 ? 50 * time : 800;
+        int cols = time > 16 ? time : 16;
         this.view.executionTimesPanel.setLayout(new java.awt.GridLayout(0, cols, 0, 0));
         this.view.executionTimesPanel.setSize(width, 25);
         this.view.executionTimesPanel.setPreferredSize(new Dimension(width, 25));
@@ -73,12 +75,12 @@ public class ProcessorController implements IProcessorCoresObserver, ICoreObserv
         panel.number.setText(Integer.toString(time));
         this.view.executionTimesPanel.add(panel); 
         
-        this.view.CoreListPanel.setSize(170 + width, 140);
-        this.view.CoreListPanel.setPreferredSize(new Dimension(170 + width, 140));
+        this.view.CoreListPanel.setSize(210 + width, 140);
+        this.view.CoreListPanel.setPreferredSize(new Dimension(210 + width, 140));
         
         for (ProcessorCorePanel corePanel : this.view.corePanels) {
-            corePanel.setSize(170 + width, 25);
-            corePanel.setPreferredSize(new Dimension(170 + width, 25));
+            corePanel.setSize(210 + width, 25);
+            corePanel.setPreferredSize(new Dimension(210 + width, 25));
 
             corePanel.executionTimesPanel.setLayout(new java.awt.GridLayout(0, cols, 0, 0));
             corePanel.executionTimesPanel.setSize(width, 25);

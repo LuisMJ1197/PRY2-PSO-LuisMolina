@@ -47,45 +47,46 @@ public class ConfigurationPanel extends javax.swing.JPanel {
         jPanel9 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        jSlider2 = new javax.swing.JSlider();
-        jLabel5 = new javax.swing.JLabel();
+        partitionSizeSlider = new javax.swing.JSlider();
+        partitionSizeLB = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        jToggleButton3 = new javax.swing.JToggleButton();
+        segmentationActivateBT = new javax.swing.JToggleButton();
         jPanel10 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
-        jToggleButton5 = new javax.swing.JToggleButton();
+        fixedPartitionActivateBT = new javax.swing.JToggleButton();
         jPanel11 = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
-        jToggleButton6 = new javax.swing.JToggleButton();
+        dynamicPartitionActivateBT = new javax.swing.JToggleButton();
         jPanel12 = new javax.swing.JPanel();
         jLabel23 = new javax.swing.JLabel();
-        jToggleButton7 = new javax.swing.JToggleButton();
+        pagingActivateBT = new javax.swing.JToggleButton();
         jLabel24 = new javax.swing.JLabel();
-        jSlider5 = new javax.swing.JSlider();
         jLabel25 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
+        frameSizeSlider = new javax.swing.JSlider();
+        frameSizeLB = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
         jLabel27 = new javax.swing.JLabel();
-        jToggleButton8 = new javax.swing.JToggleButton();
+        hrrnActivateBT = new javax.swing.JToggleButton();
         jPanel14 = new javax.swing.JPanel();
         jLabel28 = new javax.swing.JLabel();
-        jToggleButton9 = new javax.swing.JToggleButton();
+        fcfsActivateBT = new javax.swing.JToggleButton();
         jPanel15 = new javax.swing.JPanel();
         jLabel29 = new javax.swing.JLabel();
-        jToggleButton10 = new javax.swing.JToggleButton();
+        sjfActivateBT = new javax.swing.JToggleButton();
         jPanel16 = new javax.swing.JPanel();
         jLabel30 = new javax.swing.JLabel();
-        jToggleButton11 = new javax.swing.JToggleButton();
+        srtActivateBT = new javax.swing.JToggleButton();
         jLabel15 = new javax.swing.JLabel();
-        jSlider6 = new javax.swing.JSlider();
+        quantumSlider = new javax.swing.JSlider();
         jPanel17 = new javax.swing.JPanel();
         jLabel32 = new javax.swing.JLabel();
-        jToggleButton12 = new javax.swing.JToggleButton();
-        jLabel16 = new javax.swing.JLabel();
+        rrActivateBT = new javax.swing.JToggleButton();
+        quantumLB = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        saveBT = new javax.swing.JButton();
+        jLabel26 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setMinimumSize(new java.awt.Dimension(680, 450));
@@ -219,21 +220,27 @@ public class ConfigurationPanel extends javax.swing.JPanel {
         jLabel21.setForeground(new java.awt.Color(255, 0, 0));
         jLabel21.setText("* Should be power of two *");
         jPanel9.add(jLabel21);
-        jLabel21.setBounds(180, 70, 140, 30);
+        jLabel21.setBounds(430, 50, 140, 20);
 
-        jSlider2.setBackground(new java.awt.Color(255, 255, 255));
-        jSlider2.setMaximum(65536);
-        jSlider2.setMinimum(16);
-        jSlider2.setValue(128);
-        jPanel9.add(jSlider2);
-        jSlider2.setBounds(110, 50, 250, 30);
+        partitionSizeSlider.setBackground(new java.awt.Color(255, 255, 255));
+        partitionSizeSlider.setMaximum(8);
+        partitionSizeSlider.setMinimum(1);
+        partitionSizeSlider.setToolTipText("");
+        partitionSizeSlider.setValue(1);
+        partitionSizeSlider.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                partitionSizeSliderStateChanged(evt);
+            }
+        });
+        jPanel9.add(partitionSizeSlider);
+        partitionSizeSlider.setBounds(110, 50, 250, 30);
 
-        jLabel5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel5.setText("16");
-        jPanel9.add(jLabel5);
-        jLabel5.setBounds(360, 50, 150, 20);
+        partitionSizeLB.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        partitionSizeLB.setForeground(new java.awt.Color(51, 51, 51));
+        partitionSizeLB.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        partitionSizeLB.setText("16");
+        jPanel9.add(partitionSizeLB);
+        partitionSizeLB.setBounds(360, 50, 150, 20);
 
         jPanel8.setLayout(null);
 
@@ -243,11 +250,17 @@ public class ConfigurationPanel extends javax.swing.JPanel {
         jPanel8.add(jLabel6);
         jLabel6.setBounds(10, 0, 100, 24);
 
-        jToggleButton3.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jToggleButton3.setText("Disabled");
-        jToggleButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel8.add(jToggleButton3);
-        jToggleButton3.setBounds(540, 0, 90, 23);
+        segmentationActivateBT.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        segmentationActivateBT.setText("Activate");
+        segmentationActivateBT.setActionCommand("activateSegmentation");
+        segmentationActivateBT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        segmentationActivateBT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                segmentationActivateBTActionPerformed(evt);
+            }
+        });
+        jPanel8.add(segmentationActivateBT);
+        segmentationActivateBT.setBounds(540, 0, 90, 23);
 
         jPanel9.add(jPanel8);
         jPanel8.setBounds(10, 240, 630, 24);
@@ -260,11 +273,17 @@ public class ConfigurationPanel extends javax.swing.JPanel {
         jPanel10.add(jLabel18);
         jLabel18.setBounds(10, 0, 100, 24);
 
-        jToggleButton5.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jToggleButton5.setText("Disabled");
-        jToggleButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel10.add(jToggleButton5);
-        jToggleButton5.setBounds(540, 0, 90, 23);
+        fixedPartitionActivateBT.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        fixedPartitionActivateBT.setText("Activate");
+        fixedPartitionActivateBT.setActionCommand("activateFixed");
+        fixedPartitionActivateBT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        fixedPartitionActivateBT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fixedPartitionActivateBTActionPerformed(evt);
+            }
+        });
+        jPanel10.add(fixedPartitionActivateBT);
+        fixedPartitionActivateBT.setBounds(540, 0, 90, 23);
 
         jPanel9.add(jPanel10);
         jPanel10.setBounds(10, 10, 630, 24);
@@ -277,11 +296,17 @@ public class ConfigurationPanel extends javax.swing.JPanel {
         jPanel11.add(jLabel22);
         jLabel22.setBounds(10, 0, 100, 24);
 
-        jToggleButton6.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jToggleButton6.setText("Disabled");
-        jToggleButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel11.add(jToggleButton6);
-        jToggleButton6.setBounds(540, 0, 90, 23);
+        dynamicPartitionActivateBT.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        dynamicPartitionActivateBT.setText("Activate");
+        dynamicPartitionActivateBT.setActionCommand("activateDynamic");
+        dynamicPartitionActivateBT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        dynamicPartitionActivateBT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dynamicPartitionActivateBTActionPerformed(evt);
+            }
+        });
+        jPanel11.add(dynamicPartitionActivateBT);
+        dynamicPartitionActivateBT.setBounds(540, 0, 90, 23);
 
         jPanel9.add(jPanel11);
         jPanel11.setBounds(10, 100, 630, 24);
@@ -294,11 +319,17 @@ public class ConfigurationPanel extends javax.swing.JPanel {
         jPanel12.add(jLabel23);
         jLabel23.setBounds(10, 0, 100, 24);
 
-        jToggleButton7.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jToggleButton7.setText("Disabled");
-        jToggleButton7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel12.add(jToggleButton7);
-        jToggleButton7.setBounds(540, 0, 90, 23);
+        pagingActivateBT.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        pagingActivateBT.setText("Activate");
+        pagingActivateBT.setActionCommand("activatePaging");
+        pagingActivateBT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        pagingActivateBT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pagingActivateBTActionPerformed(evt);
+            }
+        });
+        jPanel12.add(pagingActivateBT);
+        pagingActivateBT.setBounds(540, 0, 90, 23);
 
         jPanel9.add(jPanel12);
         jPanel12.setBounds(10, 150, 630, 24);
@@ -308,25 +339,31 @@ public class ConfigurationPanel extends javax.swing.JPanel {
         jPanel9.add(jLabel24);
         jLabel24.setBounds(30, 190, 90, 30);
 
-        jSlider5.setBackground(new java.awt.Color(255, 255, 255));
-        jSlider5.setMaximum(65536);
-        jSlider5.setMinimum(16);
-        jSlider5.setValue(128);
-        jPanel9.add(jSlider5);
-        jSlider5.setBounds(110, 190, 250, 30);
-
         jLabel25.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(255, 0, 0));
         jLabel25.setText("* Should be power of two *");
         jPanel9.add(jLabel25);
-        jLabel25.setBounds(180, 210, 140, 30);
+        jLabel25.setBounds(430, 190, 140, 14);
 
-        jLabel26.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel26.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel26.setText("16");
-        jPanel9.add(jLabel26);
-        jLabel26.setBounds(360, 190, 150, 20);
+        frameSizeSlider.setBackground(new java.awt.Color(255, 255, 255));
+        frameSizeSlider.setMaximum(8);
+        frameSizeSlider.setMinimum(1);
+        frameSizeSlider.setToolTipText("");
+        frameSizeSlider.setValue(1);
+        frameSizeSlider.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                frameSizeSliderStateChanged(evt);
+            }
+        });
+        jPanel9.add(frameSizeSlider);
+        frameSizeSlider.setBounds(110, 190, 250, 30);
+
+        frameSizeLB.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        frameSizeLB.setForeground(new java.awt.Color(51, 51, 51));
+        frameSizeLB.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        frameSizeLB.setText("16");
+        jPanel9.add(frameSizeLB);
+        frameSizeLB.setBounds(360, 190, 150, 20);
 
         jTabbedPane1.addTab("Memory management", jPanel9);
 
@@ -341,11 +378,17 @@ public class ConfigurationPanel extends javax.swing.JPanel {
         jPanel13.add(jLabel27);
         jLabel27.setBounds(10, 0, 270, 24);
 
-        jToggleButton8.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jToggleButton8.setText("Disabled");
-        jToggleButton8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel13.add(jToggleButton8);
-        jToggleButton8.setBounds(540, 0, 90, 23);
+        hrrnActivateBT.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        hrrnActivateBT.setText("Activate");
+        hrrnActivateBT.setActionCommand("activateHRRN");
+        hrrnActivateBT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        hrrnActivateBT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hrrnActivateBTActionPerformed(evt);
+            }
+        });
+        jPanel13.add(hrrnActivateBT);
+        hrrnActivateBT.setBounds(540, 0, 90, 23);
 
         jPanel5.add(jPanel13);
         jPanel13.setBounds(10, 130, 630, 24);
@@ -358,11 +401,17 @@ public class ConfigurationPanel extends javax.swing.JPanel {
         jPanel14.add(jLabel28);
         jLabel28.setBounds(10, 0, 270, 24);
 
-        jToggleButton9.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jToggleButton9.setText("Disabled");
-        jToggleButton9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel14.add(jToggleButton9);
-        jToggleButton9.setBounds(540, 0, 90, 23);
+        fcfsActivateBT.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        fcfsActivateBT.setText("Activate");
+        fcfsActivateBT.setActionCommand("activateFCFS");
+        fcfsActivateBT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        fcfsActivateBT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fcfsActivateBTActionPerformed(evt);
+            }
+        });
+        jPanel14.add(fcfsActivateBT);
+        fcfsActivateBT.setBounds(540, 0, 90, 23);
 
         jPanel5.add(jPanel14);
         jPanel14.setBounds(10, 10, 630, 24);
@@ -375,11 +424,17 @@ public class ConfigurationPanel extends javax.swing.JPanel {
         jPanel15.add(jLabel29);
         jLabel29.setBounds(10, 0, 270, 24);
 
-        jToggleButton10.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jToggleButton10.setText("Disabled");
-        jToggleButton10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel15.add(jToggleButton10);
-        jToggleButton10.setBounds(540, 0, 90, 23);
+        sjfActivateBT.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        sjfActivateBT.setText("Activate");
+        sjfActivateBT.setActionCommand("activateSRT");
+        sjfActivateBT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        sjfActivateBT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sjfActivateBTActionPerformed(evt);
+            }
+        });
+        jPanel15.add(sjfActivateBT);
+        sjfActivateBT.setBounds(540, 0, 90, 23);
 
         jPanel5.add(jPanel15);
         jPanel15.setBounds(10, 50, 630, 24);
@@ -392,11 +447,17 @@ public class ConfigurationPanel extends javax.swing.JPanel {
         jPanel16.add(jLabel30);
         jLabel30.setBounds(10, 0, 270, 24);
 
-        jToggleButton11.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jToggleButton11.setText("Disabled");
-        jToggleButton11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel16.add(jToggleButton11);
-        jToggleButton11.setBounds(540, 0, 90, 23);
+        srtActivateBT.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        srtActivateBT.setText("Activate");
+        srtActivateBT.setActionCommand("activateSJF");
+        srtActivateBT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        srtActivateBT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                srtActivateBTActionPerformed(evt);
+            }
+        });
+        jPanel16.add(srtActivateBT);
+        srtActivateBT.setBounds(540, 0, 90, 23);
 
         jPanel5.add(jPanel16);
         jPanel16.setBounds(10, 90, 630, 24);
@@ -404,14 +465,20 @@ public class ConfigurationPanel extends javax.swing.JPanel {
         jLabel15.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabel15.setText("Quantum:");
         jPanel5.add(jLabel15);
-        jLabel15.setBounds(30, 210, 90, 30);
+        jLabel15.setBounds(30, 210, 80, 30);
 
-        jSlider6.setBackground(new java.awt.Color(255, 255, 255));
-        jSlider6.setMaximum(65536);
-        jSlider6.setMinimum(16);
-        jSlider6.setValue(128);
-        jPanel5.add(jSlider6);
-        jSlider6.setBounds(110, 210, 240, 30);
+        quantumSlider.setBackground(new java.awt.Color(255, 255, 255));
+        quantumSlider.setMaximum(10);
+        quantumSlider.setMinimum(1);
+        quantumSlider.setMinorTickSpacing(1);
+        quantumSlider.setValue(1);
+        quantumSlider.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                quantumSliderStateChanged(evt);
+            }
+        });
+        jPanel5.add(quantumSlider);
+        quantumSlider.setBounds(110, 210, 240, 30);
 
         jPanel17.setLayout(null);
 
@@ -421,21 +488,27 @@ public class ConfigurationPanel extends javax.swing.JPanel {
         jPanel17.add(jLabel32);
         jLabel32.setBounds(10, 0, 100, 24);
 
-        jToggleButton12.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jToggleButton12.setText("Disabled");
-        jToggleButton12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel17.add(jToggleButton12);
-        jToggleButton12.setBounds(540, 0, 90, 23);
+        rrActivateBT.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        rrActivateBT.setText("Activate");
+        rrActivateBT.setActionCommand("activateRR");
+        rrActivateBT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        rrActivateBT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rrActivateBTActionPerformed(evt);
+            }
+        });
+        jPanel17.add(rrActivateBT);
+        rrActivateBT.setBounds(540, 0, 90, 23);
 
         jPanel5.add(jPanel17);
         jPanel17.setBounds(10, 170, 630, 24);
 
-        jLabel16.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel16.setText("1");
-        jPanel5.add(jLabel16);
-        jLabel16.setBounds(390, 210, 20, 20);
+        quantumLB.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        quantumLB.setForeground(new java.awt.Color(51, 51, 51));
+        quantumLB.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        quantumLB.setText("1");
+        jPanel5.add(quantumLB);
+        quantumLB.setBounds(390, 210, 20, 20);
 
         jLabel17.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(51, 51, 51));
@@ -449,20 +522,26 @@ public class ConfigurationPanel extends javax.swing.JPanel {
         add(jTabbedPane1);
         jTabbedPane1.setBounds(10, 40, 660, 360);
 
-        jButton1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jButton1.setText("Save");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        saveBT.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        saveBT.setText("Save");
+        saveBT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                saveBTActionPerformed(evt);
             }
         });
-        add(jButton1);
-        jButton1.setBounds(240, 410, 180, 30);
+        add(saveBT);
+        saveBT.setBounds(240, 410, 180, 30);
+
+        jLabel26.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel26.setText("* Will reset all components *");
+        add(jLabel26);
+        jLabel26.setBounds(430, 410, 140, 30);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void saveBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBTActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_saveBTActionPerformed
 
     private void memorySizeSliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_memorySizeSliderStateChanged
         int memorySize = (int) Math.pow(2, (double) this.memorySizeSlider.getValue());
@@ -497,16 +576,164 @@ public class ConfigurationPanel extends javax.swing.JPanel {
         );
     }//GEN-LAST:event_osDedicatedMemorySliderStateChanged
 
+    private void fixedPartitionActivateBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fixedPartitionActivateBTActionPerformed
+        this.activateFixed();
+    }//GEN-LAST:event_fixedPartitionActivateBTActionPerformed
 
+    private void pagingActivateBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pagingActivateBTActionPerformed
+        this.activatePaging();
+    }//GEN-LAST:event_pagingActivateBTActionPerformed
+
+    private void dynamicPartitionActivateBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dynamicPartitionActivateBTActionPerformed
+        this.activateDynamic();
+    }//GEN-LAST:event_dynamicPartitionActivateBTActionPerformed
+
+    private void segmentationActivateBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_segmentationActivateBTActionPerformed
+        this.activateSegmentation();
+    }//GEN-LAST:event_segmentationActivateBTActionPerformed
+
+    private void fcfsActivateBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fcfsActivateBTActionPerformed
+        this.activateFCFS();
+    }//GEN-LAST:event_fcfsActivateBTActionPerformed
+
+    private void sjfActivateBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sjfActivateBTActionPerformed
+        this.activateSJF();
+    }//GEN-LAST:event_sjfActivateBTActionPerformed
+
+    private void srtActivateBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_srtActivateBTActionPerformed
+        this.activateSRT();
+    }//GEN-LAST:event_srtActivateBTActionPerformed
+
+    private void hrrnActivateBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hrrnActivateBTActionPerformed
+        this.activateHRRN();
+    }//GEN-LAST:event_hrrnActivateBTActionPerformed
+
+    private void rrActivateBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rrActivateBTActionPerformed
+        this.activateRR();
+    }//GEN-LAST:event_rrActivateBTActionPerformed
+
+    private void partitionSizeSliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_partitionSizeSliderStateChanged
+        int partitionSize = (int) Math.pow(2, (double) this.partitionSizeSlider.getValue());
+        String text = Integer.toString(partitionSize) + "KB";
+        if (partitionSize >= 1024) {
+            text = Integer.toString((int) (partitionSize / 1024.0)) + "MB";
+        }
+        this.partitionSizeLB.setText(
+                text
+        );
+    }//GEN-LAST:event_partitionSizeSliderStateChanged
+
+    private void frameSizeSliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_frameSizeSliderStateChanged
+        int frameSize = (int) Math.pow(2, (double) this.frameSizeSlider.getValue());
+        String text = Integer.toString(frameSize) + "KB";
+        if (frameSize >= 1024) {
+            text = Integer.toString((int) (frameSize / 1024.0)) + "MB";
+        }
+        this.frameSizeLB.setText(
+                text
+        );
+    }//GEN-LAST:event_frameSizeSliderStateChanged
+
+    private void quantumSliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_quantumSliderStateChanged
+        this.quantumLB.setText(Integer.toString(this.quantumSlider.getValue()));
+    }//GEN-LAST:event_quantumSliderStateChanged
+
+    
+    public void activateFCFS() {
+        this.quantumSlider.setEnabled(false);
+        this.fcfsActivateBT.setText("Activated");
+        this.srtActivateBT.setText("Activate");
+        this.sjfActivateBT.setText("Activate");
+        this.hrrnActivateBT.setText("Activate");
+        this.rrActivateBT.setText("Activate");
+    }
+    
+    public void activateSRT() {
+        this.quantumSlider.setEnabled(false);
+        this.fcfsActivateBT.setText("Activate");
+        this.srtActivateBT.setText("Activated");
+        this.sjfActivateBT.setText("Activate");
+        this.hrrnActivateBT.setText("Activate");
+        this.rrActivateBT.setText("Activate");
+    }
+    
+    public void activateSJF() {
+        this.quantumSlider.setEnabled(false);
+        this.fcfsActivateBT.setText("Activate");
+        this.srtActivateBT.setText("Activate");
+        this.sjfActivateBT.setText("Activated");
+        this.hrrnActivateBT.setText("Activate");
+        this.rrActivateBT.setText("Activate");
+    }
+    
+    public void activateRR() {
+        this.quantumSlider.setEnabled(true);
+        this.fcfsActivateBT.setText("Activate");
+        this.srtActivateBT.setText("Activate");
+        this.sjfActivateBT.setText("Activate");
+        this.hrrnActivateBT.setText("Activate");
+        this.rrActivateBT.setText("Activated");
+    }
+    
+    public void activateHRRN() {
+        this.quantumSlider.setEnabled(false);
+        this.fcfsActivateBT.setText("Activate");
+        this.srtActivateBT.setText("Activate");
+        this.sjfActivateBT.setText("Activate");
+        this.hrrnActivateBT.setText("Activated");
+        this.rrActivateBT.setText("Activate");
+    }
+
+    public void activateFixed() {
+        this.partitionSizeSlider.setEnabled(true);
+        this.frameSizeSlider.setEnabled(false);
+        this.fixedPartitionActivateBT.setText("Activated");
+        this.dynamicPartitionActivateBT.setText("Activate");
+        this.pagingActivateBT.setText("Activate");
+        this.segmentationActivateBT.setText("Activate");
+        
+    }
+    
+    public void activateDynamic() {
+        this.partitionSizeSlider.setEnabled(false);
+        this.frameSizeSlider.setEnabled(false);
+        this.fixedPartitionActivateBT.setText("Activate");
+        this.dynamicPartitionActivateBT.setText("Activated");
+        this.pagingActivateBT.setText("Activate");
+        this.segmentationActivateBT.setText("Activate");
+    }
+    
+    public void activatePaging() {
+        this.partitionSizeSlider.setEnabled(false);
+        this.frameSizeSlider.setEnabled(true);
+        this.fixedPartitionActivateBT.setText("Activate");
+        this.dynamicPartitionActivateBT.setText("Activate");
+        this.pagingActivateBT.setText("Activated");
+        this.segmentationActivateBT.setText("Activate");
+    }
+    
+    public void activateSegmentation() {
+        this.partitionSizeSlider.setEnabled(false);
+        this.frameSizeSlider.setEnabled(false);
+        this.fixedPartitionActivateBT.setText("Activate");
+        this.dynamicPartitionActivateBT.setText("Activate");
+        this.pagingActivateBT.setText("Activate");
+        this.segmentationActivateBT.setText("Activated");
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JLabel diskMemorySizeLB;
     public javax.swing.JSlider diskMemorySlider;
-    private javax.swing.JButton jButton1;
+    public javax.swing.JToggleButton dynamicPartitionActivateBT;
+    public javax.swing.JToggleButton fcfsActivateBT;
+    public javax.swing.JToggleButton fixedPartitionActivateBT;
+    private javax.swing.JLabel frameSizeLB;
+    public javax.swing.JSlider frameSizeSlider;
+    public javax.swing.JToggleButton hrrnActivateBT;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
@@ -523,7 +750,6 @@ public class ConfigurationPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -541,22 +767,20 @@ public class ConfigurationPanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JSlider jSlider2;
-    private javax.swing.JSlider jSlider5;
-    private javax.swing.JSlider jSlider6;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JToggleButton jToggleButton10;
-    private javax.swing.JToggleButton jToggleButton11;
-    private javax.swing.JToggleButton jToggleButton12;
-    private javax.swing.JToggleButton jToggleButton3;
-    private javax.swing.JToggleButton jToggleButton5;
-    private javax.swing.JToggleButton jToggleButton6;
-    private javax.swing.JToggleButton jToggleButton7;
-    private javax.swing.JToggleButton jToggleButton8;
-    private javax.swing.JToggleButton jToggleButton9;
     public javax.swing.JLabel mainMemorySizeLB;
     public javax.swing.JSlider memorySizeSlider;
     public javax.swing.JLabel osDedicatedMemorySizeLB;
     public javax.swing.JSlider osDedicatedMemorySlider;
+    public javax.swing.JToggleButton pagingActivateBT;
+    private javax.swing.JLabel partitionSizeLB;
+    public javax.swing.JSlider partitionSizeSlider;
+    private javax.swing.JLabel quantumLB;
+    public javax.swing.JSlider quantumSlider;
+    public javax.swing.JToggleButton rrActivateBT;
+    public javax.swing.JButton saveBT;
+    public javax.swing.JToggleButton segmentationActivateBT;
+    public javax.swing.JToggleButton sjfActivateBT;
+    public javax.swing.JToggleButton srtActivateBT;
     // End of variables declaration//GEN-END:variables
 }

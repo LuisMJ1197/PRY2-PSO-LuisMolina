@@ -15,6 +15,7 @@ import os.memorymanagement.partition.Page;
  */
 public class PagedProcess extends Process {
     private Page[] pageTable;
+    private int actualPc = 0;
     
     public PagedProcess(String name, String[] code) {
         super(name, code);
@@ -41,5 +42,18 @@ public class PagedProcess extends Process {
     public Page[] getPages() {
         return this.pageTable;
     }
+
+    public int getActualPc() {
+        return actualPc;
+    }
+
+    public void setActualPc(int actualPc) {
+        this.actualPc = actualPc;
+    }
+    
+    public void incrementPc(int offset) {
+        this.actualPc += offset;
+    }
+    
     
 }

@@ -7,7 +7,8 @@ package application.view.processlist;
 
 import java.awt.Color;
 import os.process.IProcess;
-import os.PCB;
+import os.process.PCB;
+import util.stack.MStack;
 
 /**
  *
@@ -56,6 +57,11 @@ public class ProcessDecorator implements IProcess {
     @Override
     public PCB getPcb() {
         return this.process.getPcb();
+    }
+
+    @Override
+    public MStack getStack() {
+        return this.process.getStack();
     }
 
 }

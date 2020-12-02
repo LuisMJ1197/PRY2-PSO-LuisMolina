@@ -7,6 +7,7 @@ package os.memorymanagement;
 
 import java.util.ArrayList;
 import machine.Machine;
+import machine.memory.IAddress;
 import machine.memory.IMemory;
 import machine.memory.Register;
 import os.process.Process;
@@ -92,22 +93,25 @@ public class DynamicPartitionMM extends MemoryManager {
     }
 
     @Override
-    public LogicalAddress getNextAddress(Process process) {
-        LogicalAddress address = new LogicalAddress(process.getPcb().getPcAddress().getOffset() + 1);
-        if (address.getOffset() > (process.getPcb().getBase().getOffset() + process.getPcb().getLimit() - 1)) {
-            return null;
-        }
+    public LogicalAddress getNextAddress(Process process, int offset) {
+        LogicalAddress address = new LogicalAddress(process.getPcb().getPcAddress().getOffset() + offset);
         return address;
     }
 
     @Override
-    public String load(LogicalAddress address) {
+    public String load(IAddress address) {
         return Machine.getInstance().getMainMemory().load(address);
     }
 
     @Override
-    public void store(LogicalAddress address, String value) {
+    public void store(IAddress address, String value) {
         Machine.getInstance().getMainMemory().getRegister(address.getOffset());
+    }
+
+    @Override
+    public boolean validateAddress(Process process, IAddress address) {
+        return address.getOffset() >= process.getPcb().getBase() 
+                && address.getOffset() <= (process.getPcb().getBase() + process.getPcb().getLimit() - 1);
     }
     
 }

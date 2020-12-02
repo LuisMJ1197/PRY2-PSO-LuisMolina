@@ -6,18 +6,21 @@
 package application.view.processlist;
 
 import java.awt.Color;
+import javax.swing.JLabel;
 
 /**
  *
  * @author Luism
  */
 public class ProcessPanel extends javax.swing.JPanel {
-
+    public JLabel[] stack;
+    
     /**
      * Creates new form ProcessPanel
      */
     public ProcessPanel() {
         initComponents();
+        this.stack = new JLabel[]{stack1, stack2, stack3, stack4, stack5};
     }
 
     public void setProcessColor(Color color) {
@@ -33,6 +36,18 @@ public class ProcessPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        processInfo = new javax.swing.JDialog();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        stack5 = new javax.swing.JLabel();
+        idMLB = new javax.swing.JLabel();
+        stack1 = new javax.swing.JLabel();
+        stack2 = new javax.swing.JLabel();
+        stack3 = new javax.swing.JLabel();
+        stack4 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
         colorPane = new javax.swing.JPanel();
         dxLB = new javax.swing.JLabel();
         cxLB = new javax.swing.JLabel();
@@ -46,8 +61,98 @@ public class ProcessPanel extends javax.swing.JPanel {
         idLB = new javax.swing.JLabel();
         pcLB = new javax.swing.JLabel();
 
+        processInfo.setSize(new java.awt.Dimension(400, 300));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(null);
+
+        jPanel3.setLayout(null);
+
+        jLabel2.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jLabel2.setText("Process's other information");
+        jLabel2.setPreferredSize(new java.awt.Dimension(65, 24));
+        jPanel3.add(jLabel2);
+        jLabel2.setBounds(10, 0, 180, 24);
+
+        jPanel1.add(jPanel3);
+        jPanel3.setBounds(10, 10, 380, 24);
+
+        stack5.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        stack5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        stack5.setText("0");
+        stack5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        stack5.setPreferredSize(new java.awt.Dimension(65, 24));
+        jPanel1.add(stack5);
+        stack5.setBounds(70, 210, 110, 24);
+
+        idMLB.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        idMLB.setText("-1");
+        idMLB.setPreferredSize(new java.awt.Dimension(65, 24));
+        jPanel1.add(idMLB);
+        idMLB.setBounds(70, 50, 110, 24);
+
+        stack1.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        stack1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        stack1.setText("0");
+        stack1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        stack1.setPreferredSize(new java.awt.Dimension(65, 24));
+        jPanel1.add(stack1);
+        stack1.setBounds(70, 90, 110, 24);
+
+        stack2.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        stack2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        stack2.setText("0");
+        stack2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        stack2.setPreferredSize(new java.awt.Dimension(65, 24));
+        jPanel1.add(stack2);
+        stack2.setBounds(70, 120, 110, 24);
+
+        stack3.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        stack3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        stack3.setText("0");
+        stack3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        stack3.setPreferredSize(new java.awt.Dimension(65, 24));
+        jPanel1.add(stack3);
+        stack3.setBounds(70, 150, 110, 24);
+
+        stack4.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        stack4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        stack4.setText("0");
+        stack4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        stack4.setPreferredSize(new java.awt.Dimension(65, 24));
+        jPanel1.add(stack4);
+        stack4.setBounds(70, 180, 110, 24);
+
+        jLabel9.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jLabel9.setText("Stack:");
+        jLabel9.setPreferredSize(new java.awt.Dimension(65, 24));
+        jPanel1.add(jLabel9);
+        jLabel9.setBounds(20, 90, 40, 24);
+
+        jLabel10.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jLabel10.setText("ID:");
+        jLabel10.setPreferredSize(new java.awt.Dimension(65, 24));
+        jPanel1.add(jLabel10);
+        jLabel10.setBounds(20, 50, 40, 24);
+
+        javax.swing.GroupLayout processInfoLayout = new javax.swing.GroupLayout(processInfo.getContentPane());
+        processInfo.getContentPane().setLayout(processInfoLayout);
+        processInfoLayout.setHorizontalGroup(
+            processInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        processInfoLayout.setVerticalGroup(
+            processInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
         setBackground(new java.awt.Color(249, 249, 249));
         setPreferredSize(new java.awt.Dimension(1002, 24));
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
         setLayout(null);
 
         colorPane.setBackground(new java.awt.Color(255, 204, 0));
@@ -122,6 +227,10 @@ public class ProcessPanel extends javax.swing.JPanel {
         pcLB.setBounds(350, 5, 100, 13);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        this.processInfo.setVisible(true);
+    }//GEN-LAST:event_formMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JLabel acLB;
@@ -133,8 +242,20 @@ public class ProcessPanel extends javax.swing.JPanel {
     public javax.swing.JLabel cxLB;
     public javax.swing.JLabel dxLB;
     public javax.swing.JLabel idLB;
+    public javax.swing.JLabel idMLB;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel3;
     public javax.swing.JLabel nameLB;
     public javax.swing.JLabel pcLB;
+    private javax.swing.JDialog processInfo;
+    public javax.swing.JLabel stack1;
+    public javax.swing.JLabel stack2;
+    public javax.swing.JLabel stack3;
+    public javax.swing.JLabel stack4;
+    public javax.swing.JLabel stack5;
     public javax.swing.JLabel statusLB;
     // End of variables declaration//GEN-END:variables
 }

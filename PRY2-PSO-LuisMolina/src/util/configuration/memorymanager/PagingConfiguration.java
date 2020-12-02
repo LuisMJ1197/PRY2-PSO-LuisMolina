@@ -17,10 +17,15 @@ public class PagingConfiguration extends MethodConfiguration {
     public PagingConfiguration(boolean activated, int frameSize) {
         super(activated);
         this.frameSize = frameSize;
+        this.name = "Paging";
     }
 
     public int getFrameSize() {
         return frameSize;
+    }
+
+    public void setPageSize(int i) {
+        this.frameSize = i;
     }
     
     

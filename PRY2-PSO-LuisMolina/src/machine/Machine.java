@@ -5,6 +5,7 @@
  */
 package machine;
 
+import machine.io.Display;
 import machine.memory.IMemory;
 import machine.memory.Memory;
 import machine.processor.Processor;
@@ -15,15 +16,16 @@ import machine.processor.Processor;
  */
 public class Machine {
     private static Machine instance;
-
     private final IMemory mainMemory;
     private final IMemory virtualMemory;
     private final Processor processor;
+    private final Display display;
     
     public Machine(int mainMemorySize, int virtualMemorySize) {
         this.mainMemory = new Memory(mainMemorySize, IMemory.MAIN_MEMORY);
         this.virtualMemory = new Memory(virtualMemorySize, IMemory.DISK_MEMORY);
         this.processor = new Processor();
+        this.display = new Display();
     }
 
     public static Machine getInstance() {
@@ -45,4 +47,14 @@ public class Machine {
     public static void startInstance(Machine machine) {
        instance = machine;
     }
+
+    public IMemory getVirtualMemory() {
+        return virtualMemory;
+    }
+
+    public Display getDisplay() {
+        return display;
+    }
+    
+    
 }

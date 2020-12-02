@@ -14,5 +14,6 @@ import util.configuration.MethodConfiguration;
 public class FCFSConfiguration extends MethodConfiguration {
     public FCFSConfiguration(boolean activated) {
         super(activated);
+        this.name = "First Come First Served";
     }
 }

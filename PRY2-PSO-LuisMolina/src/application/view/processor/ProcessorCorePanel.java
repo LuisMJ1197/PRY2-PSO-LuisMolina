@@ -37,7 +37,7 @@ public class ProcessorCorePanel extends javax.swing.JPanel {
 
         executionTimesPanel.setLayout(null);
         add(executionTimesPanel);
-        executionTimesPanel.setBounds(170, 0, 850, 25);
+        executionTimesPanel.setBounds(220, 0, 800, 25);
 
         coreNumber.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         coreNumber.setForeground(new java.awt.Color(51, 51, 51));
@@ -67,7 +67,7 @@ public class ProcessorCorePanel extends javax.swing.JPanel {
         irLB.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         irLB.setOpaque(true);
         add(irLB);
-        irLB.setBounds(120, 0, 50, 25);
+        irLB.setBounds(120, 0, 100, 25);
     }// </editor-fold>//GEN-END:initComponents
 
 

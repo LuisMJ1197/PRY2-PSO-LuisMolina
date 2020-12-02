@@ -28,6 +28,11 @@ public class MainFrameController {
         return MainFrameController.instance;
     }
     
+    public static MainFrameController getNewInstance() {
+        MainFrameController.instance = new MainFrameController();
+        return instance;
+    }
+    
     public MainFrame getScreen() {
         return this.screen;
     }

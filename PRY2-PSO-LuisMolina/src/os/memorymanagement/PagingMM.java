@@ -8,6 +8,8 @@ package os.memorymanagement;
 import java.util.ArrayList;
 import java.util.Arrays;
 import machine.Machine;
+import machine.memory.IAddress;
+import machine.memory.PhysicalAddress;
 import machine.memory.Register;
 import os.memorymanagement.partition.Frame;
 import os.memorymanagement.partition.Page;
@@ -143,18 +145,29 @@ public class PagingMM extends MemoryManager {
     }
 
     @Override
-    public LogicalAddress getNextAddress(Process process) {
+    public IAddress getNextAddress(Process process, int offset) {
+        PagedProcess pProcess = (PagedProcess) process;
+        pProcess.incrementPc(offset);
+        if (pProcess.getActualPc() >= 0 && pProcess.getActualPc() < pProcess.getProgramSize()) {
+            return pProcess.getSavedMemory()[pProcess.getActualPc()].getAddress();
+        } else {
+            return new PhysicalAddress(-1);
+        }
+    }
+
+    @Override
+    public String load(IAddress address) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public String load(LogicalAddress address) {
+    public void store(IAddress address, String value) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void store(LogicalAddress address, String value) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean validateAddress(Process process, IAddress address) {
+        return address.getOffset() != -1;
     }
     
 }

@@ -29,7 +29,9 @@ public class ProcessListPanel extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         processCountLB = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        memoryManagementMethodLB = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -61,11 +63,23 @@ public class ProcessListPanel extends javax.swing.JPanel {
         jPanel1.add(processCountLB);
         processCountLB.setBounds(962, 0, 58, 25);
 
-        jLabel3.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel3.setText("Process List");
-        jPanel1.add(jLabel3);
-        jLabel3.setBounds(10, 5, 60, 14);
+        memoryManagementMethodLB.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        memoryManagementMethodLB.setForeground(new java.awt.Color(51, 51, 51));
+        memoryManagementMethodLB.setText("mm");
+        jPanel1.add(memoryManagementMethodLB);
+        memoryManagementMethodLB.setBounds(250, 0, 210, 24);
+
+        jLabel7.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel7.setText("Process List");
+        jPanel1.add(jLabel7);
+        jLabel7.setBounds(10, 5, 60, 14);
+
+        jLabel8.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel8.setText("Memory managment method:");
+        jPanel1.add(jLabel8);
+        jLabel8.setBounds(100, 0, 140, 24);
 
         add(jPanel1);
         jPanel1.setBounds(10, 11, 1020, 24);
@@ -144,12 +158,14 @@ public class ProcessListPanel extends javax.swing.JPanel {
     public javax.swing.JLabel cxLB;
     public javax.swing.JLabel dxLB;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JLabel memoryManagementMethodLB;
     public javax.swing.JLabel pcLB;
     public javax.swing.JLabel pcLB1;
     public javax.swing.JLabel processCountLB;

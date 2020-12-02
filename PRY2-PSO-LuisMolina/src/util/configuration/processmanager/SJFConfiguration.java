@@ -14,5 +14,6 @@ import util.configuration.MethodConfiguration;
 public class SJFConfiguration extends MethodConfiguration {
     public SJFConfiguration(boolean activated) {
         super(activated);
+        this.name = "Shortest Job First";
     }
 }

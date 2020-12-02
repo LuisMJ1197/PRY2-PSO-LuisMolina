@@ -5,7 +5,7 @@
  */
 package os.process;
 
-import os.PCB;
+import util.stack.MStack;
 
 /**
  *
@@ -22,4 +22,6 @@ public interface IProcess {
     public int getPid();
 
     public PCB getPcb();
+    
+    public MStack getStack();
 }

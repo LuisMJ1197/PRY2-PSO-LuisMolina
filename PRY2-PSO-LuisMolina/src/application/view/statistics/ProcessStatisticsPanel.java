@@ -5,6 +5,8 @@
  */
 package application.view.statistics;
 
+import java.awt.Color;
+
 /**
  *
  * @author Luism
@@ -27,55 +29,77 @@ public class ProcessStatisticsPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        idLB = new javax.swing.JLabel();
+        nameLB = new javax.swing.JLabel();
+        arrivalTimeLB = new javax.swing.JLabel();
+        EndTime = new javax.swing.JLabel();
+        turnaroundTimeLB = new javax.swing.JLabel();
+        tr_tsLB = new javax.swing.JLabel();
+        colorPane = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(531, 24));
         setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jLabel1.setText("ID");
-        add(jLabel1);
-        jLabel1.setBounds(30, 0, 30, 24);
+        idLB.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        idLB.setText("ID");
+        add(idLB);
+        idLB.setBounds(30, 0, 30, 24);
 
-        jLabel5.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jLabel5.setText("Name");
-        add(jLabel5);
-        jLabel5.setBounds(60, 0, 90, 24);
+        nameLB.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        nameLB.setText("Name");
+        add(nameLB);
+        nameLB.setBounds(60, 0, 90, 24);
 
-        jLabel7.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jLabel7.setText("Tiempo de Inicio");
-        add(jLabel7);
-        jLabel7.setBounds(150, 0, 100, 24);
+        arrivalTimeLB.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        arrivalTimeLB.setText("Arrival time");
+        add(arrivalTimeLB);
+        arrivalTimeLB.setBounds(150, 0, 100, 24);
 
-        jLabel8.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jLabel8.setText("Tiempo final");
-        add(jLabel8);
-        jLabel8.setBounds(260, 0, 80, 24);
+        EndTime.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        EndTime.setText("End time");
+        add(EndTime);
+        EndTime.setBounds(260, 0, 80, 24);
 
-        jLabel10.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jLabel10.setText("Tiempo de estancia");
-        add(jLabel10);
-        jLabel10.setBounds(340, 0, 110, 24);
+        turnaroundTimeLB.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        turnaroundTimeLB.setText("Turnaround time");
+        add(turnaroundTimeLB);
+        turnaroundTimeLB.setBounds(340, 0, 110, 24);
 
-        jLabel9.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jLabel9.setText("Tr / Ts");
-        add(jLabel9);
-        jLabel9.setBounds(460, 0, 70, 24);
+        tr_tsLB.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        tr_tsLB.setText("Tr / Ts");
+        add(tr_tsLB);
+        tr_tsLB.setBounds(460, 0, 70, 24);
+
+        colorPane.setBackground(new java.awt.Color(255, 204, 0));
+
+        javax.swing.GroupLayout colorPaneLayout = new javax.swing.GroupLayout(colorPane);
+        colorPane.setLayout(colorPaneLayout);
+        colorPaneLayout.setHorizontalGroup(
+            colorPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 14, Short.MAX_VALUE)
+        );
+        colorPaneLayout.setVerticalGroup(
+            colorPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 14, Short.MAX_VALUE)
+        );
+
+        add(colorPane);
+        colorPane.setBounds(6, 5, 14, 14);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    public javax.swing.JLabel EndTime;
+    public javax.swing.JLabel arrivalTimeLB;
+    public javax.swing.JPanel colorPane;
+    public javax.swing.JLabel idLB;
+    public javax.swing.JLabel nameLB;
+    public javax.swing.JLabel tr_tsLB;
+    public javax.swing.JLabel turnaroundTimeLB;
     // End of variables declaration//GEN-END:variables
+
+    public void setProcessColor(Color color) {
+        this.colorPane.setBackground(color);
+    }
 }

@@ -16,7 +16,10 @@ public class Register {
     private String value = EMPTY;
     
     public Register() {
-        
+    }
+    
+    public Register(String value) {
+        this.value = value;
     }
     
     public Register(IAddress address) {
@@ -37,5 +40,9 @@ public class Register {
     
     public void clean() {
         this.value = EMPTY;
+    }
+    
+    public boolean equals(Register reg) {
+        return this.getAddress().equals(reg);
     }
 }

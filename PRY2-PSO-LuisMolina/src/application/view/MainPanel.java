@@ -47,7 +47,7 @@ public class MainPanel extends javax.swing.JPanel {
         processListPanelParent = new application.view.processlist.ProcessListPanel();
         memoriesPanel = new application.view.memory.MemoriesPanel();
         statisticsPanel1 = new application.view.statistics.StatisticsPanel();
-        displayPanel1 = new application.view.iodevices.DisplayPanel();
+        displayPanel = new application.view.iodevices.DisplayPanel();
         processorPanel = new application.view.processor.ProcessorPanel();
 
         arrivaltimeassignationpanel.setTitle("Arrival time configuration");
@@ -177,8 +177,8 @@ public class MainPanel extends javax.swing.JPanel {
         memoriesPanel.setBounds(1060, 40, 290, 460);
         add(statisticsPanel1);
         statisticsPanel1.setBounds(10, 510, 810, 210);
-        add(displayPanel1);
-        displayPanel1.setBounds(830, 510, 520, 210);
+        add(displayPanel);
+        displayPanel.setBounds(830, 510, 520, 210);
         add(processorPanel);
         processorPanel.setBounds(10, 270, 1040, 232);
     }// </editor-fold>//GEN-END:initComponents
@@ -193,7 +193,7 @@ public class MainPanel extends javax.swing.JPanel {
     public javax.swing.JDialog arrivaltimeassignationpanel;
     public javax.swing.JDialog configuration;
     public application.view.ConfigurationPanel configurationPanel1;
-    private application.view.iodevices.DisplayPanel displayPanel1;
+    public application.view.iodevices.DisplayPanel displayPanel;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel6;
@@ -207,6 +207,6 @@ public class MainPanel extends javax.swing.JPanel {
     public application.view.processor.ProcessorPanel processorPanel;
     public javax.swing.JButton runBT;
     public javax.swing.JButton settingsBT;
-    private application.view.statistics.StatisticsPanel statisticsPanel1;
+    public application.view.statistics.StatisticsPanel statisticsPanel1;
     // End of variables declaration//GEN-END:variables
 }

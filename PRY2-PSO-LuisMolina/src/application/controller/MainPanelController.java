@@ -6,6 +6,7 @@
 package application.controller;
 
 import application.MiniPC;
+import application.controller.io.DisplayController;
 import application.view.ArrivalTimeProcessPanel;
 import application.view.MainPanel;
 import application.view.memory.DynamicPartitionPainter;
@@ -27,6 +28,7 @@ import os.OS;
 import os.process.Program;
 import os.processmanagement.Scheduler.ISchedulerObserver;
 import util.FileBrowser;
+
 /**
  *
  * @author Luism
@@ -37,6 +39,7 @@ public class MainPanelController implements ActionListener, ISchedulerObserver {
     private final MemoryPanelController virtualMemoryPanelController;
     private ProcessPanelController processPanelController;
     private ProcessorController processorController;
+    private DisplayController displayController;
     
     public MainPanelController(MainPanel mainPanel) {
         this.mainPanel = mainPanel;
@@ -51,6 +54,9 @@ public class MainPanelController implements ActionListener, ISchedulerObserver {
                 Machine.getInstance().getSecMemory(), 
                 this.mainPanel.memoriesPanel.virtualMemoryPanel);
         OS.getInstance().getScheduler().setObserver(this);
+        this.displayController = new DisplayController(this.mainPanel.displayPanel.textArea, this.mainPanel.displayPanel.processIDLB);
+        this.mainPanel.processListPanelParent.memoryManagementMethodLB.setText(MiniPC.config.getMemoryActivatedMethodName());
+        this.mainPanel.processorPanel.schedulingMethodLB.setText(MiniPC.config.getSchedulingActivatedMethodName());
     }
     
     @Override
@@ -89,8 +95,11 @@ public class MainPanelController implements ActionListener, ISchedulerObserver {
         
         this.processorController = new ProcessorController(Machine.getInstance().getProcessor(), this.mainPanel.processorPanel, this.processPanelController.getProcessDecorators());
         this.update();
+        this.mainPanel.statisticsPanel1.processesPanel.removeAll();
+        
         this.mainPanel.loadFilesBT.setEnabled(false);
         this.mainPanel.runBT.setEnabled(true);
+        this.mainPanel.settingsBT.setEnabled(false);
     }
     
     private ArrayList<Program> createProgramList(File[] files, FileBrowser fileBrowser) {
@@ -181,6 +190,21 @@ public class MainPanelController implements ActionListener, ISchedulerObserver {
     private void initConfig() {
         this.mainPanel.configuration.setVisible(true);
         ConfigurationController c = new ConfigurationController(this.mainPanel.configurationPanel1, MiniPC.config);
-        
+        c.setListener(this);
+    }
+
+    void updateconfig() {
+        this.mainPanel.configuration.setVisible(false);
+        this.mainPanel.setVisible(true);
+        MainFrameController.getInstance().getScreen().setVisible(false);
+        MiniPC.reset();
+    }
+
+    @Override
+    public void executionHasFinished() {
+        new StatisticsController(this.mainPanel.statisticsPanel1, this.processPanelController.getProcessDecorators()).init();
+        this.mainPanel.loadFilesBT.setEnabled(true);
+        this.mainPanel.runBT.setEnabled(false);
+        this.mainPanel.settingsBT.setEnabled(true);
     }
 }
