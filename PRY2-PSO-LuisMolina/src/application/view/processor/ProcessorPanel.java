@@ -54,7 +54,6 @@ public class ProcessorPanel extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1040, 232));
-        setLayout(null);
 
         jPanel1.setLayout(null);
 
@@ -92,9 +91,6 @@ public class ProcessorPanel extends javax.swing.JPanel {
         jPanel1.add(schedulingMethodLB);
         schedulingMethodLB.setBounds(220, 0, 210, 24);
 
-        add(jPanel1);
-        jPanel1.setBounds(10, 11, 1020, 24);
-
         jScrollPane1.setBorder(null);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -117,7 +113,7 @@ public class ProcessorPanel extends javax.swing.JPanel {
         jLabel6.setOpaque(true);
 
         executionTimesPanel.setAutoscrolls(true);
-        executionTimesPanel.setLayout(new java.awt.GridLayout(0, 17));
+        executionTimesPanel.setLayout(null);
 
         CoreListPanel.setPreferredSize(new java.awt.Dimension(1020, 125));
         CoreListPanel.setLayout(new java.awt.GridLayout(5, 1));
@@ -146,7 +142,7 @@ public class ProcessorPanel extends javax.swing.JPanel {
                 .addGap(0, 0, 0)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(executionTimesPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(executionTimesPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(CoreListPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         jPanel3Layout.setVerticalGroup(
@@ -163,8 +159,24 @@ public class ProcessorPanel extends javax.swing.JPanel {
 
         jScrollPane1.setViewportView(jPanel3);
 
-        add(jScrollPane1);
-        jScrollPane1.setBounds(10, 40, 1020, 190);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1020, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1020, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(11, 11, 11)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
     }// </editor-fold>//GEN-END:initComponents
 
 

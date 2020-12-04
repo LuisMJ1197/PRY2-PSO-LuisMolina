@@ -124,7 +124,7 @@ public abstract class Scheduler {
                 this.processorCoresObserver.update();
             }
             this.incrementExecutionTime();
-            sleep(1000);
+            sleep(100);
             if (this.processList.getList().isEmpty() && this.processQueue.getList().isEmpty() && process == null) {
                 this.executing = false;
                 this.schedulerObserver.executionHasFinished();

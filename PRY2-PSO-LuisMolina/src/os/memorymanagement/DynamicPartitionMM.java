@@ -85,7 +85,7 @@ public class DynamicPartitionMM extends MemoryManager {
             }
         }
         if (selectedProcess != null) {
-            this.processQueue.dequeue(process);
+            this.processQueue.dequeue(selectedProcess);
         }
     }
 

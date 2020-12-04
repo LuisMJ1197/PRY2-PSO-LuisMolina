@@ -121,6 +121,10 @@ public class PagingMM extends MemoryManager {
 
     @Override
     public void freeProcessMemory(Process process) {
+        Register[] freeMemory = process.getSavedMemory();
+        for (Register reg: freeMemory) {
+            reg.clean();
+        }
         for (Page page: ((PagedProcess) process).getPages()) {
             page.getFrame().setUsed(false);
             this.availableFrames.add(page.getFrame());

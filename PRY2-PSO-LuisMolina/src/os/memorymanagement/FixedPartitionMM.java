@@ -85,6 +85,10 @@ public class FixedPartitionMM extends MemoryManager {
             nextProcess.allocateMemory(fProcess.getAssignedPartition().getMemory());
         } else {
             fProcess.getAssignedPartition().setUsed(false);
+            Register[] freeMemory = process.getSavedMemory();
+            for (Register reg: freeMemory) {
+                reg.clean();
+            }
         }
     }
 
