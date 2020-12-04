@@ -23,7 +23,11 @@ public class Loader {
             if (OS.getInstance().getScheduler().getProcessList().size() < OS.getInstance().getMemoryManager().getOSMemorySaved()) {
                 OS.getInstance().getMemoryManager().loadProcess(newP);
                 OS.getInstance().getScheduler().addProcess(newP);
-                Machine.getInstance().getMainMemory().store(newP.getPid(), Integer.toString(newP.getPid()));
+                if (newP.getPcb().getPcAddress() != null) {
+                    Machine.getInstance().getMainMemory().store(newP.getPid(), newP.getPcb().getPc());
+                } else {
+                    Machine.getInstance().getMainMemory().store(newP.getPid(), "-1");
+                }
             } else {
                 return "The OS can't handle more processes.\n";
             }

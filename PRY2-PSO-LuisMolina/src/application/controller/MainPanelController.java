@@ -78,6 +78,16 @@ public class MainPanelController implements ActionListener, ISchedulerObserver {
     }
     
     public void openFiles() {
+        // Clearing
+        OS.getInstance().getScheduler().getProcessList().clear();
+        os.process.Process.setsCantProcess(0);
+        this.mainPanel.processorPanel.executionTimesPanel.removeAll();
+        this.mainPanel.processorPanel.processorCore1.executionTimesPanel.removeAll();
+        this.mainPanel.processorPanel.processorCore2.executionTimesPanel.removeAll();
+        this.mainPanel.processorPanel.processorCore3.executionTimesPanel.removeAll();
+        this.mainPanel.processorPanel.processorCore4.executionTimesPanel.removeAll();
+        this.mainPanel.processorPanel.processorCore5.executionTimesPanel.removeAll();
+        
         FileBrowser fileBrowser = new FileBrowser();
         File[] selectedFiles = fileBrowser.browseMultiple(MainFrameController.getInstance().getScreen());
         if (selectedFiles == null) return;

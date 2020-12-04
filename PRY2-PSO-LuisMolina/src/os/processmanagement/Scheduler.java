@@ -94,7 +94,7 @@ public abstract class Scheduler {
             this.checkCoresBusy();
             checkForArrivingProcess(); // Checks for processes that have their arrival time at the same of execution time
             
-            this.processorCoresObserver.addExecutionSecond(this.executionTime);
+            if(this.processorCoresObserver != null) this.processorCoresObserver.addExecutionSecond(this.executionTime);
             if(!processInCycle) {// If there is not process in execution, search for the next turn
                 process = this.chooseNextTurn();
                 if (process != null) {
@@ -124,7 +124,7 @@ public abstract class Scheduler {
                 this.processorCoresObserver.update();
             }
             this.incrementExecutionTime();
-            sleep(100);
+            sleep(1000);
             if (this.processList.getList().isEmpty() && this.processQueue.getList().isEmpty() && process == null) {
                 this.executing = false;
                 this.schedulerObserver.executionHasFinished();
