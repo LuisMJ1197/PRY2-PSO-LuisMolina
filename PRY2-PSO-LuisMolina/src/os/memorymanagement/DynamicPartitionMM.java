@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import machine.Machine;
 import machine.memory.IAddress;
 import machine.memory.IMemory;
+import machine.memory.Memory;
+import machine.memory.PhysicalAddress;
 import machine.memory.Register;
 import os.process.Process;
 
@@ -93,19 +95,9 @@ public class DynamicPartitionMM extends MemoryManager {
     }
 
     @Override
-    public LogicalAddress getNextAddress(Process process, int offset) {
-        LogicalAddress address = new LogicalAddress(process.getPcb().getPcAddress().getOffset() + offset);
+    public PhysicalAddress getNextAddress(Process process, int offset) {
+        PhysicalAddress address = new PhysicalAddress(process.getPcb().getPcAddress().getOffset() + offset, Memory.MAIN_MEMORY);
         return address;
-    }
-
-    @Override
-    public String load(IAddress address) {
-        return Machine.getInstance().getMainMemory().load(address);
-    }
-
-    @Override
-    public void store(IAddress address, String value) {
-        Machine.getInstance().getMainMemory().getRegister(address.getOffset());
     }
 
     @Override

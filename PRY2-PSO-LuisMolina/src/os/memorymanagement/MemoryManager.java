@@ -29,6 +29,4 @@ public abstract class MemoryManager {
     public abstract int getOSMemorySaved();
     public abstract IAddress getNextAddress(Process process, int offset);
     public abstract boolean validateAddress(Process process, IAddress address);
-    public abstract String load(IAddress address);
-    public abstract void store(IAddress address, String value);
 }

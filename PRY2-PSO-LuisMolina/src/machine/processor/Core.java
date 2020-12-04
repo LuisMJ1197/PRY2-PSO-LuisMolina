@@ -6,6 +6,7 @@
 package machine.processor;
 
 import machine.Machine;
+import machine.memory.PhysicalAddress;
 import machine.processor.instruction.IInstruction;
 import os.OS;
 import os.process.PCB;
@@ -51,7 +52,7 @@ public class Core {
     
     private IInstruction nextInstruction() {
         if (OS.getInstance().getMemoryManager().validateAddress(process, process.getPcb().getPcAddress())) {
-            String nextInstruction = Machine.getInstance().getMainMemory().load(this.getPCB().getPcAddress());
+            String nextInstruction = Machine.getInstance().getMMU().loadFromMemory((PhysicalAddress) this.getPCB().getPcAddress());
             this.ir = nextInstruction;
             return InstructionDecoder.decode(this, nextInstruction);
         } else {

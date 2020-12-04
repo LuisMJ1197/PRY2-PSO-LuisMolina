@@ -11,10 +11,12 @@ package machine.memory;
  * @author Luism
  */
 public class PhysicalAddress implements IAddress {
+    private int memoryKind;
     private int offset;
     
-    public PhysicalAddress (int offset) {
+    public PhysicalAddress (int offset, int memoryKind) {
         this.offset = offset;
+        this.memoryKind = memoryKind;
     }
 
     public PhysicalAddress(String value) {
@@ -24,6 +26,10 @@ public class PhysicalAddress implements IAddress {
     @Override
     public int getOffset() {
         return offset;
+    }
+
+    public int getMemoryKind() {
+        return memoryKind;
     }
     
     @Override

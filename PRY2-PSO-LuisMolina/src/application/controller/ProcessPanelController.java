@@ -72,6 +72,7 @@ public class ProcessPanelController implements IController {
             ProcessDecorator proc = this.processList.get(i);
             procPanel.statusLB.setText(proc.getPcb().getStatus());
             procPanel.burstTimeLB.setText(Integer.toString(proc.getProgramSize()));
+            procPanel.arrivalTimeLB.setText(Integer.toString(proc.getPcb().getArrivalTime()));
             procPanel.pcLB.setText(proc.getPcb().getPc());
             procPanel.acLB.setText(Integer.toString(proc.getPcb().getAc()));
             procPanel.axLB.setText(Integer.toString(proc.getPcb().getAx()));

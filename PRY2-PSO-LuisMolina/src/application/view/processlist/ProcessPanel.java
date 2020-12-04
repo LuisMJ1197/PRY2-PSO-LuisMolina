@@ -60,6 +60,7 @@ public class ProcessPanel extends javax.swing.JPanel {
         nameLB = new javax.swing.JLabel();
         idLB = new javax.swing.JLabel();
         pcLB = new javax.swing.JLabel();
+        arrivalTimeLB = new javax.swing.JLabel();
 
         processInfo.setSize(new java.awt.Dimension(400, 300));
 
@@ -174,27 +175,27 @@ public class ProcessPanel extends javax.swing.JPanel {
         dxLB.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         dxLB.setText("DX");
         add(dxLB);
-        dxLB.setBounds(900, 5, 100, 14);
+        dxLB.setBounds(920, 5, 80, 14);
 
         cxLB.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         cxLB.setText("CX");
         add(cxLB);
-        cxLB.setBounds(790, 5, 100, 14);
+        cxLB.setBounds(830, 5, 80, 14);
 
         axLB.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         axLB.setText("AX");
         add(axLB);
-        axLB.setBounds(570, 5, 100, 14);
+        axLB.setBounds(650, 5, 80, 14);
 
         bxLB.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         bxLB.setText("BX");
         add(bxLB);
-        bxLB.setBounds(680, 5, 100, 14);
+        bxLB.setBounds(740, 5, 80, 14);
 
         acLB.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         acLB.setText("AC");
         add(acLB);
-        acLB.setBounds(460, 5, 100, 14);
+        acLB.setBounds(560, 5, 80, 14);
 
         burstTimeLB.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         burstTimeLB.setText("Burst Time");
@@ -224,7 +225,12 @@ public class ProcessPanel extends javax.swing.JPanel {
         pcLB.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         pcLB.setText("PC");
         add(pcLB);
-        pcLB.setBounds(350, 5, 100, 13);
+        pcLB.setBounds(450, 5, 100, 13);
+
+        arrivalTimeLB.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        arrivalTimeLB.setText("Arrival Time");
+        add(arrivalTimeLB);
+        arrivalTimeLB.setBounds(350, 5, 80, 13);
     }// </editor-fold>//GEN-END:initComponents
 
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
@@ -234,6 +240,7 @@ public class ProcessPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JLabel acLB;
+    public javax.swing.JLabel arrivalTimeLB;
     public javax.swing.JLabel axLB;
     public javax.swing.JLabel burstTimeLB;
     public javax.swing.JLabel bxLB;

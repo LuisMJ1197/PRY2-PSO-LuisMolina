@@ -45,6 +45,7 @@ public class ProcessListPanel extends javax.swing.JPanel {
         bxLB = new javax.swing.JLabel();
         cxLB = new javax.swing.JLabel();
         dxLB = new javax.swing.JLabel();
+        pcLB2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setForeground(new java.awt.Color(255, 255, 255));
@@ -115,39 +116,44 @@ public class ProcessListPanel extends javax.swing.JPanel {
         jScrollPane1.setBounds(10, 60, 1020, 150);
 
         pcLB.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        pcLB.setText("Burst Time");
+        pcLB.setText("Arrival Time");
         add(pcLB);
-        pcLB.setBounds(280, 40, 70, 13);
+        pcLB.setBounds(360, 40, 70, 13);
 
         pcLB1.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         pcLB1.setText("PC");
         add(pcLB1);
-        pcLB1.setBounds(360, 40, 100, 13);
+        pcLB1.setBounds(460, 40, 80, 13);
 
         acLB.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         acLB.setText("AC");
         add(acLB);
-        acLB.setBounds(470, 40, 100, 14);
+        acLB.setBounds(570, 40, 80, 14);
 
         axLB.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         axLB.setText("AX");
         add(axLB);
-        axLB.setBounds(580, 40, 100, 14);
+        axLB.setBounds(660, 40, 80, 14);
 
         bxLB.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         bxLB.setText("BX");
         add(bxLB);
-        bxLB.setBounds(690, 40, 100, 14);
+        bxLB.setBounds(750, 40, 80, 14);
 
         cxLB.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         cxLB.setText("CX");
         add(cxLB);
-        cxLB.setBounds(800, 40, 100, 14);
+        cxLB.setBounds(840, 40, 80, 14);
 
         dxLB.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         dxLB.setText("DX");
         add(dxLB);
-        dxLB.setBounds(910, 40, 100, 14);
+        dxLB.setBounds(930, 40, 80, 14);
+
+        pcLB2.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        pcLB2.setText("Burst Time");
+        add(pcLB2);
+        pcLB2.setBounds(280, 40, 70, 13);
     }// </editor-fold>//GEN-END:initComponents
 
 
@@ -168,6 +174,7 @@ public class ProcessListPanel extends javax.swing.JPanel {
     public javax.swing.JLabel memoryManagementMethodLB;
     public javax.swing.JLabel pcLB;
     public javax.swing.JLabel pcLB1;
+    public javax.swing.JLabel pcLB2;
     public javax.swing.JLabel processCountLB;
     public javax.swing.JPanel processListPanel;
     // End of variables declaration//GEN-END:variables

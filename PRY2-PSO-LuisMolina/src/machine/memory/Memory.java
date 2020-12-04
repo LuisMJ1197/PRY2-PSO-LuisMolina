@@ -10,7 +10,6 @@ package machine.memory;
  * @author Luism
  */
 public class Memory implements IMemory {
-    
     private final Register[] registers;
     private final int size;
     private final int kind;
@@ -55,7 +54,7 @@ public class Memory implements IMemory {
     private void initMemory() {
         for (int i = 0; i < this.size; i++) {
             IAddress address;
-            address = new PhysicalAddress(i);
+            address = new PhysicalAddress(i, this.kind);
             this.registers[i] = new Register(address);
         }
     }

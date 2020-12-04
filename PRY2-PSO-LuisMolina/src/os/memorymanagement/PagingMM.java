@@ -151,18 +151,8 @@ public class PagingMM extends MemoryManager {
         if (pProcess.getActualPc() >= 0 && pProcess.getActualPc() < pProcess.getProgramSize()) {
             return pProcess.getSavedMemory()[pProcess.getActualPc()].getAddress();
         } else {
-            return new PhysicalAddress(-1);
+            return new PhysicalAddress(-1, 0);
         }
-    }
-
-    @Override
-    public String load(IAddress address) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void store(IAddress address, String value) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override

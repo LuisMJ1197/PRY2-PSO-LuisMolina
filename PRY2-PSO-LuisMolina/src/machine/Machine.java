@@ -8,6 +8,8 @@ package machine;
 import machine.io.Display;
 import machine.memory.IMemory;
 import machine.memory.Memory;
+import machine.mmu.IMMU;
+import machine.mmu.SimpleMMU;
 import machine.processor.Processor;
 
 /**
@@ -20,12 +22,14 @@ public class Machine {
     private final IMemory virtualMemory;
     private final Processor processor;
     private final Display display;
+    private final IMMU mmu;
     
     public Machine(int mainMemorySize, int virtualMemorySize) {
         this.mainMemory = new Memory(mainMemorySize, IMemory.MAIN_MEMORY);
         this.virtualMemory = new Memory(virtualMemorySize, IMemory.DISK_MEMORY);
         this.processor = new Processor();
         this.display = new Display();
+        this.mmu = new SimpleMMU(this.mainMemory, this.virtualMemory);
     }
 
     public static Machine getInstance() {
@@ -56,5 +60,8 @@ public class Machine {
         return display;
     }
     
+    public IMMU getMMU() {
+        return this.mmu;
+    }
     
 }
