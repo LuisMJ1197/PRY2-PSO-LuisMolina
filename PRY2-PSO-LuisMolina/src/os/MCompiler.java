@@ -26,7 +26,7 @@ public class MCompiler {
        "(INT|int)\\s09(h|H)",
        "JUM(P)?\\s(-)?(0|-?[1-9][0-9]*)",
        "(CMP|cmp)\\s[A-Da-d](X|x),(\\s)?[A-Da-d](X|x)",
-       "(JNE|jne)\\s(\\+|-)(0|-?[1-9][0-9]*)",
+       "(JNE|jne)\\s(-)?(0|-?[1-9][0-9]*)",
        "(JE|je)\\s(-)?(0|-?[1-9][0-9]*)",
        "(PUSH|push)\\s[A-Da-d](X|x)",
        "(POP|pop)\\s[A-Da-d](X|x)",

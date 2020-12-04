@@ -38,9 +38,12 @@ public class StatisticsController {
                 }
                 proc.setColor(MColor.color[i]);
                 procPanel.setProcessColor(proc.getColor());
+                
                 procPanel.nameLB.setText(proc.getName());
                 procPanel.idLB.setText(Integer.toString(proc.getPid()));
-                procPanel.arrivalTimeLB.setText(Integer.toString(proc.getPcb().getArrivalTime()));
+                procPanel.arrivalTimeLB.setText(proc.getPcb().getStartTimeCal());
+                procPanel.EndTimeTLB.setText(proc.getPcb().getFinishTimeCal());
+                procPanel.startTimeLB.setText(Integer.toString(proc.getPcb().getStartTime()));
                 procPanel.EndTime.setText(Integer.toString(proc.getPcb().getFinishTime()));
                 int turnaround = proc.getPcb().getFinishTime() - proc.getPcb().getArrivalTime(); 
                 procPanel.turnaroundTimeLB.setText(Integer.toString(turnaround));

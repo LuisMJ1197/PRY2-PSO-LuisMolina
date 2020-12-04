@@ -87,19 +87,21 @@ public class MainPanelController implements ActionListener, ISchedulerObserver {
         if (!result.isEmpty()) {
             JOptionPane.showMessageDialog(this.mainPanel, result);
         }
-        this.processPanelController = new ProcessPanelController(
+        if (!OS.getInstance().getScheduler().getProcessList().isEmpty()) {
+            this.processPanelController = new ProcessPanelController(
                 OS.getInstance().getScheduler().getProcessList(), 
                 this.mainPanel.processListPanelParent);
-        this.processPanelController.init();
-        this.startArrivalTimeAssignation();
-        
-        this.processorController = new ProcessorController(Machine.getInstance().getProcessor(), this.mainPanel.processorPanel, this.processPanelController.getProcessDecorators());
-        this.update();
-        this.mainPanel.statisticsPanel1.processesPanel.removeAll();
-        
-        this.mainPanel.loadFilesBT.setEnabled(false);
-        this.mainPanel.runBT.setEnabled(true);
-        this.mainPanel.settingsBT.setEnabled(false);
+            this.processPanelController.init();
+            this.startArrivalTimeAssignation();
+
+            this.processorController = new ProcessorController(Machine.getInstance().getProcessor(), this.mainPanel.processorPanel, this.processPanelController.getProcessDecorators());
+            this.update();
+            this.mainPanel.statisticsPanel1.processesPanel.removeAll();
+
+            this.mainPanel.loadFilesBT.setEnabled(false);
+            this.mainPanel.runBT.setEnabled(true);
+            this.mainPanel.settingsBT.setEnabled(false);
+        }
     }
     
     private ArrayList<Program> createProgramList(File[] files, FileBrowser fileBrowser) {

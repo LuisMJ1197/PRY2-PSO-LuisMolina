@@ -31,14 +31,16 @@ public class ProcessStatisticsPanel extends javax.swing.JPanel {
 
         idLB = new javax.swing.JLabel();
         nameLB = new javax.swing.JLabel();
-        arrivalTimeLB = new javax.swing.JLabel();
+        startTimeLB = new javax.swing.JLabel();
         EndTime = new javax.swing.JLabel();
         turnaroundTimeLB = new javax.swing.JLabel();
         tr_tsLB = new javax.swing.JLabel();
         colorPane = new javax.swing.JPanel();
+        arrivalTimeLB = new javax.swing.JLabel();
+        EndTimeTLB = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
-        setPreferredSize(new java.awt.Dimension(531, 24));
+        setPreferredSize(new java.awt.Dimension(761, 24));
         setLayout(null);
 
         idLB.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
@@ -51,25 +53,25 @@ public class ProcessStatisticsPanel extends javax.swing.JPanel {
         add(nameLB);
         nameLB.setBounds(60, 0, 90, 24);
 
-        arrivalTimeLB.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        arrivalTimeLB.setText("Arrival time");
-        add(arrivalTimeLB);
-        arrivalTimeLB.setBounds(150, 0, 100, 24);
+        startTimeLB.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        startTimeLB.setText("Start time (s)");
+        add(startTimeLB);
+        startTimeLB.setBounds(380, 0, 100, 24);
 
         EndTime.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        EndTime.setText("End time");
+        EndTime.setText("End time (s)");
         add(EndTime);
-        EndTime.setBounds(260, 0, 80, 24);
+        EndTime.setBounds(480, 0, 80, 24);
 
         turnaroundTimeLB.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         turnaroundTimeLB.setText("Turnaround time");
         add(turnaroundTimeLB);
-        turnaroundTimeLB.setBounds(340, 0, 110, 24);
+        turnaroundTimeLB.setBounds(570, 0, 110, 24);
 
         tr_tsLB.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         tr_tsLB.setText("Tr / Ts");
         add(tr_tsLB);
-        tr_tsLB.setBounds(460, 0, 70, 24);
+        tr_tsLB.setBounds(690, 0, 70, 24);
 
         colorPane.setBackground(new java.awt.Color(255, 204, 0));
 
@@ -86,15 +88,27 @@ public class ProcessStatisticsPanel extends javax.swing.JPanel {
 
         add(colorPane);
         colorPane.setBounds(6, 5, 14, 14);
+
+        arrivalTimeLB.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        arrivalTimeLB.setText("Arrival time (t)");
+        add(arrivalTimeLB);
+        arrivalTimeLB.setBounds(150, 0, 100, 24);
+
+        EndTimeTLB.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        EndTimeTLB.setText("End time (t)");
+        add(EndTimeTLB);
+        EndTimeTLB.setBounds(270, 0, 80, 24);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JLabel EndTime;
+    public javax.swing.JLabel EndTimeTLB;
     public javax.swing.JLabel arrivalTimeLB;
     public javax.swing.JPanel colorPane;
     public javax.swing.JLabel idLB;
     public javax.swing.JLabel nameLB;
+    public javax.swing.JLabel startTimeLB;
     public javax.swing.JLabel tr_tsLB;
     public javax.swing.JLabel turnaroundTimeLB;
     // End of variables declaration//GEN-END:variables

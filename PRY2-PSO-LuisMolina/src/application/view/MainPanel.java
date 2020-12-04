@@ -176,9 +176,9 @@ public class MainPanel extends javax.swing.JPanel {
         add(memoriesPanel);
         memoriesPanel.setBounds(1060, 40, 290, 460);
         add(statisticsPanel1);
-        statisticsPanel1.setBounds(10, 510, 810, 210);
+        statisticsPanel1.setBounds(10, 510, 1040, 210);
         add(displayPanel);
-        displayPanel.setBounds(830, 510, 520, 210);
+        displayPanel.setBounds(1060, 510, 290, 210);
         add(processorPanel);
         processorPanel.setBounds(10, 270, 1040, 232);
     }// </editor-fold>//GEN-END:initComponents

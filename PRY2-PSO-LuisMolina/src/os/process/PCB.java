@@ -5,6 +5,8 @@
  */
 package os.process;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import machine.memory.IAddress;
 import machine.memory.Register;
 import os.memorymanagement.LogicalAddress;
@@ -32,6 +34,9 @@ public class PCB {
     private Register dx;
     
     private Register cpuNumber;
+    // Time
+    private Calendar startTimeCalendar;
+    private Register startTime;
     private Register arrivalTime;
     private Register executingTime;
     private Register finishTime;
@@ -49,6 +54,7 @@ public class PCB {
         this.bx = new Register("0");
         this.cx = new Register("0");
         this.dx = new Register("0");
+        this.startTime = new Register("-1");
         this.arrivalTime = new Register("-1");
         this.executingTime = new Register("0");
         this.finishTime = new Register("-1");
@@ -64,6 +70,33 @@ public class PCB {
         for (int i = 0; i < STACK_SIZE; i++) {
             this.stack.push(new Register(Register.EMPTY));
         }
+    }
+    
+    public void setStartTimeCal() {
+        this.startTimeCalendar = Calendar.getInstance();
+    }
+    
+    public String getStartTimeCal() {
+        SimpleDateFormat format1 = new SimpleDateFormat("hh:mm:ss");
+        String date1 = format1.format(this.startTimeCalendar.getTime()); 
+        return date1;
+    }
+    
+    public String getFinishTimeCal() {
+        Calendar cl = (Calendar) this.startTimeCalendar.clone();
+        cl.add(Calendar.SECOND, this.getFinishTime() - this.getStartTime());
+        SimpleDateFormat format1 = new SimpleDateFormat("hh:mm:ss");
+        String date1 = format1.format(cl.getTime()); 
+        return date1;
+    }
+    
+    public void setStartTime(int time) {
+        if (this.getStartTime() == -1)
+            this.startTime.setValue(Integer.toString(time));
+    }
+    
+    public int getStartTime() {
+        return Integer.parseInt(this.startTime.getValue());
     }
 
     public String getStatus() {

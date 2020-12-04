@@ -95,8 +95,13 @@ public abstract class Scheduler {
             checkForArrivingProcess(); // Checks for processes that have their arrival time at the same of execution time
             
             this.processorCoresObserver.addExecutionSecond(this.executionTime);
-            if(!processInCycle) // If there is not process in execution, search for the next turn
+            if(!processInCycle) {// If there is not process in execution, search for the next turn
                 process = this.chooseNextTurn();
+                if (process != null) {
+                    process.getPcb().setStartTimeCal();
+                    process.getPcb().setStartTime(executionTime);
+                }
+            }
             if (process != null) { // If there is a process in execution
                 process.getPcb().setStatus(PCB.RUNNING);
                 int cpuNumber = process.getPcb().getCpuNumber(); // gets the assigned cpu number
@@ -131,7 +136,7 @@ public abstract class Scheduler {
         if (process.getPcb().getExecutingTime() >= process.getBurstTime() 
                 || process.getPcb().getStatus().equals(PCB.TERMINATED)) {
             process.getPcb().setStatus(PCB.TERMINATED);
-            process.getPcb().setFinishTime(executionTime);
+            process.getPcb().setFinishTime(executionTime + 1);
             process.setLoaded(false);
             OS.getInstance().getMemoryManager().freeProcessMemory(process);
             return true;

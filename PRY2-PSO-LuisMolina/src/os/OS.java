@@ -59,6 +59,7 @@ public class OS {
         this.compiler.compileProgram(program);
         if (!program.isAdmitted()) {
             errMsg = program.getError() + "\n";
+            return errMsg;
         }
         errMsg += this.loader.loadProgram(program);
         return errMsg;

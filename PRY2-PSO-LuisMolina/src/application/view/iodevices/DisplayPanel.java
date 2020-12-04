@@ -37,7 +37,7 @@ public class DisplayPanel extends javax.swing.JPanel {
         textArea = new javax.swing.JTextArea();
 
         setBackground(new java.awt.Color(255, 255, 255));
-        setPreferredSize(new java.awt.Dimension(520, 210));
+        setPreferredSize(new java.awt.Dimension(290, 210));
         setLayout(null);
 
         jPanel6.setLayout(null);
@@ -56,7 +56,7 @@ public class DisplayPanel extends javax.swing.JPanel {
         jLabel8.setText("Process ID:");
         jLabel8.setToolTipText("");
         jPanel6.add(jLabel8);
-        jLabel8.setBounds(330, 0, 100, 24);
+        jLabel8.setBounds(110, 0, 100, 24);
 
         processIDLB.setBackground(new java.awt.Color(232, 222, 103));
         processIDLB.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
@@ -65,7 +65,7 @@ public class DisplayPanel extends javax.swing.JPanel {
         processIDLB.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         processIDLB.setOpaque(true);
         jPanel6.add(processIDLB);
-        processIDLB.setBounds(440, 0, 58, 25);
+        processIDLB.setBounds(210, 0, 58, 25);
 
         jLabel9.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabel9.setText("Display");
@@ -73,7 +73,7 @@ public class DisplayPanel extends javax.swing.JPanel {
         jLabel9.setBounds(10, 1, 100, 20);
 
         add(jPanel6);
-        jPanel6.setBounds(10, 11, 500, 24);
+        jPanel6.setBounds(10, 11, 270, 24);
 
         textArea.setColumns(20);
         textArea.setRows(5);
@@ -85,7 +85,7 @@ public class DisplayPanel extends javax.swing.JPanel {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -93,7 +93,7 @@ public class DisplayPanel extends javax.swing.JPanel {
         );
 
         add(jPanel1);
-        jPanel1.setBounds(10, 40, 500, 160);
+        jPanel1.setBounds(10, 40, 270, 160);
     }// </editor-fold>//GEN-END:initComponents
 
 

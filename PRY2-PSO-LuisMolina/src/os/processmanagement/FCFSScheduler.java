@@ -21,9 +21,6 @@ public class FCFSScheduler extends Scheduler {
     @Override
     public Process chooseNextTurn() {
         Process next = this.processQueue.dequeue();
-        /**if (next == null) return null;
-        this.processor.getCores()[next.getPcb().getCpuNumber() - 1]
-                .setBurstTime(next.getProgramSize());*/
         return next;
     }
 

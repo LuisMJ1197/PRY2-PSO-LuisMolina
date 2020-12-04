@@ -48,9 +48,11 @@ public class StatisticsPanel extends javax.swing.JPanel {
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         turnaroundAvgLB = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
-        setPreferredSize(new java.awt.Dimension(810, 210));
+        setPreferredSize(new java.awt.Dimension(1040, 210));
         setLayout(null);
 
         jPanel1.setLayout(null);
@@ -68,10 +70,10 @@ public class StatisticsPanel extends javax.swing.JPanel {
         jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel4.setOpaque(true);
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(731, 0, 58, 25);
+        jLabel4.setBounds(960, 0, 58, 25);
 
         add(jPanel1);
-        jPanel1.setBounds(10, 10, 790, 24);
+        jPanel1.setBounds(10, 10, 1020, 24);
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         jLabel5.setText("Name");
@@ -84,24 +86,24 @@ public class StatisticsPanel extends javax.swing.JPanel {
         jLabel1.setBounds(40, 40, 30, 14);
 
         jLabel7.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        jLabel7.setText("Arrival time");
+        jLabel7.setText("Start time (s)");
         add(jLabel7);
-        jLabel7.setBounds(160, 40, 100, 14);
+        jLabel7.setBounds(390, 40, 100, 14);
 
         jLabel8.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        jLabel8.setText("Finish Time");
+        jLabel8.setText("Finish Time (s)");
         add(jLabel8);
-        jLabel8.setBounds(270, 40, 80, 14);
+        jLabel8.setBounds(490, 40, 82, 14);
 
         jLabel9.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         jLabel9.setText("Tr / Ts");
         add(jLabel9);
-        jLabel9.setBounds(470, 40, 70, 14);
+        jLabel9.setBounds(700, 40, 70, 14);
 
         jLabel10.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         jLabel10.setText("Turnaround time");
         add(jLabel10);
-        jLabel10.setBounds(350, 40, 110, 14);
+        jLabel10.setBounds(580, 40, 110, 14);
 
         jScrollPane1.setBorder(null);
 
@@ -110,7 +112,7 @@ public class StatisticsPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(processesPanel);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(10, 60, 560, 140);
+        jScrollPane1.setBounds(10, 60, 790, 140);
 
         jPanel4.setLayout(new java.awt.GridLayout(1, 2));
 
@@ -152,7 +154,7 @@ public class StatisticsPanel extends javax.swing.JPanel {
         jPanel4.add(tr_tsAvgLB);
 
         add(jPanel4);
-        jPanel4.setBounds(580, 140, 220, 60);
+        jPanel4.setBounds(810, 140, 220, 60);
 
         jPanel5.setLayout(new java.awt.GridLayout(1, 2));
 
@@ -194,7 +196,17 @@ public class StatisticsPanel extends javax.swing.JPanel {
         jPanel5.add(turnaroundAvgLB);
 
         add(jPanel5);
-        jPanel5.setBounds(580, 60, 220, 60);
+        jPanel5.setBounds(810, 60, 220, 60);
+
+        jLabel14.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        jLabel14.setText("Arrival time (t)");
+        add(jLabel14);
+        jLabel14.setBounds(160, 40, 100, 14);
+
+        jLabel15.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        jLabel15.setText("Finish Time (t)");
+        add(jLabel15);
+        jLabel15.setBounds(280, 40, 80, 14);
     }// </editor-fold>//GEN-END:initComponents
 
 
@@ -204,6 +216,8 @@ public class StatisticsPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

@@ -11,12 +11,12 @@ and open the template in the editor.
     <os-saved-memory>16</os-saved-memory>
     <memory-management>
         <method activated="true" name="fixed">
-            <partition-size>8</partition-size> 
+            <partition-size>16</partition-size> 
         </method> 
         <method activated="false" name="dynamic">
         </method> 
         <method activated="false" name="paging">
-            <frame-size>8</frame-size>
+            <frame-size>16</frame-size>
         </method> 
         <method activated="false" name="segmentation">
             
